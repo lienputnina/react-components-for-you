@@ -1,0 +1,25 @@
+{
+  "name": "@liene-putnina/storybook-components-alltheway",
+  "version": "0.0.1",
+  "description": "Storybook component library",
+  "main": "index.js",
+  "scripts": {
+    "test": "yarn test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lienputnina/storybook-components-alltheway.git"
+  },
+  "keywords": [
+    "storybook",
+    "react",
+    "component",
+    "library"
+  ],
+  "author": "Liene Putniņa",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lienputnina/storybook-components-alltheway/issues"
+  },
+  "homepage": "https://github.com/lienputnina/storybook-components-alltheway#readme"
+}
