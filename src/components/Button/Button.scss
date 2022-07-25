@@ -1,0 +1,29 @@
+.btn {
+    padding: 0.6rem 1rem;
+    background: transparent;
+    border: 1px solid #1e1e1e;
+    cursor: pointer;
+
+    &-primary {
+      border: none;
+      background-color: blue;
+      color: white;
+      &:hover {
+        background-color: blue;
+      }
+    }
+
+    &-danger {
+      border: none;
+      background-color: red;
+      color: white;
+      &:hover {
+        background-color: red;
+      }
+    }
+    
+    &-rounded {
+      border-radius: 0.4rem;
+    }
+  }
+  
