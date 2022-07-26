@@ -7,7 +7,7 @@ export interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
   shape?: 'rounded';
 }
 
-export const Button: FC<ButtonProps> = ({ children, variant, shape }) => {
+const Button: FC<ButtonProps> = ({ children, variant, shape }) => {
   const classNames = `btn btn-${variant} btn-${shape}`;
   return (
     <button type="button" className={classNames}>
