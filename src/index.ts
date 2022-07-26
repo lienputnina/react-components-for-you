@@ -1,1 +1,3 @@
-console.log('sdfsdf');
+import './scss/global.scss';
+
+export * from './components/Button/Button';
