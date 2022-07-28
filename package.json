@@ -1,9 +1,12 @@
 {
-  "name": "@liene-putnina/storybook-components-alltheway",
+  "name": "@liene-putnina/storybook-components-foryou",
   "version": "0.0.1",
-  "description": "Storybook component library",
+  "description": "Storybook-based React component library",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
+  "files": [
+    "dist/index.js"
+  ],
   "scripts": {
     "lint": "eslint --fix \"./src/**/*.{js,jsx,ts,tsx,json}\"",
     "lint:fix": "eslint --fix",
@@ -17,7 +20,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lienputnina/storybook-components-alltheway.git"
+    "url": "git+https://github.com/lienputnina/storybook-components-foryou.git"
   },
   "keywords": [
     "storybook",
@@ -28,9 +31,9 @@
   "author": "Liene Putniņa",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/lienputnina/storybook-components-alltheway/issues"
+    "url": "https://github.com/lienputnina/storybook-components-foryou.git/issues"
   },
-  "homepage": "https://github.com/lienputnina/storybook-components-alltheway#readme",
+  "homepage": "https://github.com/lienputnina/storybook-components-foryou.git#readme",
   "dependencies": {
     "@storybook/react": "^6.5.9",
     "@testing-library/jest-dom": "^5.16.4",
