@@ -1,8 +1,8 @@
 import { FC, useState } from 'react';
+import Button from '@liene-putnina/storybook-components-foryou';
+
 import reactLogo from './assets/react.svg';
 import './App.css';
-
-import  Button , {ButtonProps} from '@liene-putnina/storybook-components-foryou';
 
 const App: FC = () => {
   const [count, setCount] = useState(0);

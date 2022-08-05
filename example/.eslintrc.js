@@ -1,5 +1,3 @@
-import '@liene-putnina/eslint-config-lintmyride'
-
 const eslintConfig = require('@liene-putnina/eslint-config-lintmyride');
 
 module.exports = {
@@ -9,4 +7,5 @@ module.exports = {
     project: ['./tsconfig.json'],
     tsconfigRootDir: __dirname,
   },
+  root: true,
 };
