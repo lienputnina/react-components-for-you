@@ -1,11 +1,13 @@
 {
   "name": "@liene-putnina/storybook-components-foryou",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Storybook-based React component library",
   "main": "dist/index.js",
+  "type": "module",
   "module": "dist/index.es.js",
+  "types": "./dist/index.ts",
   "files": [
-    "dist/index.js"
+    "./dist/**"
   ],
   "scripts": {
     "lint": "eslint --fix \"./src/**/*.{js,jsx,ts,tsx,json}\"",
@@ -16,7 +18,7 @@
     "test-coverage": "jest --coverage",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "build": "rollup -c"
+    "build": "rollup -c && tsc"
   },
   "repository": {
     "type": "git",

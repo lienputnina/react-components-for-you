@@ -1,0 +1,2 @@
+import{jsx as t}from"react/jsx-runtime";var n=function(){return n=Object.assign||function(t){for(var n,r=1,e=arguments.length;r<e;r++)for(var a in n=arguments[r])Object.prototype.hasOwnProperty.call(n,a)&&(t[a]=n[a]);return t},n.apply(this,arguments)},r=Object.freeze({__proto__:null,default:function(r){var e=r.children,a=r.variant,o=r.shape,c="btn btn-".concat(a," btn-").concat(o);return t("button",n({type:"button",className:c},{children:e}))}});export{r as Button};
+//# sourceMappingURL=index.es.js.map

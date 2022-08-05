@@ -1,5 +1,5 @@
 import { babel } from '@rollup/plugin-babel';
-import external from 'rollup-plugin-peer-deps-external';
+import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import resolve from '@rollup/plugin-node-resolve';
 import scss from 'rollup-plugin-scss';
 import typescript from '@rollup/plugin-typescript';
@@ -12,11 +12,13 @@ export default [
       {
         file: 'dist/index.js',
         format: 'cjs',
+        sourcemap: true,
       },
       {
         file: 'dist/index.es.js',
         format: 'es',
         exports: 'named',
+        sourcemap: true,
       },
     ],
     plugins: [
@@ -30,9 +32,12 @@ export default [
         presets: ['@babel/preset-react'],
         babelHelpers: 'bundled',
       }),
-      external(),
+      peerDepsExternal(),
       resolve(),
-      typescript(),
+      typescript({
+        sourceMap: true,
+        declaration: true,
+      }),
       terser(),
     ],
   },

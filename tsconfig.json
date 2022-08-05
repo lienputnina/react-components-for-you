@@ -3,6 +3,12 @@
     "jsx": "react-jsx",
     "module": "es6",
     "moduleResolution": "node",
-    "outDir": "./dist"
-  }
+    "outDir": "./dist",
+    "allowSyntheticDefaultImports": true,
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "sourceMap": true,
+    "noEmit": false
+  },
+  "files": ["src/index.ts"]
 }
