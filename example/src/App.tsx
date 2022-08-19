@@ -1,8 +1,8 @@
 import { FC, useState } from 'react';
-import Button from '@liene-putnina/storybook-components-foryou';
+import { Button } from '@liene-putnina/storybook-components-foryou';
 
 import reactLogo from './assets/react.svg';
-import './App.css';
+import './App.scss';
 
 const App: FC = () => {
   const [count, setCount] = useState(0);
@@ -13,12 +13,9 @@ const App: FC = () => {
         <img src={reactLogo} className="App-reactLogo" alt="reactLogo" />
         <p>Hello Vite + React!</p>
         <p>
-          <button
-            type="button"
-            onClick={() => setCount((currentCount) => currentCount + 1)}
-          >
+          <Button onClick={() => setCount((currentCount) => currentCount + 1)}>
             count is: {count}
-          </button>
+          </Button>
         </p>
         <p>
           Edit <code>App.tsx</code> and save to test HMR updates.
@@ -43,7 +40,6 @@ const App: FC = () => {
           </a>
         </p>
       </header>
-      <Button />
     </div>
   );
 };

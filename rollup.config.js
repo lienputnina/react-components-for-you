@@ -4,6 +4,7 @@ import resolve from '@rollup/plugin-node-resolve';
 import scss from 'rollup-plugin-scss';
 import typescript from '@rollup/plugin-typescript';
 import { terser } from 'rollup-plugin-terser';
+import commonjs from '@rollup/plugin-commonjs';
 
 export default [
   {
@@ -27,6 +28,7 @@ export default [
         failOnError: true,
         outputStyle: 'compressed',
       }),
+      commonjs(),
       babel({
         exclude: 'node_modules/**',
         presets: ['@babel/preset-react'],
@@ -37,6 +39,9 @@ export default [
       typescript({
         sourceMap: true,
         declaration: true,
+        exclude: ['**/*.test.*', '**/*.stories.*'],
+        skipLibCheck: true,
+        cacheDir: 'node_modules/.cache',
       }),
       terser(),
     ],

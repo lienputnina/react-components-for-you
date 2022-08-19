@@ -1,10 +1,10 @@
 {
   "name": "@liene-putnina/storybook-components-foryou",
-  "version": "0.0.4",
+  "version": "0.0.13",
   "description": "Storybook-based React component library",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
-  "types": "dist/index.ts",
+  "types": "dist/index.d.ts",
   "files": [
     "dist/**"
   ],
@@ -15,29 +15,14 @@
     "test": "jest",
     "test-watch": "jest --watch",
     "test-coverage": "jest --coverage",
-    "storybook": "start-storybook -p 6006",
+    "storybook": "start-storybook -p 6006 --ci",
     "build-storybook": "build-storybook",
-    "build": "rollup -c && tsc"
+    "build": "rm -rf dist && rollup -c && tsc --project tsconfig.build.json"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/lienputnina/storybook-components-foryou.git"
-  },
-  "keywords": [
-    "storybook",
-    "react",
-    "component",
-    "library"
-  ],
-  "author": "Liene Putniņa",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/lienputnina/storybook-components-foryou.git/issues"
-  },
-  "homepage": "https://github.com/lienputnina/storybook-components-foryou.git#readme",
   "dependencies": {
     "@storybook/react": "^6.5.9",
     "@testing-library/jest-dom": "^5.16.4",
+    "classnames": "^2.3.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
@@ -48,6 +33,7 @@
     "@babel/preset-typescript": "^7.18.6",
     "@liene-putnina/eslint-config-lintmyride": "^1.0.6",
     "@rollup/plugin-babel": "^5.3.1",
+    "@rollup/plugin-commonjs": "^22.0.2",
     "@rollup/plugin-node-resolve": "^13.3.0",
     "@rollup/plugin-typescript": "^8.3.3",
     "@storybook/addon-actions": "^6.5.9",
@@ -94,6 +80,7 @@
     "sass": "^1.53.0",
     "sass-loader": "10.1.1",
     "storybook-css-modules-preset": "^1.1.1",
+    "storybook-dark-mode": "^1.1.0",
     "style-loader": "2.0.0",
     "ts-jest": "^28.0.7",
     "ts-node": "^10.9.1",
@@ -102,5 +89,21 @@
   "peerDependencies": {
     "react": "18.x.x",
     "react-dom": "18.x.x"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lienputnina/storybook-components-foryou.git"
+  },
+  "keywords": [
+    "storybook",
+    "react",
+    "component",
+    "library"
+  ],
+  "author": "Liene Putniņa",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lienputnina/storybook-components-foryou.git/issues"
+  },
+  "homepage": "https://github.com/lienputnina/storybook-components-foryou.git#readme"
 }

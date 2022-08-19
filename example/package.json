@@ -10,7 +10,7 @@
     "format": "prettier --write \"./src/**/*.{js,jsx,ts,tsx,json,css,scss,md}\""
   },
   "dependencies": {
-    "@liene-putnina/storybook-components-foryou": "../liene-putnina-storybook-components-foryou-0.0.2.tgz",
+    "@liene-putnina/storybook-components-foryou": "../",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
@@ -32,6 +32,7 @@
     "eslint-plugin-react": "^7.30.1",
     "eslint-plugin-react-hooks": "^4.6.0",
     "prettier": "^2.7.1",
+    "sass": "^1.54.4",
     "typescript": "^4.6.4",
     "vite": "^3.0.0"
   }

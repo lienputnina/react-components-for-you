@@ -4,7 +4,7 @@ module.exports = {
   ...eslintConfig,
   parserOptions: {
     ...eslintConfig.parserOptions,
-    project: ['./tsconfig.json'],
+    project: ['./tsconfig.eslint.json'],
     tsconfigRootDir: __dirname,
   },
   extends: [...eslintConfig.extends, 'plugin:storybook/recommended'],

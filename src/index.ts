@@ -1,3 +1,3 @@
 import './scss/global.scss';
 
-export * as Button from './components/Button/Button';
+export { Button, ButtonVariant, ButtonProps } from './components/Button/Button';
