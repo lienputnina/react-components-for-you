@@ -8,4 +8,8 @@ module.exports = {
     tsconfigRootDir: __dirname,
   },
   extends: [...eslintConfig.extends, 'plugin:storybook/recommended'],
+  rules: {
+    ...eslintConfig.rules,
+    'react/jsx-props-no-spreading': 0,
+  },
 };
