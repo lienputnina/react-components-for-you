@@ -1,22 +1,26 @@
-import { ComponentMeta, Story } from '@storybook/react';
-import { Button, ButtonProps } from './Button';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Button, ButtonVariant } from './Button';
 
 export default {
   title: 'Button',
   component: Button,
 } as ComponentMeta<typeof Button>;
 
-const Template: Story<ButtonProps> = (args) => <Button {...args} />;
+const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
-  children: 'Primary',
-  variant: 'primary',
+  children: 'Children',
+};
+
+export const Rounded = Template.bind({});
+Rounded.args = {
+  ...Primary.args,
+  rounded: true,
 };
 
 export const Danger = Template.bind({});
 Danger.args = {
-  children: 'Danger',
-  variant: 'danger',
-  shape: 'rounded',
+  ...Primary.args,
+  variant: ButtonVariant.DANGER,
 };
