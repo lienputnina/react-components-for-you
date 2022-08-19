@@ -5,5 +5,5 @@ export interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
     variant: 'primary' | 'danger';
     shape?: 'rounded';
 }
-declare const Button: FC<ButtonProps>;
+export declare const Button: FC<ButtonProps>;
 export default Button;
