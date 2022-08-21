@@ -1,23 +1,23 @@
-# storybook-components-foryou
+# react-components-for-you
 
 ## Overview
 
 This is a [React](https://reactjs.org/) component library based on [Storybook](https://storybook.js.org/). The components can be viewed [here](https://62e14216056cc0228f7a7c55--storybook-react-components.netlify.app/?path=/story/button--primary).
 
-Currently there is just one **Button** component. It has two variants - `primary` and `secondary`. It needs to have children and can have a shape specified (optional).
+Currently there is just one **Button** component. It has two variants - `primary` and `secondary`. It needs to have children and can have a shape specified (optional). The button variants are also optional. The default button variant is `primary`.
 
 ## Installation
 
 To install the package, run:
 
 ```shell
-npm install -D @liene-putnina/storybook-components-foryou
+npm install -D @liene-putnina/react-components-for-you
 ```
 
 or
 
 ```shell
-yarn add -D @liene-putnina/storybook-components-foryou
+yarn add -D @liene-putnina/react-components-for-you
 ```
 
 After you've installed the **main** package, you need to install the following **peer dependencies:**
@@ -28,26 +28,38 @@ react react-dom
 
 ## Usage
 
-- Import either the whole library or specific components
-- Add them to your code (see the example below)
+Import either the whole library or specific components (see the example below)
 
 ```jsx
-
-import { Button } from '@liene-putnina/storybook-components-foryou';
+import { Button } from '@liene-putnina/react-components-for-you';
 //or
-import * from '@liene-putnina/storybook-components-foryou'; // adds the whole library
 
+import * from '@liene-putnina/react-components-for-you'; // adds the whole library
+```
+
+Add them to your code (see the examples below)
+
+```jsx
 const MyComponent = () => {
-    //some functions here
-return (
-    <Button variant="primary | secondary" shape="rounded">{children}<Button/>
+return(
+    <Button >{children}<Button/>
+)
+};
+```
+
+or
+
+```jsx
+const MyComponent = () => {
+return(
+    <Button variant = {ButtonVariant.DANGER}>{children}<Button/>
 )
 };
 ```
 
 ## Development
 
-USes node version > 14.x < 16.x
+Uses node version > **14.x.x** < **16.x.x**
 
 ## License
 
