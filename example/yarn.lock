@@ -1356,8 +1356,10 @@
   resolved "https://registry.yarnpkg.com/@liene-putnina/eslint-config-lintmyride/-/eslint-config-lintmyride-1.0.8.tgz#9e9a3db0d653757c12346b5e52eaab38e4843132"
   integrity sha512-nucXftFHW8/kKQMtrCXu3MBjrQS1qtNqFXszgG7/wTPAmaXXpHz7TyEYiKgv/rXFcsc1GwLLZ04BDJ/0xQrr9g==
 
-"@liene-putnina/storybook-components-foryou@../":
+"@liene-putnina/react-components-for-you@^0.0.1":
   version "0.0.1"
+  resolved "https://registry.yarnpkg.com/@liene-putnina/react-components-for-you/-/react-components-for-you-0.0.1.tgz#5dea26ef2e7e9628748ee6d8b784fec758ca7def"
+  integrity sha512-wDzw/yJQ73pfAT0ZmUbsBuS+ul/WuXrAyoNXkekMME/kPPkJPZMShA22XJ2DTiODzPOSMXre5fTeR88lqTgbFg==
   dependencies:
     "@storybook/react" "^6.5.9"
     "@testing-library/jest-dom" "^5.16.4"

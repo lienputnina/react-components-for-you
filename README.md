@@ -11,13 +11,13 @@ Currently there is just one **Button** component. It has two variants - `primary
 To install the package, run:
 
 ```shell
-npm install -D @liene-putnina/react-components-for-you
+npm install @liene-putnina/react-components-for-you
 ```
 
 or
 
 ```shell
-yarn add -D @liene-putnina/react-components-for-you
+yarn add @liene-putnina/react-components-for-you
 ```
 
 After you've installed the **main** package, you need to install the following **peer dependencies:**

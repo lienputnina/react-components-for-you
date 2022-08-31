@@ -1,7 +1,7 @@
 {
   "name": "example",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
@@ -10,7 +10,7 @@
     "format": "prettier --write \"./src/**/*.{js,jsx,ts,tsx,json,css,scss,md}\""
   },
   "dependencies": {
-    "@liene-putnina/storybook-components-foryou": "../",
+    "@liene-putnina/react-components-for-you": "^0.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },

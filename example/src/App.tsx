@@ -1,5 +1,5 @@
 import { FC, useState } from 'react';
-import { Button } from '@liene-putnina/storybook-components-foryou';
+import { Button } from '@liene-putnina/react-components-for-you';
 
 import reactLogo from './assets/react.svg';
 import './App.scss';
