@@ -4,11 +4,11 @@
 
 This is a [React](https://reactjs.org/) component library based on [Storybook](https://storybook.js.org/). The components can be viewed [here](https://62e14216056cc0228f7a7c55--storybook-react-components.netlify.app/?path=/story/button--primary).
 
-Currently there is just one **Button** component. It has two variants - `primary` and `secondary`. It needs to have children and can have a shape specified (optional). The button variants are also optional. The default button variant is `primary`.
+Currently there is just one `Button` component. It has two variants - `primary` and `secondary`. It needs to have children and can have a shape specified (optional). The button variants are also optional. The default button variant is `primary`.
 
 ## Installation
 
-To install the package, run:
+* To install the package, run:
 
 ```shell
 npm install @liene-putnina/react-components-for-you
@@ -20,7 +20,7 @@ or
 yarn add @liene-putnina/react-components-for-you
 ```
 
-After you've installed the **main** package, you need to install the following **peer dependencies:**
+* After you've installed the `main` package, you need to install the following `peer dependencies:`
 
 ```shell
 react react-dom
@@ -28,7 +28,7 @@ react react-dom
 
 ## Usage
 
-Import either the whole library or specific components (see the example below)
+* Import either the whole library or specific components (see the example below)
 
 ```jsx
 import { Button } from '@liene-putnina/react-components-for-you';
@@ -37,7 +37,7 @@ import { Button } from '@liene-putnina/react-components-for-you';
 import * from '@liene-putnina/react-components-for-you'; // adds the whole library
 ```
 
-Add them to your code (see the examples below)
+* Add them to your code (see the examples below)
 
 ```jsx
 const MyComponent = () => {
@@ -55,6 +55,13 @@ return(
     <Button variant = {ButtonVariant.DANGER}>{children}<Button/>
 )
 };
+```
+
+Due to the structure of this library, the css of the components is `not added by default`. In order to get that working, add `the following line` to your global style file:
+
+```jsx
+@import '../../node_modules/@liene-putnina/react-components-for-you/dist/index.css';
+
 ```
 
 ## Development
