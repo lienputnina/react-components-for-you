@@ -61,7 +61,7 @@ const MyComponent = () => {
 Due to the structure of this library, the css of the components is **not included by default**. In order to get the styling working, add **the following line** to your global style file:
 
 ```css
-@import '../../node_modules/@liene-putnina/react-components-for-you/dist/index.css';
+@import '@liene-putnina/react-components-for-you/dist/index.css';
 ```
 
 ## Development
