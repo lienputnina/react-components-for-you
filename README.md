@@ -4,7 +4,7 @@
 
 A [React](https://reactjs.org/) component library showcased with [Storybook](https://storybook.js.org/).
 
-## See the components [here](https://62e14216056cc0228f7a7c55--storybook-react-components.netlify.app/?path=/story/button--primary)
+## See the components [here](https://react-components-storybook.netlify.app/)
 
 **This is a WIP** - currently there is just one **Button** component. It has two variants - **primary** and **secondary**. It needs to have children and can have a shape specified (optional). The button variants are also optional. The default button variant is **primary**.
 
