@@ -10,7 +10,7 @@ A [React](https://reactjs.org/) component library showcased with [Storybook](htt
 
 ## Installation
 
-- To install the package, run:
+To install the package, run:
 
 ```shell
 npm install @liene-putnina/react-components-for-you
@@ -22,7 +22,7 @@ or
 yarn add @liene-putnina/react-components-for-you
 ```
 
-- After you've installed the **main** package, you need to install the following **peer dependencies:**
+After you've installed the **main** package, you need to install the following **peer dependencies:**
 
 ```shell
 react react-dom
@@ -30,7 +30,7 @@ react react-dom
 
 ## Usage
 
-- Import either the whole library or specific components (see the example below)
+Import either the whole library or specific components
 
 ```jsx
 import { Button } from '@liene-putnina/react-components-for-you';
@@ -38,7 +38,7 @@ import { Button } from '@liene-putnina/react-components-for-you';
 import * from '@liene-putnina/react-components-for-you'; // adds the whole library
 ```
 
-- Add them to your code
+Add them to your code
 
 ```tsx
 const MyComponent = () => {
