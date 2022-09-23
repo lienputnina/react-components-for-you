@@ -1,0 +1,49 @@
+<!-- Colors.stories.mdx -->
+
+import { Meta, ColorPalette, ColorItem } from '@storybook/addon-docs';
+import './scss/colors.scss';
+
+<Meta title="Colors" />
+
+<ColorPalette>
+  <ColorItem title="Primary" subtitle="LighterBordeaux" colors={{ Background: '#eee8ea' }} />
+  <ColorItem
+    title="Accent"
+    subtitle="Bordeaux"
+    colors={{ Accent: '#591D2D', AccentHover: '#73263A' }}
+  />
+  <ColorItem
+    title="Text"
+    subtitle="Gray scale and bordeaux gradient"
+    colors={{
+      Text: '#4d4d4d',
+      TextLight: '#666666',
+      TileText: '#ffffff', 
+      Title: '#1a1a1a',
+      TitleHover: '#591D2D',
+      SubTitle: '#bda5ab',
+      SubTitleLight: '#cdbbc0',
+    }}
+/>
+
+  <ColorItem
+    title="Board"
+    subtitle="Misc complementary colors"
+    colors={{ 
+      BoardBackground: '#cdbbc0',
+      DoubleLetter: '#76A67C', 
+      TrippleLetter: '#354f52', 
+      DoubleWord: '#e09f3e',
+      TrippleWord: '#9e2a2b', 
+     }}
+  />
+   <ColorItem
+    title="Semantic colors"
+    subtitle="Shades of red, green and yellow"
+    colors={{ 
+      Danger: '#cc0000',
+      Positive: '#1fc600', 
+      Warning: '#ffff66', 
+     }}
+  />
+</ColorPalette>
