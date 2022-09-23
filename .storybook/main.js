@@ -6,6 +6,8 @@ module.exports = {
     '@storybook/addon-links',
     '@storybook/addon-essentials',
     '@storybook/addon-interactions',
+    '@storybook/addon-a11y',
+    '@storybook/addon-viewport',
     'storybook-dark-mode',
   ],
   framework: '@storybook/react',
