@@ -1,0 +1,37 @@
+//Backgrounds
+$background-main: #eee8ea;
+$background-board: #cab7bc;
+
+//Accent colors
+$accent: #591d2d;
+$accent--hover: #73263a;
+
+//Text
+$text: #4d4d4d;
+$text--light: #666666;
+$text--hover: $accent;
+$title: #1a1a1a;
+$title--hover: $accent;
+$sub-title: #bda5ab;
+$sub-title--light: #cdbbc0;
+
+//Tiles
+$tile: #875c68;
+$tile--hover: #7a4a57;
+$tile-text: #ffffff;
+$tile-text--hover: #e6e6e6;
+
+//Special tiles
+$letter-double: #76a67c;
+$letter-double--hover: #6a9570;
+$letter-tripple: #354f52;
+$letter-tripple--hover: #30474a;
+$word-double: #e09f3e;
+$word-double--hover: #ca8f38;
+$word-tripple: #9e2a2b;
+$word-tripple--hover: #8e2627;
+
+//Semantic
+$danger: #cc0000;
+$positive: #1fc600;
+$warning: #ffff66;
