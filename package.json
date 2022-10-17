@@ -1,6 +1,6 @@
 {
   "name": "@liene-putnina/react-components-for-you",
-  "version": "0.2.0",
+  "version": "0.1.0",
   "description": "Storybook-based React component library",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
@@ -20,6 +20,7 @@
     "build": "rm -rf dist && rollup -c && tsc --project tsconfig.build.json"
   },
   "dependencies": {
+    "@storybook/react": "^6.5.12",
     "classnames": "^2.3.1"
   },
   "devDependencies": {
@@ -41,7 +42,6 @@
     "@storybook/builder-webpack4": "^6.5.9",
     "@storybook/manager-webpack4": "^6.5.9",
     "@storybook/preset-scss": "^1.0.3",
-    "@storybook/react": "^6.5.12",
     "@storybook/testing-library": "^0.0.13",
     "@testing-library/dom": "^8.16.0",
     "@testing-library/jest-dom": "^5.16.5",
