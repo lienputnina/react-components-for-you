@@ -1,0 +1,30 @@
+@use '../../scss/paddings.scss';
+
+.padding {
+  border: 0.125rem solid rgb(252, 227, 0);
+  &-xs {
+    padding: paddings.$xs;
+  }
+
+  &-sm {
+    padding: paddings.$sm;
+  }
+
+  &-md {
+    padding: paddings.$md;
+  }
+
+  &-lg {
+    padding: paddings.$lg;
+  }
+
+  &-xl {
+    padding: paddings.$xl;
+  }
+
+  &-text {
+    border: 0.0938rem solid lightblue;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+}
