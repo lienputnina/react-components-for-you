@@ -3,7 +3,7 @@ import { FC } from 'react';
 
 import './PaddingExample.scss';
 
-export enum PaddingSizes {
+export enum PaddingSize {
   EXTRASMALL = 'xs',
   SMALL = 'sm',
   MEDIUM = 'md',
@@ -13,38 +13,30 @@ export enum PaddingSizes {
 
 export interface PaddingExampleProps
   extends React.HTMLAttributes<HTMLDivElement> {
-  size: PaddingSizes;
+  size: PaddingSize;
 }
 
-const getSizeValue = (size: PaddingSizes): string => {
-  let text = '';
+const getSizeValue = (size: PaddingSize) => {
   switch (size) {
     case 'xs':
-      text = '0.125rem';
-      break;
+      return '0.125rem';
     case 'sm':
-      text = '0.25rem';
-      break;
+      return '0.25rem';
     case 'md':
-      text = '0.375rem';
-      break;
+      return '0.375rem';
     case 'lg':
-      text = '0.5rem';
-      break;
+      return '0.5rem';
     case 'xl':
-      text = '0.625rem';
-      break;
+      return '0.625rem';
     default:
-      text = 'no value found';
-      break;
+      return 'no value found';
   }
-  return `Padding size : ${text}`;
 };
 
 export const PaddingExample: FC<PaddingExampleProps> = ({
-  size = PaddingSizes.SMALL,
+  size = PaddingSize.SMALL,
 }) => (
   <div className={classNames('padding', `padding-${size}`)}>
-    <div className="padding-text">{getSizeValue(size)}</div>
+    <div className="padding-text">{`Padding size :${getSizeValue(size)}`}</div>
   </div>
 );

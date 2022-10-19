@@ -10,11 +10,5 @@
     "sourceMap": true,
     "noEmit": false
   },
-  "include": [
-    "src",
-    ".eslintrc.js",
-    "rollup.config.js",
-    "jest.config.ts",
-    "babel.config.js"
-  ]
+  "include": ["src", ".eslintrc.js", "rollup.config.js", "jest.config.ts"]
 }

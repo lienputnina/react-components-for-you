@@ -1,5 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { PaddingExample, PaddingSizes } from './PaddingExample';
+import { PaddingExample, PaddingSize } from './PaddingExample';
 
 export default {
   title: 'Paddings',
@@ -13,25 +13,25 @@ const Template: ComponentStory<typeof PaddingExample> = (args) => (
 
 export const ExtraSmall = Template.bind({});
 ExtraSmall.args = {
-  size: PaddingSizes.EXTRASMALL,
+  size: PaddingSize.EXTRASMALL,
 };
 
 export const Small = Template.bind({});
 Small.args = {
-  size: PaddingSizes.SMALL,
+  size: PaddingSize.SMALL,
 };
 
 export const Medium = Template.bind({});
 Medium.args = {
-  size: PaddingSizes.MEDIUM,
+  size: PaddingSize.MEDIUM,
 };
 
 export const Large = Template.bind({});
 Large.args = {
-  size: PaddingSizes.LARGE,
+  size: PaddingSize.LARGE,
 };
 
 export const ExtraLarge = Template.bind({});
 ExtraLarge.args = {
-  size: PaddingSizes.EXTRALARGE,
+  size: PaddingSize.EXTRALARGE,
 };
