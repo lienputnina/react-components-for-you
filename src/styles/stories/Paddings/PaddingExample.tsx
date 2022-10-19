@@ -34,7 +34,7 @@ const getSizeValue = (size: PaddingSize) => {
 };
 
 export const PaddingExample: FC<PaddingExampleProps> = ({
-  size = PaddingSize.SMALL,
+  size,
 }) => (
   <div className={classNames('padding', `padding-${size}`)}>
     <div className="padding-text">{`Padding size :${getSizeValue(size)}`}</div>
