@@ -1,0 +1,32 @@
+@use '../../scss/margins.scss';
+
+.margin {
+  border: 0.0938rem solid #add8e6;
+  &-main {
+    border: 0.125rem solid #ffff00;
+  }
+  &-xs {
+    margin: margins.$xs;
+  }
+
+  &-sm {
+    margin: margins.$sm;
+  }
+
+  &-md {
+    margin: margins.$md;
+  }
+
+  &-lg {
+    margin: margins.$lg;
+  }
+
+  &-xl {
+    margin: margins.$xl;
+  }
+
+  &-text {
+    color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+}
