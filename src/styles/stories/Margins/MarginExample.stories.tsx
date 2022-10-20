@@ -1,5 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { MarginExample, MarginSizes } from './MarginExample';
+import { MarginExample, MarginSize } from './MarginExample';
 
 export default {
   title: 'Margins',
@@ -13,25 +13,25 @@ const Template: ComponentStory<typeof MarginExample> = (args) => (
 
 export const ExtraSmall = Template.bind({});
 ExtraSmall.args = {
-  size: MarginSizes.EXTRASMALL,
+  size: MarginSize.EXTRASMALL,
 };
 
 export const Small = Template.bind({});
 Small.args = {
-  size: MarginSizes.SMALL,
+  size: MarginSize.SMALL,
 };
 
 export const Medium = Template.bind({});
 Medium.args = {
-  size: MarginSizes.MEDIUM,
+  size: MarginSize.MEDIUM,
 };
 
 export const Large = Template.bind({});
 Large.args = {
-  size: MarginSizes.LARGE,
+  size: MarginSize.LARGE,
 };
 
 export const ExtraLarge = Template.bind({});
 ExtraLarge.args = {
-  size: MarginSizes.EXTRALARGE,
+  size: MarginSize.EXTRALARGE,
 };

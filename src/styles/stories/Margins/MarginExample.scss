@@ -1,9 +1,11 @@
 @use '../../scss/margins.scss';
 
 .margin {
-  border: 0.0938rem solid #add8e6;
+  border: 0.125rem solid #002bec;
+  background-color: #444343;
+  color: #ffffff;
   &-main {
-    border: 0.125rem solid #ffff00;
+    border: 0.125rem solid #ff0000;
   }
   &-xs {
     margin: margins.$xs;
@@ -26,7 +28,7 @@
   }
 
   &-text {
-    color: #ffffff;
     font-family: Arial, Helvetica, sans-serif;
+    padding: 0.1563rem;
   }
 }

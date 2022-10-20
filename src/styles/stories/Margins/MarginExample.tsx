@@ -3,7 +3,7 @@ import { FC } from 'react';
 
 import './MarginExample.scss';
 
-export enum MarginSizes {
+export enum MarginSize {
   EXTRASMALL = 'xs',
   SMALL = 'sm',
   MEDIUM = 'md',
@@ -13,43 +13,37 @@ export enum MarginSizes {
 
 export interface MarginExampleProps
   extends React.HTMLAttributes<HTMLDivElement> {
-  size: MarginSizes;
+  size: MarginSize;
 }
 
-const getSizeValue = (size: MarginSizes): string => {
-  let text = '';
+const getMarginSizeValue = (size: MarginSize): string => {
   switch (size) {
     case 'xs':
-      text = '0.125rem';
-      break;
+      return '0.125rem';
     case 'sm':
-      text = '0.25rem';
-      break;
+      return '0.25rem';
     case 'md':
-      text = '0.375rem';
-      break;
+      return '0.375rem';
     case 'lg':
-      text = '0.5rem';
-      break;
+      return '0.5rem';
     case 'xl':
-      text = '0.625rem';
-      break;
+      return '0.625rem';
     default:
-      text = 'no value found';
-      break;
+      return 'no value found';
   }
-  return `Margin size : ${text}`;
 };
 
-export const MarginExample: FC<MarginExampleProps> = ({
-  size = MarginSizes.SMALL,
-}) => (
+export const MarginExample: FC<MarginExampleProps> = ({ size }) => (
   <main className="margin-main">
     <div className={classNames('margin', `margin-${size}`)}>
-      <div className="margin-text">{getSizeValue(size)}</div>
+      <p className="margin-text">{`Margin size :${getMarginSizeValue(
+        size,
+      )}`}</p>
     </div>
     <div className={classNames('margin', `margin-${size}`)}>
-      <div className="margin-text">{getSizeValue(size)}</div>
+      <p className="margin-text">{`Margin size :${getMarginSizeValue(
+        size,
+      )}`}</p>
     </div>
   </main>
 );

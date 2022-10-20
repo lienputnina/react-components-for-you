@@ -15,7 +15,7 @@ export interface PaddingExampleProps {
   size: PaddingSize;
 }
 
-const getSizeValue = (size: PaddingSize) => {
+const getPaddingSizeValue = (size: PaddingSize) => {
   switch (size) {
     case 'xs':
       return '0.125rem';
@@ -34,6 +34,8 @@ const getSizeValue = (size: PaddingSize) => {
 
 export const PaddingExample: FC<PaddingExampleProps> = ({ size }) => (
   <div className={classNames('padding', `padding-${size}`)}>
-    <div className="padding-text">{`Padding size :${getSizeValue(size)}`}</div>
+    <p className="padding-text">{`Padding size :${getPaddingSizeValue(
+      size,
+    )}`}</p>
   </div>
 );
