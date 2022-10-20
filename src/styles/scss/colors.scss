@@ -24,14 +24,54 @@ $tile-text--hover: #e6e6e6;
 //Special tiles
 $letter-double: #76a67c;
 $letter-double--hover: #6a9570;
-$letter-tripple: #354f52;
-$letter-tripple--hover: #30474a;
+$letter-triple: #354f52;
+$letter-triple--hover: #30474a;
 $word-double: #e09f3e;
 $word-double--hover: #ca8f38;
-$word-tripple: #9e2a2b;
-$word-tripple--hover: #8e2627;
+$word-triple: #9e2a2b;
+$word-triple--hover: #8e2627;
 
 //Semantic
 $danger: #cc0000;
 $positive: #1fc600;
 $warning: #ffff66;
+
+:export {
+  //Backgrounds
+  backgroundMain: $background-main;
+  backgroundBoard: $background-board;
+
+  //Accent colors
+  accent: $accent;
+  accentHover: $accent--hover;
+
+  //Text
+  text: $text;
+  textLight: $text--light;
+  textHover: $text--hover;
+  title: $title;
+  titleHover: $title--hover;
+  subTitle: $sub-title;
+  subTitleLight: $sub-title--light;
+
+  //Tiles
+  tile: $tile;
+  tileHover: $tile--hover;
+  tileText: $tile-text;
+  tileTextHover: $tile-text--hover;
+
+  //Special tiles
+  letterDouble: $letter-double;
+  letterDoubleHover: $letter-double--hover;
+  letterTriple: $letter-triple;
+  letterTripleHover: $letter-triple--hover;
+  wordDouble: $word-double;
+  wordDoubleHover: $word-double--hover;
+  wordTriple: $word-triple;
+  wordTripleHover: $word-triple--hover;
+
+  //Semantic
+  danger: $danger;
+  positive: $positive;
+  warning: $warning;
+}

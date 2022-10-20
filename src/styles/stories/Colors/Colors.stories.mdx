@@ -1,57 +1,65 @@
 import { Meta, ColorPalette, ColorItem } from '@storybook/addon-docs';
 import '../../scss/colors.scss';
 
-<Meta title="Colors" />
+import colors from './colors.module.scss';
+
+<Meta title="Styles/Colors" />
 
 <ColorPalette>
   <ColorItem
     title="Backgrounds"
-    colors={{ 'background-main': '#eee8ea', 'background-board': '#cab7bc' }}
+    colors={{
+      'background-main': colors['backgroundMain'],
+      'background-board': colors['backgroundBoard'],
+    }}
   />
   <ColorItem
     title="Accent colors"
-    colors={{ accent: '#591D2D', 'accent--hover': '#73263A' }}
+    colors={{
+      accent: colors['accent'],
+      'accent--hover': colors['accentHover'],
+    }}
   />
   <ColorItem
     title="Text"
     colors={{
-      text: '#4d4d4d',
-      'text--light': '#666666',
-      'text--hover': '#591D2D',
-      title: '#1a1a1a',
-      'title--hover': '#591D2D',
-      'sub-title': '#bda5ab',
-      'sub-title--light': '#cdbbc0',
+      text: colors['text'],
+      'text--light': colors['textLight'],
+      'text--hover': colors['textHover'],
+      title: colors['title'],
+      'title--hover': colors['titleHover'],
+      'sub-title': colors['subTitle'],
+      'sub-title--light': colors['subTitleLight'],
     }}
   />
   <ColorItem
     title="Tiles"
     colors={{
-      tile: '#875c68',
-      'tile--hover': '#7a4a57',
-      'tile-text': '#ffffff',
-      'tile-text--hover': '#e6e6e6',
+      tile: colors['tile'],
+      'tile--hover': colors['tileHover'],
+      'tile-text': colors['tileText'],
+      'tile-text--hover': colors['tileTextHover'],
     }}
   />
   <ColorItem
     title="Special tiles"
     colors={{
-      'letter-double': '#76A67C',
-      'letter-double--hover': '#6a9570',
-      'letter-tripple': '#354f52',
-      'letter-tripple--hover': '#30474a',
-      'word-double': '#e09f3e',
-      'word-double--hover': '#ca8f38',
-      'word-tripple': '#9e2a2b',
-      'word-tripple--hover': '#8e2627',
+      'letter-double': colors['letterDouble'],
+      'letter-double--hover': colors['letterDoubleHover'],
+      'letter-triple': colors['letterTriple'],
+      'letter-triple--hover': colors['letterTripleHover'],
+      'word-double': colors['wordDouble'],
+      'word-double--hover': colors['wordDoubleHover'],
+      'word-triple': colors['wordTriple'],
+      'word-triple--hover': colors['wordTripleHover'],
     }}
   />
   <ColorItem
     title="Semantic colors"
     colors={{
-      danger: '#b80000',
-      positive: '#1cb200',
-      warning: '#e6e65c',
+      danger: colors['danger'],
+      positive: colors['positive'],
+      warning: colors['warning'],
     }}
   />
 </ColorPalette>
