@@ -16,8 +16,9 @@
     "test-watch": "jest --watch",
     "test-coverage": "jest --coverage",
     "storybook": "start-storybook -p 6006 --ci",
+    "copy-styles": "cp -r src/styles/scss dist/styles",
     "prebuild": "yarn lint && yarn test",
-    "build": "rm -rf dist && rollup -c && tsc --project tsconfig.build.json",
+    "build": "rm -rf dist && rollup -c && tsc --project tsconfig.build.json && yarn copy-styles",
     "build-storybook": "build-storybook"
   },
   "dependencies": {
