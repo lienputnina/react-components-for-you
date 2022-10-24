@@ -71,7 +71,7 @@ Uses node version > **14.x.x** < **16.x.x**
 ### To run locally
 
 ```shell
-# Open storybook dev server on `http://localhost:6006/`
+# Opens the storybook dev server on `http://localhost:6006/`
 yarn storybook
 ```
 
