@@ -68,6 +68,23 @@ Due to the structure of this library, the css of the components is **not include
 
 Uses node version > **14.x.x** < **16.x.x**
 
+### To run locally
+
+```shell
+# Opens the storybook dev server on `http://localhost:6006/`
+yarn storybook
+```
+
+### To build
+
+```shell
+# Builds the library
+yarn build
+
+# Builds the static storybook page
+yarn build-storybook
+```
+
 ## License
 
 Licensed under **MIT** License.
