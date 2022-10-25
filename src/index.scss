@@ -2,5 +2,8 @@
 @import './styles/scss/global.scss';
 @import './styles/scss/colors.scss';
 
+//CSS Reset from https://www.joshwcomeau.com/css/custom-css-reset/
+@import './styles/scss/cssReset.scss';
+
 //Component styles
 @import './src/components/Button/Button.scss';

@@ -2,7 +2,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { MarginExample, MarginSize } from './MarginExample';
 
 export default {
-  title: 'Margins',
+  title: 'Styles/Margins',
   component: MarginExample,
   argTypes: { size: { control: 'select' } },
 } as ComponentMeta<typeof MarginExample>;
@@ -13,7 +13,7 @@ const Template: ComponentStory<typeof MarginExample> = (args) => (
 
 export const ExtraSmall = Template.bind({});
 ExtraSmall.args = {
-  size: MarginSize.EXTRASMALL,
+  size: MarginSize.EXTRA_SMALL,
 };
 
 export const Small = Template.bind({});
@@ -33,5 +33,5 @@ Large.args = {
 
 export const ExtraLarge = Template.bind({});
 ExtraLarge.args = {
-  size: MarginSize.EXTRALARGE,
+  size: MarginSize.EXTRA_LARGE,
 };
