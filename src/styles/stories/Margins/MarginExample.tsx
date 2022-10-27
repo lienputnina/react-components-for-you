@@ -34,7 +34,7 @@ const getMarginSizeValue = (size: MarginSize): string => {
 
 const renderMarginExampleContent = (size: MarginSize) => (
   <div className={classNames('margin', `margin-${size}`)}>
-    <p className="margin-text">{`Margin size :${getMarginSizeValue(size)}`}</p>
+    <p className="margin-text">{`Margin size: ${getMarginSizeValue(size)}`}</p>
   </div>
 );
 
