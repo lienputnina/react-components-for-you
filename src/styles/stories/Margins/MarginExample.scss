@@ -1,0 +1,34 @@
+@use '../../scss/margins.scss';
+
+.margin {
+  border: 0.125rem solid #002bec;
+  background-color: #444343;
+  color: #ffffff;
+  &-main {
+    border: 0.125rem solid #ff0000;
+  }
+  &-xs {
+    margin: margins.$xs;
+  }
+
+  &-sm {
+    margin: margins.$sm;
+  }
+
+  &-md {
+    margin: margins.$md;
+  }
+
+  &-lg {
+    margin: margins.$lg;
+  }
+
+  &-xl {
+    margin: margins.$xl;
+  }
+
+  &-text {
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 0.1563rem;
+  }
+}
