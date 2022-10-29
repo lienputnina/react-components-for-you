@@ -1,6 +1,6 @@
 import type { FC } from 'react';
 
-import './TypographyExample.scss';
+import styles from './TypographyExample.module.scss';
 
 enum HeadingSize {
   H1 = '6rem',
@@ -23,7 +23,7 @@ enum FontWeight {
 const fontFamily = 'Arial, Helvetica, Sans-serif';
 
 export const TypographyExample: FC = () => (
-  <div className="typography-main">
+  <div id={styles['typography-main']}>
     <section>
       <h1>
         H1 / {fontFamily} / {HeadingSize.H1}
@@ -43,11 +43,11 @@ export const TypographyExample: FC = () => (
         Text / {fontFamily} / {TextStyle.REGULAR_TEXT} /{' '}
         {FontWeight.REGULAR_TEXT_WEIGHT}
       </p>
-      <p id="bold">
+      <p id={styles.bold}>
         Text / {fontFamily} / {TextStyle.BOLD_TEXT} /{' '}
         {FontWeight.BOLD_TEXT_WEIGHT}
       </p>
-      <p id="italic">
+      <p id={styles.italic}>
         Text / {fontFamily} / {TextStyle.ITALIC_TEXT} /{' '}
         {FontWeight.REGULAR_TEXT_WEIGHT}
       </p>
