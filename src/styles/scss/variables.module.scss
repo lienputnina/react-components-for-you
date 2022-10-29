@@ -1,0 +1,6 @@
+// Exposed library class name prefix
+$prefix: rcfu;
+
+:export {
+  rcfu: $prefix;
+}

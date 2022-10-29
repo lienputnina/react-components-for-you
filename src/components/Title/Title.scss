@@ -1,0 +1,23 @@
+@use '../../styles/scss/typography.scss';
+@use '../../styles/scss/colors.scss';
+@use '../../styles/scss/variables.module.scss';
+
+.#{variables.$prefix}-title {
+  color: colors.$title;
+
+  &.heading-one {
+    @include typography.heading-1();
+  }
+
+  &.heading-two {
+    @include typography.heading-2();
+  }
+
+  &.heading-three {
+    @include typography.heading-3();
+  }
+
+  &.heading-four {
+    @include typography.heading-4();
+  }
+}
