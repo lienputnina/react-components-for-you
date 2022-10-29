@@ -4,6 +4,8 @@ import classNames from 'classnames';
 import variables from '../../styles/scss/variables.module.scss';
 import './Title.scss';
 
+const { prefix } = variables;
+
 export enum TitleLevel {
   ONE = 'h1',
   TWO = 'h2',
@@ -25,7 +27,7 @@ export const Title: FC<TitleProps> = ({
     case TitleLevel.TWO:
       return (
         <h2
-          className={classNames(`${variables.rcfu}-title`, 'heading-two')}
+          className={classNames(`${prefix}-title`, 'heading-two')}
           {...remainingProps}
         >
           {children}
@@ -35,7 +37,7 @@ export const Title: FC<TitleProps> = ({
     case TitleLevel.THREE:
       return (
         <h3
-          className={classNames(`${variables.rcfu}-title`, 'heading-three')}
+          className={classNames(`${prefix}-title`, 'heading-three')}
           {...remainingProps}
         >
           {children}
@@ -45,7 +47,7 @@ export const Title: FC<TitleProps> = ({
     case TitleLevel.FOUR:
       return (
         <h4
-          className={classNames(`${variables.rcfu}-title`, 'heading-four')}
+          className={classNames(`${prefix}-title`, 'heading-four')}
           {...remainingProps}
         >
           {children}
@@ -56,7 +58,7 @@ export const Title: FC<TitleProps> = ({
     default:
       return (
         <h1
-          className={classNames(`${variables.rcfu}-title`, 'heading-one')}
+          className={classNames(`${prefix}-title`, 'heading-one')}
           {...remainingProps}
         >
           {children}

@@ -1,4 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { WithGrayBackground } from '../../hoc/WithGrayBackground';
 import { Title, TitleLevel } from './Title';
 
 export default {
@@ -7,14 +8,18 @@ export default {
   argTypes: { level: { control: 'select' } },
 } as ComponentMeta<typeof Title>;
 
-const SingleTitle: ComponentStory<typeof Title> = (args) => <Title {...args} />;
+const SingleTitle: ComponentStory<typeof Title> = (args) => (
+  <WithGrayBackground>
+    <Title {...args} />
+  </WithGrayBackground>
+);
 const AllTitles: ComponentStory<typeof Title> = (args) => (
-  <>
+  <WithGrayBackground>
     <Title {...args} level={TitleLevel.ONE} />
     <Title {...args} level={TitleLevel.TWO} />
     <Title {...args} level={TitleLevel.THREE} />
     <Title {...args} level={TitleLevel.FOUR} />
-  </>
+  </WithGrayBackground>
 );
 
 export const Default = SingleTitle.bind({});

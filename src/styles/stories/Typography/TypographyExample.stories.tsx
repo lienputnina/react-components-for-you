@@ -1,4 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { WithGrayBackground } from '../../../hoc/WithGrayBackground';
 import { TypographyExample } from './TypographyExample';
 
 export default {
@@ -7,7 +8,9 @@ export default {
 } as ComponentMeta<typeof TypographyExample>;
 
 const Template: ComponentStory<typeof TypographyExample> = (args) => (
-  <TypographyExample {...args} />
+  <WithGrayBackground>
+    <TypographyExample {...args} />
+  </WithGrayBackground>
 );
 
 export const Typography = Template.bind({});
