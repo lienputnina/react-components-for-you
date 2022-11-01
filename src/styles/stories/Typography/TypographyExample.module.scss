@@ -1,9 +1,8 @@
 @use '../../scss/typography.scss';
+@use '../../scss/colors.scss';
 
 #typography-main {
-  background-color: #d3d3d3;
-  color: #000000;
-  padding: 1rem;
+  color: colors.$title;
 
   h1 {
     @include typography.heading-1();

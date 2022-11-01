@@ -10,6 +10,6 @@
     "sourceMap": true,
     "noEmit": false
   },
-  "files": ["src/index.ts"],
+  "files": ["src/index.ts", "src/declaration.d.ts"],
   "exclude": ["**/*.test.*", "**/*.stories.*"]
 }
