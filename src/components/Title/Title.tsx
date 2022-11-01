@@ -20,7 +20,6 @@ export interface TitleProps extends React.HTMLProps<HTMLHeadingElement> {
 export const Title: FC<TitleProps> = ({
   level = TitleLevel.ONE,
   children,
-  onClick,
   ...remainingProps
 }: TitleProps) => {
   switch (level) {
