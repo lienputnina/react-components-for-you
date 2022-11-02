@@ -6,23 +6,17 @@ A [React](https://reactjs.org/) component library showcased with [Storybook](htt
 
 ## See the components [here](https://react-components-storybook.netlify.app/)
 
-**This is a WIP** - currently there is just one **Button** component. It has two variants - **primary** and **secondary**. It needs to have children and can have a shape specified (optional). The button variants are also optional. The default button variant is **primary**.
+**This is a WIP** - currently there are **Button** and **Title** components. There are also stories for custom colors and other style-related components.  
 
 ## Installation
 
 To install the package, run:
 
 ```shell
-npm install @liene-putnina/react-components-for-you
-```
-
-or
-
-```shell
 yarn add @liene-putnina/react-components-for-you
 ```
 
-After you've installed the **main** package, you need to install the following **peer dependencies:**
+You also need to install the following **peer dependencies:**
 
 ```shell
 react react-dom
@@ -33,30 +27,30 @@ react react-dom
 Import either the whole library or specific components
 
 ```jsx
+#Imports  the whole library
+import * from '@liene-putnina/react-components-for-you'; 
+
+#Imports  a single component
 import { Button } from '@liene-putnina/react-components-for-you';
-//or
-import * from '@liene-putnina/react-components-for-you'; // adds the whole library
 ```
 
 Add them to your code
 
 ```tsx
+#The component without variants
 const MyComponent = () => {
   return (
     <Button>{children}<Button/>
   )
 };
-```
 
-  or
-
-  ```tsx
-  const MyComponent = () => {
+#The component with variants
+ const MyComponent = () => {
     return (
       <Button variant={ButtonVariant.DANGER}>{children}<Button/>
     )
   };
-  ```
+```
 
 Due to the structure of this library, the css of the components is **not included by default**. In order to get the styling working, add **the following line** to your global style file:
 
