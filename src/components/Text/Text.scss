@@ -1,0 +1,19 @@
+@use '../../styles/scss/typography.scss';
+@use '../../styles/scss/colors.scss';
+@use '../../styles/scss/variables.module.scss';
+
+.#{variables.$prefix}-text {
+  color: colors.$text;
+
+  &.regular {
+    @include typography.text-regular();
+  }
+
+  &.bold {
+    @include typography.text-bold();
+  }
+
+  &.italic {
+    @include typography.text-italic();
+  }
+}
