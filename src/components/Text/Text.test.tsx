@@ -16,7 +16,7 @@ describe('Text', () => {
 
   describe('Text styles', () => {
     Object.entries(TextStyle).forEach(([styleName, styleValue]) => {
-      it(`should match the provided text style ${styleName}`, () => {
+      it(`should apply the appropriate class name for the provided text style ${styleName}`, () => {
         const { container } = render(<Text textStyle={styleValue} />);
         expect(
           container.getElementsByClassName(styleValue)[0],
