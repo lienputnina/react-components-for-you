@@ -22,7 +22,7 @@
     "prebuild": "yarn lint && yarn lint:ts && yarn test",
     "build": "rm -rf dist && rollup -c && tsc --project tsconfig.build.json && yarn copy-styles",
     "build-storybook": "build-storybook",
-    "publish": "yarn build && npm publish"
+    "publish-library": "yarn build && npm publish"
   },
   "dependencies": {
     "@storybook/react": "^6.5.12",
