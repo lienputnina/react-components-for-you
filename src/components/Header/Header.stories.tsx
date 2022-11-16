@@ -30,3 +30,9 @@ WithChildren.args = {
     </Title>
   ),
 };
+
+export const WithCustomLogo = Template.bind({});
+WithCustomLogo.args = {
+  ...Default.args,
+  customLogo: <button type="button">LOGO</button>,
+};
