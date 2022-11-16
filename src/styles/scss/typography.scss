@@ -20,18 +20,9 @@
   font-weight: 600;
 }
 
-@mixin heading-margin-bottom {
-  margin-bottom: margins.$lg * 2;
-}
-
-@mixin text-margin-bottom {
-  margin-bottom: margins.$lg;
-}
-
 @mixin heading-1 {
   @include font-family();
   @include font-weight-light();
-  @include heading-margin-bottom();
   font-size: 6rem;
   line-height: 7rem;
 }
@@ -39,7 +30,6 @@
 @mixin heading-2 {
   @include font-family();
   @include font-weight-light();
-  @include heading-margin-bottom();
   font-size: 3.75rem;
   line-height: 4.5rem;
 }
@@ -47,7 +37,6 @@
 @mixin heading-3 {
   @include font-family();
   @include font-weight-regular();
-  @include heading-margin-bottom();
   font-size: 3rem;
   line-height: 3.5rem;
 }
@@ -55,7 +44,6 @@
 @mixin heading-4 {
   @include font-family();
   @include font-weight-regular();
-  @include heading-margin-bottom();
   font-size: 2.125rem;
   line-height: 2.25rem;
 }
@@ -63,7 +51,6 @@
 @mixin text-regular {
   @include font-family();
   @include font-weight-regular();
-  @include text-margin-bottom();
   font-size: 1rem;
   line-height: 1.5rem;
 }

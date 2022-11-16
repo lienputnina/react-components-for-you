@@ -1,31 +1,31 @@
+import type { FC } from 'react';
 import classNames from 'classnames';
-import { FC } from 'react';
 
+import variables from '../../styles/scss/variables.module.scss';
 import './Button.scss';
+
+const { prefix } = variables;
 
 export enum ButtonVariant {
   PRIMARY = 'primary',
-  DANGER = 'danger',
+  SECONDARY = 'secondary',
 }
 
 export interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
-  children: React.ReactNode;
   variant?: ButtonVariant;
-  rounded?: boolean;
 }
 
 export const Button: FC<ButtonProps> = ({
   children,
+  onClick,
   variant = ButtonVariant.PRIMARY,
-  rounded,
   ...remainingProps
 }) => (
   <button
     type="button"
-    className={classNames('btn', `btn-${variant}`, {
-      rounded,
-    })}
+    className={classNames(`${prefix}-btn`, `${variant}`)}
     {...remainingProps}
+    onClick={() => console.log('Button clicked')}
   >
     {children}
   </button>
