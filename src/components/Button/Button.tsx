@@ -17,7 +17,6 @@ export interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
 
 export const Button: FC<ButtonProps> = ({
   children,
-  onClick,
   variant = ButtonVariant.PRIMARY,
   ...remainingProps
 }) => (
@@ -25,7 +24,6 @@ export const Button: FC<ButtonProps> = ({
     type="button"
     className={classNames(`${prefix}-btn`, `${variant}`)}
     {...remainingProps}
-    onClick={() => console.log('Button clicked')}
   >
     {children}
   </button>

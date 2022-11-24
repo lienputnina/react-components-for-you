@@ -18,10 +18,12 @@ export const Primary = ButtonTemplate.bind({});
 Primary.args = {
   children: 'Children',
   variant: ButtonVariant.PRIMARY,
+  onClick: () => console.log('Clicked'),
 };
 
 export const Secondary = ButtonTemplate.bind({});
 Secondary.args = {
   ...Primary.args,
   variant: ButtonVariant.SECONDARY,
+  onClick: () => console.log('Clicked'),
 };

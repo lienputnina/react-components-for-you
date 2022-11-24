@@ -5,6 +5,7 @@
 @use '../../styles/scss/variables.module.scss';
 
 .#{variables.$prefix}-btn {
+  border: 0.1875rem solid colors.$accent;
   border-radius: 0.4rem;
   padding: paddings.$xs paddings.$sm;
   margin: margins.$xs margins.$xs;
@@ -12,7 +13,6 @@
   @include typography.text-regular();
 
   &.primary {
-    border: 0.1875rem solid colors.$accent;
     background-color: colors.$accent;
     color: colors.$tile-text;
     &:hover {
@@ -22,7 +22,6 @@
   }
 
   &.secondary {
-    border: 0.1875rem solid colors.$accent;
     background-color: transparent;
     color: colors.$accent;
     &:hover {
