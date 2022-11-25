@@ -25,5 +25,4 @@ export const Secondary = ButtonTemplate.bind({});
 Secondary.args = {
   ...Primary.args,
   variant: ButtonVariant.SECONDARY,
-  onClick: () => console.log('Clicked'),
 };
