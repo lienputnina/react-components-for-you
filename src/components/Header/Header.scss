@@ -1,0 +1,27 @@
+@use '../../styles/scss/colors.scss';
+@use '../../styles/scss/variables.module.scss';
+@use '../../styles/scss/paddings.scss';
+
+$header-height: 4rem;
+$logo-size: 2.5rem;
+
+.#{variables.$prefix}-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: $header-height;
+  padding: paddings.$xl;
+
+  background-color: colors.$background-main;
+
+  #logo {
+    position: absolute;
+    left: paddings.$xl;
+    width: $logo-size;
+
+    &:hover {
+      box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.15);
+    }
+  }
+}
