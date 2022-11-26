@@ -18,15 +18,15 @@ export interface PaddingExampleProps {
 const getPaddingSizeValue = (size: PaddingSize) => {
   switch (size) {
     case 'xs':
-      return '0.125rem';
-    case 'sm':
       return '0.25rem';
-    case 'md':
-      return '0.375rem';
-    case 'lg':
+    case 'sm':
       return '0.5rem';
+    case 'md':
+      return '0.75rem';
+    case 'lg':
+      return '1rem';
     case 'xl':
-      return '0.625rem';
+      return '1.25rem';
     default:
       return 'no value found';
   }

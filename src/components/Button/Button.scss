@@ -1,28 +1,32 @@
-.btn {
-  padding: 0.6rem 1rem;
-  background: transparent;
-  border: 1px solid #1e1e1e;
-  cursor: pointer;
+@use '../../styles/scss/typography.scss';
+@use '../../styles/scss/paddings.scss';
+@use '../../styles/scss/margins.scss';
+@use '../../styles/scss/colors.scss';
+@use '../../styles/scss/variables.module.scss';
 
-  &-primary {
-    border: none;
-    background-color: blue;
-    color: white;
+.#{variables.$prefix}-btn {
+  border: 0.1875rem solid colors.$accent;
+  border-radius: 0.4rem;
+  padding: paddings.$xs paddings.$sm;
+  margin: margins.$xs margins.$xs;
+
+  @include typography.text-regular();
+
+  &.primary {
+    background-color: colors.$accent;
+    color: colors.$tile-text;
     &:hover {
-      background-color: blue;
+      border-color: colors.$accent--hover;
+      background-color: colors.$accent--hover;
     }
   }
 
-  &-danger {
-    border: none;
-    background-color: red;
-    color: white;
+  &.secondary {
+    background-color: transparent;
+    color: colors.$accent;
     &:hover {
-      background-color: red;
+      border-color: colors.$accent--hover;
+      color: colors.$accent--hover;
     }
-  }
-
-  &.rounded {
-    border-radius: 0.4rem;
   }
 }

@@ -1,6 +1,6 @@
 {
   "name": "@liene-putnina/react-components-for-you",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "description": "Storybook-based React component library",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
@@ -21,8 +21,7 @@
     "copy-styles": "cp -r src/styles/scss dist/styles",
     "prebuild": "yarn lint && yarn lint:ts && yarn test",
     "build": "rm -rf dist && rollup -c && tsc --project tsconfig.build.json && yarn copy-styles",
-    "build-storybook": "build-storybook",
-    "publish-library": "yarn build && npm publish"
+    "build-storybook": "build-storybook"
   },
   "dependencies": {
     "@storybook/react": "^6.5.12",
