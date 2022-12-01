@@ -5,6 +5,7 @@ import postcss from 'rollup-plugin-postcss';
 import typescript from '@rollup/plugin-typescript';
 import { terser } from 'rollup-plugin-terser';
 import commonjs from '@rollup/plugin-commonjs';
+import image from '@rollup/plugin-image';
 
 export default [
   {
@@ -23,6 +24,7 @@ export default [
       },
     ],
     plugins: [
+      image(),
       postcss({
         extract: true,
         modules: true,

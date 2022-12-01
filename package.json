@@ -20,7 +20,9 @@
     "storybook": "start-storybook -p 6006 --ci",
     "copy-styles": "cp -r src/styles/scss dist/styles",
     "prebuild": "yarn lint && yarn lint:ts && yarn test",
-    "build": "rm -rf dist && rollup -c && tsc --project tsconfig.build.json && yarn copy-styles",
+    "build": "rm -rf dist && yarn build:library && yarn build:types && yarn copy-styles",
+    "build:library": "rollup -c",
+    "build:types": "tsc --project tsconfig.build.json",
     "build-storybook": "build-storybook"
   },
   "dependencies": {
@@ -35,6 +37,7 @@
     "@liene-putnina/eslint-config-lintmyride": "^1.0.8",
     "@rollup/plugin-babel": "^5.3.1",
     "@rollup/plugin-commonjs": "^22.0.2",
+    "@rollup/plugin-image": "^3.0.1",
     "@rollup/plugin-node-resolve": "^13.3.0",
     "@rollup/plugin-typescript": "^8.3.3",
     "@storybook/addon-a11y": "^6.5.12",
