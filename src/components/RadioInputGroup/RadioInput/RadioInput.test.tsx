@@ -103,7 +103,7 @@ describe('RadioInput', () => {
       expect(onChangeMock).toHaveBeenCalled();
     });
 
-    it(`should call the provided onChange callback when user clicks ${KeyCodes.SPACE} key`, async () => {
+    it(`should call the provided onChange callback when user clicks ${KeyCodes.SPACE} key`, () => {
       const onChangeMock = jest.fn();
       render(
         <RadioInput {...defaultProps} onChange={onChangeMock} isFocusable />,
