@@ -5,6 +5,9 @@ import { WithGrayBackground } from '../../hoc/WithGrayBackground';
 export default {
   title: 'Components/Button',
   component: Button,
+  argTypes: {
+    onClick: { action: 'clicked' },
+  },
 } as ComponentMeta<typeof Button>;
 
 const ButtonTemplate: ComponentStory<typeof Button> = (args) => (
@@ -18,7 +21,6 @@ export const Primary = ButtonTemplate.bind({});
 Primary.args = {
   children: 'Children',
   variant: ButtonVariant.PRIMARY,
-  onClick: () => console.log('Clicked'),
 };
 
 export const Secondary = ButtonTemplate.bind({});

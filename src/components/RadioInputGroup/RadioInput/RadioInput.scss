@@ -1,0 +1,34 @@
+@use '../../../styles/scss/typography.scss';
+@use '../../../styles/scss/paddings.scss';
+@use '../../../styles/scss/margins.scss';
+@use '../../../styles/scss/colors.scss';
+@use '../../../styles/scss/mixins.scss';
+@use '../../../styles/scss/variables.module.scss';
+
+.#{variables.$prefix}-radio-input {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  padding: paddings.$xs;
+  color: colors.$text;
+
+  @include typography.text-regular();
+  @include mixins.focus-visible-outline();
+
+  &:hover {
+    color: colors.$text--hover;
+
+    svg g {
+      fill: colors.$accent--hover;
+    }
+  }
+
+  svg {
+    margin-right: margins.$xs;
+
+    g {
+      fill: colors.$accent;
+    }
+  }
+}

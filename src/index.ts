@@ -1,5 +1,7 @@
 import './index.scss';
 
-export { Button, ButtonVariant, ButtonProps } from './components/Button/Button';
-export { Title, TitleLevel, TitleProps } from './components/Title/Title';
-export { Text, TextStyle, TextProps } from './components/Text/Text';
+export * from './components/Button/Button';
+export * from './components/Title/Title';
+export * from './components/Text/Text';
+export * from './components/Header/Header';
+export * from './components/RadioInputGroup/RadioInput/RadioInput';
