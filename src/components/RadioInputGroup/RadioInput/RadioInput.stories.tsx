@@ -45,9 +45,3 @@ Checked.args = {
   ...Default.args,
   isChecked: true,
 };
-
-export const Focusable = Template.bind({});
-Focusable.args = {
-  ...Default.args,
-  isFocusable: true,
-};

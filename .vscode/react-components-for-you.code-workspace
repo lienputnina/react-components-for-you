@@ -9,7 +9,11 @@
     "editor.codeActionsOnSave": {
       "source.fixAll.eslint": true
     },
-    "cSpell.words": ["Putniņa", "rcfu"]
+    "cSpell.words": [
+      "Putniņa",
+      "rcfu"
+    ],
+    "typescript.tsdk": "node_modules/typescript/lib"
   },
   "extensions": {
     "recommendations": [
@@ -18,7 +22,10 @@
       "davidanson.vscode-markdownlint",
       "unifiedjs.vscode-mdx",
       "esbenp.prettier-vscode",
-      "wmaurer.change-case"
+      "wmaurer.change-case",
+      "andys8.jest-snippets",
+      "infeng.vscode-react-typescript",
+      "aaron-bond.better-comments"
     ]
   }
 }
