@@ -83,7 +83,7 @@ describe('RadioInputGroup', () => {
   });
 
   describe('User events', () => {
-    it('should become focussed when user tabs on it', async () => {
+    it('should become focused when user tabs on it', async () => {
       const user = userEvent.setup();
       render(<RadioInputGroup {...defaultProps} />);
 
