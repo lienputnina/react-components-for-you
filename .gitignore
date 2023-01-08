@@ -24,3 +24,6 @@ node_modules
 # build artifacts
 dist
 storybook-static
+
+# test reports
+coverage
