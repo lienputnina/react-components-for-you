@@ -16,6 +16,27 @@ describe('Text input', () => {
     expect(screen.getByRole('textbox')).toBeInTheDocument();
   });
 
+  it('should have a label with the given label value', () => {
+    render(<TextInput {...defaultProps} />);
+    expect(screen.getByText(defaultProps.label)).toBeInTheDocument();
+  });
+
+  it('should have a name attribute with the given name value', () => {
+    render(<TextInput {...defaultProps} />);
+    expect(screen.getByRole('textbox')).toHaveAttribute(
+      'name',
+      defaultProps.name,
+    );
+  });
+
+  it('should have a value attribute with the given value', () => {
+    render(<TextInput {...defaultProps} />);
+    expect(screen.getByRole('textbox')).toHaveAttribute(
+      'value',
+      defaultProps.value.toString(),
+    );
+  });
+
   describe('User events', () => {
     it('should become focused when the user tabs on it', async () => {
       const user = userEvent.setup();

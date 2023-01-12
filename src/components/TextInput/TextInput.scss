@@ -6,16 +6,22 @@
 @use '../../styles/scss/variables.module.scss';
 
 .#{variables.$prefix}-text-input {
+  display: flex;
+  flex-direction: column;
   padding: paddings.$xs;
   margin: margins.$xs;
-
   color: colors.$text;
 
   @include typography.text-regular();
 
-  input[type='text'] {
-    width: 20%;
-    margin: margins.$xs margins.$sm;
+  label {
+    margin-bottom: margins.$xs;
+  }
+
+  input {
+    width: 100%;
+    min-width: 200px;
+    max-width: 500px;
 
     @include mixins.focus-visible-outline();
     @include mixins.rounded-border();

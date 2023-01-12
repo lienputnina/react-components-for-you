@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { TextInput, TextInputProps } from './TextInput';
 import { WithGrayBackground } from '../../hoc/WithGrayBackground';
@@ -17,6 +17,7 @@ const Template: ComponentStory<typeof TextInput> = ({
   ...remainingProps
 }: TextInputProps) => {
   const [enteredValue, setEnteredValue] = useState(initialValue);
+  useEffect(() => setEnteredValue(initialValue), [initialValue]);
 
   return (
     <WithGrayBackground>
