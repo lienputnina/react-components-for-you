@@ -11,6 +11,8 @@ export interface NumberInputProps {
   name: string;
   label: string;
   value?: number;
+  min: number;
+  max: number;
   onChange: (newValue: number) => void;
 }
 
@@ -19,18 +21,20 @@ export const NumberInput: FC<NumberInputProps> = ({
   name,
   label,
   value,
+  min,
+  max,
   onChange,
 }) => (
   <div className={classNames(`${prefix}-number-input`)}>
-    <label htmlFor="number-input">{label}</label>
+    <label htmlFor={`${name}-${label}`}>{label}</label>
     <input
+      type="number"
       name={name}
       value={value}
-      type="number"
-      aria-describedby="number-input"
-      aria-label="number-input"
-      aria-labelledby={id}
-      tabIndex={0}
+      min={min}
+      max={max}
+      aria-describedby={id}
+      aria-label={`${name}-${label}`}
       onChange={(event) => onChange(parseInt(event.target.value, 10))}
     />
   </div>

@@ -9,12 +9,35 @@ describe('Number input', () => {
     label: 'Test label',
     name: 'Test name',
     value: 12345,
+    min: 0,
+    max: 100,
     onChange: () => {},
   };
 
   it('should render without crashing', () => {
     render(<NumberInput {...defaultProps} />);
     expect(screen.getByRole('spinbutton')).toBeInTheDocument();
+  });
+
+  it('should have a label with the given label value', () => {
+    render(<NumberInput {...defaultProps} />);
+    expect(screen.getByText(defaultProps.label)).toBeInTheDocument();
+  });
+
+  it('should have a name attribute with the given name value', () => {
+    render(<NumberInput {...defaultProps} />);
+    expect(screen.getByRole('spinbutton')).toHaveAttribute(
+      'name',
+      defaultProps.name,
+    );
+  });
+
+  it('should have a value attribute with the given value', () => {
+    render(<NumberInput {...defaultProps} />);
+    expect(screen.getByRole('spinbutton')).toHaveAttribute(
+      'value',
+      defaultProps.value.toString(),
+    );
   });
 
   describe('User events', () => {

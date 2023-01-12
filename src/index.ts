@@ -5,3 +5,4 @@ export * from './components/Title/Title';
 export * from './components/Text/Text';
 export * from './components/Header/Header';
 export * from './components/RadioInputGroup/RadioInput/RadioInput';
+export * from './components/NumberInput/NumberInput';

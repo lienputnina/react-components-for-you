@@ -6,16 +6,23 @@
 @use '../../styles/scss/variables.module.scss';
 
 .#{variables.$prefix}-number-input {
+  display: flex;
+  flex-direction: column;
   padding: paddings.$xs;
   margin: margins.$xs;
-
   color: colors.$text;
 
   @include typography.text-regular();
 
+  label {
+    margin-bottom: margins.$xs;
+  }
+
   input {
-    width: 20%;
-    margin: margins.$xs margins.$sm;
+    width: 100%;
+    min-width: 200px;
+    max-width: 500px;
+    padding: 1px paddings.$xs;
 
     @include mixins.focus-visible-outline();
     @include mixins.rounded-border();

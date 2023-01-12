@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { NumberInput, NumberInputProps } from './NumberInput';
 import { WithGrayBackground } from '../../hoc/WithGrayBackground';
@@ -17,6 +17,8 @@ const Template: ComponentStory<typeof NumberInput> = ({
   ...remainingProps
 }: NumberInputProps) => {
   const [enteredValue, setEnteredValue] = useState(initialValue);
+
+  useEffect(() => setEnteredValue(initialValue), [initialValue]); // smth wrong here
 
   return (
     <WithGrayBackground>
@@ -45,4 +47,6 @@ Default.args = {
   id: 'Test id',
   name: 'Test name',
   label: 'Test label:',
+  min: 0,
+  max: 100,
 };
