@@ -3,6 +3,7 @@ $sm: 0.5rem;
 $md: 0.75rem;
 $lg: 1rem;
 $xl: 1.25rem;
+$inner-input-padding: 0.0625rem;
 
 :export {
   xs: $xs;
@@ -10,4 +11,5 @@ $xl: 1.25rem;
   md: $md;
   lg: $lg;
   xl: $xl;
+  inner-input-padding: $inner-input-padding;
 }

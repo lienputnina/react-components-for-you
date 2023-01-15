@@ -44,6 +44,8 @@ describe('Number input', () => {
     it('should become focused when the user tabs on it', async () => {
       const user = userEvent.setup();
       render(<NumberInput {...defaultProps} />);
+      expect(screen.getByRole('spinbutton')).not.toHaveFocus();
+
       await user.tab();
       expect(screen.getByRole('spinbutton')).toHaveFocus();
     });
