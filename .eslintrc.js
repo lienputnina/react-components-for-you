@@ -10,12 +10,12 @@ module.exports = {
   extends: [...eslintConfig.extends, 'plugin:storybook/recommended'],
   rules: {
     ...eslintConfig.rules,
+    'react/jsx-props-no-spreading': 0,
   },
   overrides: [
     {
       files: ['*.+(spec|test|stories).*'],
       rules: {
-        'react/jsx-props-no-spreading': 0,
         '@typescript-eslint/no-non-null-assertion': 0,
         'import/no-extraneous-dependencies': 0,
       },

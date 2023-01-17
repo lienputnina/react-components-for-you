@@ -17,9 +17,9 @@ export const Header: FC<HeaderProps> = ({
   logoUrl,
   children,
   customLogo,
-  ...otherProps
+  ...remainingProps
 }) => (
-  <header className={`${prefix}-header`} {...otherProps}>
+  <header className={`${prefix}-header`} {...remainingProps}>
     <div id="logo">
       {customLogo || (
         <a href={logoUrl || '/'}>

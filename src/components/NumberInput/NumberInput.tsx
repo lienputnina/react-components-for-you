@@ -24,6 +24,7 @@ export const NumberInput: FC<NumberInputProps> = ({
   min,
   max,
   onChange,
+  ...remainingProps
 }) => (
   <div className={classNames(`${prefix}-number-input`)}>
     <label id={`${id}-label`} htmlFor={`${id}-input`}>
@@ -38,6 +39,7 @@ export const NumberInput: FC<NumberInputProps> = ({
       max={max}
       aria-labelledby={`${id}-label`}
       onChange={(event) => onChange(parseInt(event.target.value, 10))}
+      {...remainingProps}
     />
   </div>
 );
