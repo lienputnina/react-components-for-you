@@ -53,8 +53,10 @@ describe('Number input', () => {
     it('should loose focus when the user tabs away from it', async () => {
       const user = userEvent.setup();
       render(<NumberInput {...defaultProps} />);
+
       await user.tab();
       await user.tab();
+
       expect(screen.getByRole('spinbutton')).not.toHaveFocus();
     });
 

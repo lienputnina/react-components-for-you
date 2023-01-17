@@ -41,6 +41,7 @@ describe('Text input', () => {
     it('should become focused when the user tabs on it', async () => {
       const user = userEvent.setup();
       render(<TextInput {...defaultProps} />);
+      expect(screen.getByRole('textbox')).not.toHaveFocus();
 
       await user.tab();
       expect(screen.getByRole('textbox')).toHaveFocus();

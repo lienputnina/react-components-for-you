@@ -20,16 +20,20 @@ export const TextInput: FC<TextInputProps> = ({
   label,
   value,
   onChange,
+  ...remainingProps
 }) => (
   <div className={classNames(`${prefix}-text-input`)}>
-    <label htmlFor={`${name}-${label}`}>{label}</label>
+    <label id={`${id}-label`} htmlFor={`${id}-input`}>
+      {label}
+    </label>
     <input
+      id={`${id}-input`}
       type="text"
       name={name}
       value={value}
-      aria-describedby={id} // check, how to solve this
-      aria-label={`${name}-${label}`}
+      aria-labelledby={`${id}-label`}
       onChange={(event) => onChange(event.target.value)}
+      {...remainingProps}
     />
   </div>
 );

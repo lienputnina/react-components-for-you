@@ -7,3 +7,4 @@ export * from './components/Header/Header';
 export * from './components/RadioInputGroup/RadioInput/RadioInput';
 export * from './components/NumberInput/NumberInput';
 export * from './components/Dropdown/Dropdown';
+export * from './components/TextInput/TextInput';
