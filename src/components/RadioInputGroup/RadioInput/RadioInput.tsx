@@ -27,6 +27,7 @@ export const RadioInput: FC<RadioInputProps> = ({
   value,
   isChecked,
   onChange,
+  ...remainingProps
 }: RadioInputProps) => (
   // eslint-disable-next-line jsx-a11y/click-events-have-key-events
   <li
@@ -36,6 +37,7 @@ export const RadioInput: FC<RadioInputProps> = ({
     role="radio"
     aria-checked={isChecked}
     onClick={() => onChange(id, value)}
+    {...remainingProps}
   >
     {isChecked ? <RadioButtonChecked /> : <RadioButtonUnChecked />}
     {label}

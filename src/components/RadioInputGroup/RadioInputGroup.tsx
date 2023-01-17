@@ -72,6 +72,7 @@ export const RadioInputGroup: FC<RadioInputGroupProps> = ({
   options,
   checkedOptionId,
   onChange,
+  ...remainingProps
 }) => (
   <div id={id} className={classNames(`${prefix}-radio-input-group`)}>
     <div id={id}>{label}</div>
@@ -85,8 +86,9 @@ export const RadioInputGroup: FC<RadioInputGroupProps> = ({
       }
       tabIndex={0}
       onKeyDown={(event) =>
-        onKeyDown(event, options, onChange, checkedOptionId, )
+        onKeyDown(event, options, onChange, checkedOptionId)
       }
+      {...remainingProps}
     >
       {options.map((option) => (
         <RadioInput
