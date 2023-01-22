@@ -40,7 +40,7 @@ const TemplateSingle: ComponentStory<typeof RadioInputGroup> = ({
 
 export const Default = TemplateSingle.bind({});
 Default.args = {
-  id: 'test-id',
+  id: 'radio-group-id',
   label: 'Test label',
   options: [
     { id: 'id-1', value: 'value-1', label: 'label-1' },
@@ -48,5 +48,4 @@ Default.args = {
     { id: 'id-3', value: 'value-3', label: 'label-3' },
   ],
   checkedOptionId: 'id-2',
-  onChange: () => {},
 };

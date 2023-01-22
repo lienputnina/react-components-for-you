@@ -1,6 +1,9 @@
 // Exposed library class name prefix
 $prefix: rcfu;
 
+$input-height: 1.75rem;
+
 :export {
   prefix: $prefix;
+  inputHeight: $input-height;
 }

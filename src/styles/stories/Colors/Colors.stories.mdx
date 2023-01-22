@@ -9,8 +9,16 @@ import colors from './colors.module.scss';
   <ColorItem
     title="Backgrounds"
     colors={{
-      'background-main': colors['backgroundMain'],
-      'background-board': colors['backgroundBoard'],
+      '$background-main': colors['backgroundMain'],
+      '$background-main--light': colors['backgroundMainLight'],
+      '$background-main--dark': colors['backgroundMainDark'],
+    }}
+  />
+  <ColorItem
+    title="Board backgrounds"
+    colors={{
+      'board-background': colors['boardBackground'],
+      'board-background--dark': colors['boardBackgroundDark'],
     }}
   />
   <ColorItem

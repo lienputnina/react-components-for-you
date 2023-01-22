@@ -35,7 +35,8 @@ const Template: ComponentStory<typeof RadioInput> = ({
 
 export const Default = Template.bind({});
 Default.args = {
-  id: 'Test id',
+  groupId: 'group-id',
+  optionId: 'option-id',
   label: 'Test label',
   value: 'Test value',
 };
