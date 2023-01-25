@@ -1,4 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { WithGrayBackground } from '../../../hoc/WithGrayBackground';
 import { MarginExample, MarginSize } from './MarginExample';
 
 export default {
@@ -8,8 +9,25 @@ export default {
 } as ComponentMeta<typeof MarginExample>;
 
 const Template: ComponentStory<typeof MarginExample> = (args) => (
-  <MarginExample {...args} />
+  <WithGrayBackground>
+    <MarginExample {...args} />
+  </WithGrayBackground>
 );
+
+const TemplateAll: ComponentStory<typeof MarginExample> = (args) => (
+  <WithGrayBackground>
+    <MarginExample {...args} size={MarginSize.EXTRA_SMALL} />
+    <MarginExample {...args} size={MarginSize.SMALL} />
+    <MarginExample {...args} size={MarginSize.MEDIUM} />
+    <MarginExample {...args} size={MarginSize.LARGE} />
+    <MarginExample {...args} size={MarginSize.EXTRA_LARGE} />
+  </WithGrayBackground>
+);
+
+export const Default = Template.bind({});
+Default.args = {
+  size: MarginSize.EXTRA_SMALL,
+};
 
 export const ExtraSmall = Template.bind({});
 ExtraSmall.args = {
@@ -34,4 +52,9 @@ Large.args = {
 export const ExtraLarge = Template.bind({});
 ExtraLarge.args = {
   size: MarginSize.EXTRA_LARGE,
+};
+
+export const All = TemplateAll.bind({});
+All.args = {
+  ...Default.args,
 };
