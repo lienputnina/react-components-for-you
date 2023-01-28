@@ -75,13 +75,13 @@ export const RadioInputGroup: FC<RadioInputGroupProps> = ({
   ...remainingProps
 }) => (
   <div id={id} className={classNames(`${prefix}-radio-input-group`)}>
-    <div id={id}>{label}</div>
+    <div id={`${id}_label`}>{label}</div>
     <ul
       role="radiogroup"
-      aria-labelledby={id}
+      aria-labelledby={`${id}_label`}
       aria-activedescendant={
         options.find((option) => option.id === checkedOptionId)
-          ? checkedOptionId
+          ? `${id}_${checkedOptionId}`
           : undefined
       }
       tabIndex={0}
@@ -92,8 +92,9 @@ export const RadioInputGroup: FC<RadioInputGroupProps> = ({
     >
       {options.map((option) => (
         <RadioInput
+          groupId={id}
           key={option.id}
-          id={option.id}
+          optionId={option.id}
           label={option.label}
           value={option.value}
           onChange={onChange}

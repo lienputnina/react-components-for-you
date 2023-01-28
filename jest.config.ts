@@ -31,6 +31,7 @@ export default {
     '!src/styles/**/*',
     '!src/constants/**/*',
     '!src/assets/**/*',
+    '!src/hoc/WithGrayBackground.tsx',
   ],
 
   // The directory where Jest should output its coverage files

@@ -1,4 +1,6 @@
 @use './colors.scss';
+@use './paddings.scss';
+@use './variables.module.scss';
 
 @mixin rounded-border {
   border-radius: 0.4rem;
@@ -10,4 +12,22 @@
     outline-offset: 2px;
     @include rounded-border();
   }
+}
+
+@mixin input-width {
+  width: 100%;
+  min-width: 12.5rem;
+  max-width: 31.25rem;
+}
+
+@mixin input-base {
+  height: variables.$input-height;
+  padding: paddings.$xs paddings.$md;
+  background-color: white;
+  border: 1px colors.$text solid;
+  line-height: 1rem;
+
+  @include input-width();
+  @include focus-visible-outline();
+  @include rounded-border();
 }

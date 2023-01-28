@@ -6,7 +6,7 @@ A [React](https://reactjs.org/) component library showcased with [Storybook](htt
 
 ## See the components [here](https://react-components-storybook.netlify.app/)
 
-**This is a WIP** - currently there are **Button** and **Title** components. There are also stories for custom colors and other style-related components.  
+**This is a WIP**.
 
 ## Installation
 
@@ -60,7 +60,7 @@ Due to the structure of this library, the css of the components is **not include
 
 ## Development
 
-Uses node version > **14.x.x** < **16.x.x**
+Uses node version **16.x.x**
 
 ### To run locally
 

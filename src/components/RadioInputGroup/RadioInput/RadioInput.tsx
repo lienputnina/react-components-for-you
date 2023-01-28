@@ -14,7 +14,8 @@ const { prefix } = variables;
 export type RadioInputOnChange = (id: string, value: string) => void;
 
 export interface RadioInputProps {
-  id: string;
+  groupId: string;
+  optionId: string;
   label: string;
   value: string;
   isChecked?: boolean;
@@ -22,7 +23,8 @@ export interface RadioInputProps {
 }
 
 export const RadioInput: FC<RadioInputProps> = ({
-  id,
+  groupId,
+  optionId,
   label,
   value,
   isChecked,
@@ -31,12 +33,12 @@ export const RadioInput: FC<RadioInputProps> = ({
 }: RadioInputProps) => (
   // eslint-disable-next-line jsx-a11y/click-events-have-key-events
   <li
-    id={id}
+    id={`${groupId}_${optionId}`}
     className={classNames(`${prefix}-radio-input`)}
     // eslint-disable-next-line jsx-a11y/no-noninteractive-element-to-interactive-role
     role="radio"
     aria-checked={isChecked}
-    onClick={() => onChange(id, value)}
+    onClick={() => onChange(optionId, value)}
     {...remainingProps}
   >
     {isChecked ? <RadioButtonChecked /> : <RadioButtonUnChecked />}

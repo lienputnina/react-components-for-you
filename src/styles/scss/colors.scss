@@ -1,12 +1,17 @@
-//Backgrounds
-$background-main: #eee8ea;
-$background-board: #cab7bc;
+// Backgrounds
+$background-main: #d9d9d9;
+$background-main--light: #f7f7f7;
+$background-main--dark: #c6c6c6;
 
-//Accent colors
+// Board Backgrounds
+$board-background: #eee8ea;
+$board-background--dark: #cab7bc;
+
+// Accent colors
 $accent: #591d2d;
 $accent--hover: #73263a;
 
-//Text
+// Text
 $text: #4d4d4d;
 $text--light: #666666;
 $text--hover: $accent--hover;
@@ -15,13 +20,13 @@ $title--hover: $accent--hover;
 $sub-title: #bda5ab;
 $sub-title--light: #cdbbc0;
 
-//Tiles
+// Tiles
 $tile: #875c68;
 $tile--hover: #7a4a57;
 $tile-text: #ffffff;
 $tile-text--hover: #e6e6e6;
 
-//Special tiles
+// Special tiles
 $letter-double: #76a67c;
 $letter-double--hover: #6a9570;
 $letter-triple: #354f52;
@@ -31,21 +36,26 @@ $word-double--hover: #ca8f38;
 $word-triple: #9e2a2b;
 $word-triple--hover: #8e2627;
 
-//Semantic
+// Semantic
 $danger: #cc0000;
 $positive: #1fc600;
 $warning: #ffff66;
 
 :export {
-  //Backgrounds
+  // Backgrounds
   backgroundMain: $background-main;
-  backgroundBoard: $background-board;
+  backgroundMainLight: $background-main--light;
+  backgroundMainDark: $background-main--dark;
 
-  //Accent colors
+  // Board Backgrounds
+  boardBackground: $board-background;
+  boardBackgroundDark: $board-background--dark;
+
+  // Accent colors
   accent: $accent;
   accentHover: $accent--hover;
 
-  //Text
+  // Text
   text: $text;
   textLight: $text--light;
   textHover: $text--hover;
@@ -54,13 +64,13 @@ $warning: #ffff66;
   subTitle: $sub-title;
   subTitleLight: $sub-title--light;
 
-  //Tiles
+  // Tiles
   tile: $tile;
   tileHover: $tile--hover;
   tileText: $tile-text;
   tileTextHover: $tile-text--hover;
 
-  //Special tiles
+  // Special tiles
   letterDouble: $letter-double;
   letterDoubleHover: $letter-double--hover;
   letterTriple: $letter-triple;
@@ -70,7 +80,7 @@ $warning: #ffff66;
   wordTriple: $word-triple;
   wordTripleHover: $word-triple--hover;
 
-  //Semantic
+  // Semantic
   danger: $danger;
   positive: $positive;
   warning: $warning;

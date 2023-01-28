@@ -5,7 +5,8 @@ import { RadioInput } from './RadioInput';
 
 describe('RadioInput', () => {
   const defaultProps = {
-    id: 'Test id',
+    groupId: 'group-test-id',
+    optionId: 'option-test-id',
     label: 'Test label',
     value: 'Test value',
     name: 'Test name',
@@ -52,7 +53,7 @@ describe('RadioInput', () => {
       render(
         <RadioInput
           {...defaultProps}
-          id={id}
+          optionId={id}
           value={value}
           onChange={onChangeMock}
         />,

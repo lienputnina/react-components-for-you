@@ -19,12 +19,6 @@
   }
 
   input {
-    width: 100%;
-    min-width: 12.5rem;
-    max-width: 31.25rem;
-    padding: paddings.$inner-input-padding paddings.$xs;
-
-    @include mixins.focus-visible-outline();
-    @include mixins.rounded-border();
+    @include mixins.input-base();
   }
 }

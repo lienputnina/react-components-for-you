@@ -58,7 +58,7 @@ describe('RadioInputGroup', () => {
     );
     expect(screen.getByRole('radiogroup')).toHaveAttribute(
       'aria-activedescendant',
-      checkedOption.id,
+      `${defaultProps.id}_${checkedOption.id}`,
     );
   });
 
