@@ -66,6 +66,6 @@ WthALongOptionList.args = {
   ...Default.args,
   options: new Array(20).fill(0).map((_value, index) => ({
     id: index.toString(),
-    value: index.toString(),
+    value: `Value ${index.toString()}`,
   })),
 };
