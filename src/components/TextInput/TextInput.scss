@@ -1,0 +1,24 @@
+@use '../../styles/scss/typography.scss';
+@use '../../styles/scss/paddings.scss';
+@use '../../styles/scss/margins.scss';
+@use '../../styles/scss/colors.scss';
+@use '../../styles/scss/mixins.scss';
+@use '../../styles/scss/variables.module.scss';
+
+.#{variables.$prefix}-text-input {
+  display: flex;
+  flex-direction: column;
+  padding: paddings.$xs;
+  margin: margins.$xs;
+  color: colors.$text;
+
+  @include typography.text-regular();
+
+  label {
+    margin-bottom: margins.$xs;
+  }
+
+  input {
+    @include mixins.input-base();
+  }
+}
