@@ -146,7 +146,7 @@ describe('Dropdown', () => {
         });
       });
 
-      describe.only('With keyboard', () => {
+      describe('With keyboard', () => {
         it(`should open the option list when the user presses ${KeyCodes.ENTER}`, async () => {
           const user = userEvent.setup();
           render(<Dropdown {...defaultProps} />);
