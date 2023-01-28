@@ -8,6 +8,22 @@
   "files": [
     "dist/**"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lienputnina/react-components-for-you.git"
+  },
+  "keywords": [
+    "storybook",
+    "react",
+    "component",
+    "library"
+  ],
+  "author": "Liene Putniņa",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lienputnina/react-components-for-you.git/issues"
+  },
+  "homepage": "https://github.com/lienputnina/react-components-for-you.git#readme",
   "scripts": {
     "start": "yarn storybook",
     "lint": "eslint --fix \"./src/**/*.{js,jsx,ts,tsx,json}\"",
@@ -99,20 +115,8 @@
     "react": "18.x.x",
     "react-dom": "18.x.x"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/lienputnina/react-components-for-you.git"
-  },
-  "keywords": [
-    "storybook",
-    "react",
-    "component",
-    "library"
-  ],
-  "author": "Liene Putniņa",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/lienputnina/react-components-for-you.git/issues"
-  },
-  "homepage": "https://github.com/lienputnina/react-components-for-you.git#readme"
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  }
 }
