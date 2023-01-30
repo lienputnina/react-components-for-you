@@ -24,6 +24,6 @@
     "strict": true,
     "useUnknownInCatchVariables": true
   },
-  "include": ["src"],
+  "include": ["src", "src/rcl.stories.tsx"],
   "types": ["node", "jest", "@testing-library/jest-dom"]
 }

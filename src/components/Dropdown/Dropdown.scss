@@ -6,13 +6,10 @@
 @use '../../styles/scss/variables.module.scss';
 
 .#{variables.$prefix}-dropdown {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  padding: paddings.$xs;
-  margin: margins.$xs;
   color: colors.$text;
+  position: relative;
 
+  @include mixins.input-parent-base();
   @include typography.text-regular();
 
   label {
