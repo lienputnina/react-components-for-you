@@ -6,12 +6,9 @@
 @use '../../styles/scss/variables.module.scss';
 
 .#{variables.$prefix}-text-input {
-  display: flex;
-  flex-direction: column;
-  padding: paddings.$xs;
-  margin: margins.$xs;
   color: colors.$text;
 
+  @include mixins.input-wrapper();
   @include typography.text-regular();
 
   label {

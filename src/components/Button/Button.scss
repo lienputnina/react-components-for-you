@@ -8,7 +8,7 @@
 .#{variables.$prefix}-button {
   border: 0.1875rem solid colors.$accent;
   padding: paddings.$xs paddings.$sm;
-  margin: margins.$xs margins.$xs;
+  margin: margins.$xs margins.$sm margins.$sm 0;
 
   @include typography.text-regular();
   @include mixins.rounded-border();
