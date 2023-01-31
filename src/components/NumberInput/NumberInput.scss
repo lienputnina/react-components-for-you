@@ -8,7 +8,7 @@
 .#{variables.$prefix}-number-input {
   color: colors.$text;
 
-  @include mixins.input-parent-base();
+  @include mixins.input-wrapper();
   @include typography.text-regular();
 
   label {
