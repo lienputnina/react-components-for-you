@@ -27,24 +27,24 @@ react react-dom
 Import either the whole library or specific components
 
 ```jsx
-#Imports  the whole library
+// Imports the whole library
 import * from '@liene-putnina/react-components-for-you'; 
 
-#Imports  a single component
+// Imports a single component
 import { Button } from '@liene-putnina/react-components-for-you';
 ```
 
 Add them to your code
 
 ```tsx
-#The component without variants
+// The component without variants
 const MyComponent = () => {
   return (
     <Button>{children}<Button/>
   )
 };
 
-#The component with variants
+// The component with variants
  const MyComponent = () => {
     return (
       <Button variant={ButtonVariant.DANGER}>{children}<Button/>
