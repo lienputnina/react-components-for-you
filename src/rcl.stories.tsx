@@ -16,6 +16,11 @@ import {
 import { Title, TitleLevel, TitleProps } from './components/Title/Title';
 import { Text, TextProps, TextStyle } from './components/Text/Text';
 import { Header, HeaderProps } from './components/Header/Header';
+import {
+  Switch,
+  SwitchProps,
+  SwitchLabelPosition,
+} from './components/Switch/Switch';
 
 interface IndexStoryComponentProps {
   headerProps: HeaderProps;
@@ -26,6 +31,7 @@ interface IndexStoryComponentProps {
   numberInputProps: NumberInputProps;
   dropdownProps: DropdownProps;
   radioInputGroupProps: RadioInputGroupProps;
+  switchProps: SwitchProps;
 }
 
 const IndexStoryComponent: FC<IndexStoryComponentProps> = ({
@@ -37,6 +43,7 @@ const IndexStoryComponent: FC<IndexStoryComponentProps> = ({
   numberInputProps,
   dropdownProps,
   radioInputGroupProps,
+  switchProps,
 }: IndexStoryComponentProps) => {
   const [textInputValue, setTextInputValue] = useState(textInputProps.value);
   const [numberInputValue, setTNumberInputValue] = useState(
@@ -49,16 +56,20 @@ const IndexStoryComponent: FC<IndexStoryComponentProps> = ({
     radioInputGroupProps.checkedOptionId,
   );
 
+  const [isChecked, setIsChecked] = useState<boolean | undefined>(false);
+
   useEffect(() => {
     setTextInputValue(textInputProps.value);
     setTNumberInputValue(numberInputProps.value);
     setDropdownValue(dropdownProps.selectedOptionId);
     setRadioInputGroupValue(radioInputGroupProps.checkedOptionId);
+    setIsChecked(switchProps.isChecked);
   }, [
     textInputProps.value,
     numberInputProps.value,
     dropdownProps.selectedOptionId,
     radioInputGroupProps.checkedOptionId,
+    switchProps.isChecked,
   ]);
 
   return (
@@ -154,6 +165,35 @@ const IndexStoryComponent: FC<IndexStoryComponentProps> = ({
           }}
         />
       </div>
+      <div>
+        <Switch
+          {...switchProps}
+          isChecked={isChecked}
+          onChange={(newValue) => {
+            setIsChecked(newValue);
+            switchProps.onChange(newValue);
+          }}
+          labelPosition={SwitchLabelPosition.TOP}
+        />
+        <Switch
+          {...switchProps}
+          isChecked={isChecked}
+          onChange={(newValue) => {
+            setIsChecked(newValue);
+            switchProps.onChange(newValue);
+          }}
+          labelPosition={SwitchLabelPosition.LEFT}
+        />
+        <Switch
+          {...switchProps}
+          isChecked={isChecked}
+          onChange={(newValue) => {
+            setIsChecked(newValue);
+            switchProps.onChange(newValue);
+          }}
+          labelPosition={SwitchLabelPosition.RIGHT}
+        />
+      </div>
     </>
   );
 };
@@ -212,5 +252,15 @@ Index.args = {
       { id: 'option-id-3', value: 'option-value-3', label: 'Option 3' },
     ],
     onChange: action('Radio input group updated'),
+  },
+
+  switchProps: {
+    id: 'switch-id',
+    label: 'Switch',
+    labelPosition: SwitchLabelPosition.TOP,
+    positiveState: 'On',
+    negativeState: 'Off',
+    isChecked: false,
+    onChange: action('toggled switch'),
   },
 };

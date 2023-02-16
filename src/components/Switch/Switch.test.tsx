@@ -1,19 +1,18 @@
-import { fireEvent, render, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import { Switch } from './Switch';
-import { KeyCodes } from '../../constants/KeyCodes';
+import { Switch, SwitchProps, SwitchLabelPosition } from './Switch';
+import { KeyCodes, SPACE_SYMBOL } from '../../constants/KeyCodes';
 
 describe('Switch component', () => {
-  const defaultProps = {
-    id: 'Test id',
+  const defaultProps: SwitchProps = {
+    id: 'test-id',
     label: 'Test label',
-    value: 'true', // ?
-    isOpen: true,
+    isChecked: false,
     positiveState: 'On',
     negativeState: 'Off',
+    labelPosition: SwitchLabelPosition.TOP,
     onChange: () => {},
-    // some checked/not checked prop
   };
 
   it('should render without crashing', () => {
@@ -21,73 +20,99 @@ describe('Switch component', () => {
     expect(screen.getByRole('switch')).toBeInTheDocument();
   });
 
+  describe('Switch label positions', () => {
+    Object.entries(SwitchLabelPosition).forEach(
+      ([positionName, positionValue]) => {
+        it(`should have the provided label position ${positionName}`, () => {
+          const { container } = render(
+            <Switch {...defaultProps} labelPosition={positionValue} />,
+          );
+          expect(
+            container.getElementsByClassName(positionValue)[0],
+          ).toBeInTheDocument();
+        });
+      },
+    );
+  });
+
   describe('User events', () => {
-    it('should become focused on the switch container when the user tabs on it', async () => {
-      // check this IRL
-      const user = userEvent.setup();
-      render(<Switch {...defaultProps} />);
-      await user.tab();
-      expect(screen.getByRole('switch')).toHaveFocus();
+    describe('Switch focus state', () => {
+      it('should become focused when the user tabs on it', async () => {
+        const user = userEvent.setup();
+        render(<Switch {...defaultProps} />);
+        await user.tab();
+        expect(screen.getByRole('switch')).toHaveFocus();
+      });
+
+      it('should loose focus when the user tabs away from it', async () => {
+        const user = userEvent.setup();
+        render(<Switch {...defaultProps} />);
+        await user.tab();
+        await user.tab();
+        expect(screen.getByRole('switch')).not.toHaveFocus();
+      });
     });
+    describe('Toggling the switch', () => {
+      it('should call the onChange callback with the new value when the user clicks on the switch', async () => {
+        const user = userEvent.setup();
+        const onChangeMock = jest.fn();
+        const isChecked = true;
 
-    it('should loose focus on the switch container when the user tabs away from it', async () => {
-      const user = userEvent.setup();
-      render(<Switch {...defaultProps} />);
-      await user.tab();
-      await user.tab();
-      expect(screen.getByRole('switch')).not.toHaveFocus();
-    });
+        render(
+          <Switch
+            {...defaultProps}
+            onChange={onChangeMock}
+            isChecked={isChecked}
+          />,
+        );
+        expect(onChangeMock).not.toHaveBeenCalled();
 
-    // Do I need to test the state change?
-    it('should toggle switch state when the user clicks on it', () => {
-      // on - off
-    });
+        await user.click(screen.getByRole('switch'));
 
-    it('should toggle switch state when the user presses ENTER or SPACE', () => {
-      // on - off
-    });
+        expect(onChangeMock).toHaveBeenCalledWith(!isChecked);
+      });
 
-    it('should call the onChange callback with the current state value when the user clicks on the switch label', async () => {
-      const user = userEvent.setup();
-      const onChangeMock = jest.fn();
+      describe('With keyboard', () => {
+        it(`should call the onChange callback with the new value when the user presses ${SPACE_SYMBOL}`, async () => {
+          const user = userEvent.setup();
+          const onChangeMock = jest.fn();
+          const isChecked = true;
 
-      render(<Switch {...defaultProps} onChange={onChangeMock} />);
-      expect(onChangeMock).not.toHaveBeenCalled();
+          render(
+            <Switch
+              {...defaultProps}
+              onChange={onChangeMock}
+              isChecked={isChecked}
+            />,
+          );
+          expect(onChangeMock).not.toHaveBeenCalled();
 
-      await user.click(screen.getByText(defaultProps.label));
-      expect(onChangeMock).toHaveBeenCalled();
-    });
+          user.tab();
+          await user.click(screen.getByRole('switch'));
+          await user.keyboard(SPACE_SYMBOL);
+          expect(onChangeMock).toHaveBeenCalledWith(!isChecked);
+        });
 
-    it('should call the onChange callback with the current state value when the user clicks on the switch button', async () => {
-      const user = userEvent.setup();
-      const onChangeMock = jest.fn();
+        it(`should call the onChange callback with the new value when the user presses ${KeyCodes.ENTER}`, async () => {
+          const user = userEvent.setup();
+          const onChangeMock = jest.fn();
+          const isChecked = true;
 
-      render(<Switch {...defaultProps} onChange={onChangeMock} />);
-      expect(onChangeMock).not.toHaveBeenCalled();
+          render(
+            <Switch
+              {...defaultProps}
+              onChange={onChangeMock}
+              isChecked={isChecked}
+            />,
+          );
+          expect(onChangeMock).not.toHaveBeenCalled();
 
-      await user.click(screen.getByRole('switch'));
-      expect(onChangeMock).toHaveBeenCalled();
-    });
-
-    it(`should call the onChange callback with the current state value when the user tabs on the switch container and presses ${KeyCodes.SPACE}`, async () => {
-      const user = userEvent.setup();
-      const onChangeMock = jest.fn();
-
-      render(<Switch {...defaultProps} onChange={onChangeMock} />);
-      expect(onChangeMock).not.toHaveBeenCalled();
-
-      user.tab();
-
-      const switchTestComponent = screen.getByRole('switch');
-
-      // fireEvent.keyDown(switchTestComponent)
-      // fireEvent.keyDown(switchTestComponent), {
-      //   key: `${KeyCodes.SPACE}`,
-      //   code: 'Space'
-      // }
-      expect(onChangeMock).toHaveBeenCalled();
-      // some fireEvent magic with SPACEY space
-      // await user.click(screen.getByText(defaultProps.label));
+          user.tab();
+          await user.click(screen.getByRole('switch'));
+          await user.keyboard(`{${KeyCodes.ENTER}}`);
+          expect(onChangeMock).toHaveBeenCalledWith(!isChecked);
+        });
+      });
     });
   });
 });

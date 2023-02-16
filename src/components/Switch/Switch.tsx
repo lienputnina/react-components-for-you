@@ -1,58 +1,96 @@
-import type { FC } from 'react';
+import { FC, KeyboardEvent } from 'react';
+
+import classNames from 'classnames';
 
 import { KeyCodes } from '../../constants/KeyCodes';
 
-/* 
-WAI-ARIA source https://www.w3.org/WAI/ARIA/apg/example-index/switch/switch-checkbox.html
-Do I need a group of Switches?
-1.Do I need a value?
-2.Should I use these ideas? https://www.w3.org/WAI/ARIA/apg/example-index/switch/js/switch-checkbox.js
-3.What would onChange do in this component? Save state?
-4. How do I write a pr...
-5. Smth defining keyboard navigation
-*/
+import variables from '../../styles/scss/variables.module.scss';
+import './Switch.scss';
+
+const { prefix } = variables;
+
+export type SwitchOnChange = (newValue: boolean) => void;
+
+export type SwitchOnKeyDownParams = {
+  event: KeyboardEvent<HTMLDivElement>;
+  isChecked?: boolean;
+  onChange: SwitchOnChange;
+};
+
+export const SwitchOnKeyDown = ({
+  event,
+  isChecked,
+  onChange,
+}: SwitchOnKeyDownParams) => {
+  switch (event.code) {
+    case KeyCodes.SPACE:
+    case KeyCodes.ENTER:
+      onChange(!isChecked);
+      break;
+    default:
+      break;
+  }
+};
 
 export interface SwitchProps {
   id: string;
   label: string;
-  value: string;
+  isChecked?: boolean;
   positiveState: string;
   negativeState: string;
-  isOpen?: boolean; // change to mandatory later
-  onChange: (id: string, value: string) => void; // value or state?
-  // checked state var?
+  labelPosition: SwitchLabelPosition;
+  onChange: SwitchOnChange;
+}
+
+export enum SwitchLabelPosition {
+  TOP = 'top',
+  LEFT = 'left',
+  RIGHT = 'right',
 }
 
 export const Switch: FC<SwitchProps> = ({
   id,
   label,
-  value,
+  isChecked,
   positiveState,
   negativeState,
-  isOpen, // do smth with this one?
   onChange,
+  labelPosition = SwitchLabelPosition.TOP,
 }) => (
-  // aria-checked => isOpen: true : false
-  <div className="some-main-class">
-    <label htmlFor={id}>
-      <span className="label">{label}</span>
-      <input
-        id={id}
-        type="checkbox"
-        role="switch"
-        onChange={() => onChange(id, value)}
-      />
-      <span className="state">
-        <span className="container">
-          <span className="position" />
-        </span>
-        <span className="on" aria-hidden="true">
-          {positiveState}
-        </span>
-        <span className="off" aria-hidden="true">
-          {negativeState}
-        </span>
-      </span>
+  <div
+    className={classNames(`${prefix}-switch-toggle`, `${labelPosition}`)}
+    role="switch"
+    aria-checked={!!isChecked}
+    aria-labelledby={`${id}_label`}
+    tabIndex={0}
+    onClick={() => onChange(!isChecked)}
+    onChange={() => onChange(!isChecked)}
+    onKeyDown={(event) =>
+      SwitchOnKeyDown({
+        event,
+        isChecked,
+        onChange,
+      })
+    }
+  >
+    <label id={`${id}_label`} htmlFor={`${id}_switch-button`} className="label">
+      {label}
     </label>
+    <div
+      className={classNames('switch-button', {
+        'is-checked': isChecked,
+      })}
+      id={`${id}_switch-button`}
+    >
+      <span className="switch-handle">
+        <span className="switch-knob" />
+      </span>
+      <span className="switch-on" aria-hidden="true">
+        {positiveState}
+      </span>
+      <span className="switch-off" aria-hidden="true">
+        {negativeState}
+      </span>
+    </div>
   </div>
 );
