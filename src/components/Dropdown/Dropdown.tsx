@@ -32,7 +32,7 @@ export type OnKeyDownParams = {
   onChange: DropdownOnChange;
 };
 
-export const onKeyDown = ({
+export const dropdownOnKeyDown = ({
   event,
   options,
   isMenuOpen,
@@ -143,7 +143,7 @@ export const Dropdown: FC<DropdownProps> = ({
         aria-expanded={isMenuOpen}
         tabIndex={0}
         onKeyDown={(event) =>
-          onKeyDown({
+          dropdownOnKeyDown({
             event,
             options,
             isMenuOpen,

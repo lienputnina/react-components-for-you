@@ -4,7 +4,7 @@ import userEvent from '@testing-library/user-event';
 import { KeyCodes, SPACE_SYMBOL } from '../../constants/KeyCodes';
 
 import {
-  onKeyDown,
+  dropdownOnKeyDown,
   OnKeyDownParams,
   Dropdown,
   defaultPlaceholder,
@@ -354,7 +354,7 @@ describe('Dropdown', () => {
   });
 });
 
-describe('onKeyDown', () => {
+describe('dropdownOnKeyDown', () => {
   const defaultParams: OnKeyDownParams = {
     event: {
       preventDefault: jest.fn(),
@@ -373,7 +373,7 @@ describe('onKeyDown', () => {
 
     it('should call preventDefault() on the provided event', () => {
       expect(defaultParams.event.preventDefault).not.toHaveBeenCalled();
-      onKeyDown({
+      dropdownOnKeyDown({
         ...defaultParams,
         event: { ...defaultParams.event, code },
       });
@@ -383,7 +383,7 @@ describe('onKeyDown', () => {
     it('should call the provided setFocusedOptionIndex() with the provided focusedOptionIndex - 1 if focusedOptionIndex!=0', () => {
       const focusedOptionIndex = 2;
       expect(defaultParams.setFocusedOptionIndex).not.toHaveBeenCalled();
-      onKeyDown({
+      dropdownOnKeyDown({
         ...defaultParams,
         event: { ...defaultParams.event, code },
         focusedOptionIndex,
@@ -394,7 +394,7 @@ describe('onKeyDown', () => {
     });
 
     it('should not call the provided setFocusedOptionIndex() if the provided focusedOptionIndex=0', () => {
-      onKeyDown({
+      dropdownOnKeyDown({
         ...defaultParams,
         event: { ...defaultParams.event, code },
         focusedOptionIndex: 0,
@@ -408,7 +408,7 @@ describe('onKeyDown', () => {
 
     it('should call preventDefault() on the provided event', () => {
       expect(defaultParams.event.preventDefault).not.toHaveBeenCalled();
-      onKeyDown({
+      dropdownOnKeyDown({
         ...defaultParams,
         event: { ...defaultParams.event, code },
       });
@@ -418,7 +418,7 @@ describe('onKeyDown', () => {
     it('should call the provided setFocusedOptionIndex() with the provided focusedOptionIndex + 1 if focusedOptionIndex is not the last option index', () => {
       const focusedOptionIndex = 0;
       expect(defaultParams.setFocusedOptionIndex).not.toHaveBeenCalled();
-      onKeyDown({
+      dropdownOnKeyDown({
         ...defaultParams,
         event: { ...defaultParams.event, code },
         focusedOptionIndex,
@@ -429,7 +429,7 @@ describe('onKeyDown', () => {
     });
 
     it('should not call the provided setFocusedOptionIndex() if the provided focusedOptionIndex is the last option index', () => {
-      onKeyDown({
+      dropdownOnKeyDown({
         ...defaultParams,
         event: { ...defaultParams.event, code },
         focusedOptionIndex: defaultProps.options.length - 1,
@@ -443,7 +443,7 @@ describe('onKeyDown', () => {
 
     it('should call the provided setFocusedOptionIndex() with 0', () => {
       expect(defaultParams.setFocusedOptionIndex).not.toHaveBeenCalled();
-      onKeyDown({
+      dropdownOnKeyDown({
         ...defaultParams,
         event: { ...defaultParams.event, code },
       });
@@ -456,7 +456,7 @@ describe('onKeyDown', () => {
 
     it('should call the provided setFocusedOptionIndex() with the last option index', () => {
       expect(defaultParams.setFocusedOptionIndex).not.toHaveBeenCalled();
-      onKeyDown({
+      dropdownOnKeyDown({
         ...defaultParams,
         event: { ...defaultParams.event, code },
       });
@@ -472,7 +472,7 @@ describe('onKeyDown', () => {
     codes.forEach((code) => {
       it('should call the provided setIsMenuOpen() with true if the provided isMenuOpen=false', () => {
         expect(defaultParams.setIsMenuOpen).not.toHaveBeenCalled();
-        onKeyDown({
+        dropdownOnKeyDown({
           ...defaultParams,
           event: { ...defaultParams.event, code },
           isMenuOpen: false,
@@ -484,7 +484,7 @@ describe('onKeyDown', () => {
     codes.forEach((code) => {
       it('should call the provided setIsMenuOpen() with false if the provided isMenuOpen=true', () => {
         expect(defaultParams.setIsMenuOpen).not.toHaveBeenCalled();
-        onKeyDown({
+        dropdownOnKeyDown({
           ...defaultParams,
           event: { ...defaultParams.event, code },
           isMenuOpen: true,
@@ -497,7 +497,7 @@ describe('onKeyDown', () => {
       it('should call the provided onChange() with the focused option id and value', () => {
         const focusedOptionIndex = 1;
         expect(defaultParams.onChange).not.toHaveBeenCalled();
-        onKeyDown({
+        dropdownOnKeyDown({
           ...defaultParams,
           event: { ...defaultParams.event, code },
           isMenuOpen: true,
@@ -513,7 +513,7 @@ describe('onKeyDown', () => {
 
   describe('Any other key', () => {
     it('should do nothing and not crash', () => {
-      onKeyDown({
+      dropdownOnKeyDown({
         ...defaultParams,
         event: { ...defaultParams.event, code: '' },
         isMenuOpen: false,

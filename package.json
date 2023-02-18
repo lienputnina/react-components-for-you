@@ -36,7 +36,6 @@
     "test-coverage": "jest --coverage",
     "storybook": "start-storybook -p 6006 --ci",
     "copy-styles": "cp -r src/styles/scss dist/styles",
-    "prebuild": "yarn lint && yarn lint:ts && yarn test",
     "build": "rm -rf dist && yarn build:library && yarn build:types && yarn copy-styles",
     "build:library": "rollup -c",
     "build:types": "tsc --project tsconfig.build.json",
