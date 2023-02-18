@@ -166,7 +166,7 @@ const IndexStoryComponent: FC<IndexStoryComponentProps> = ({
           }}
         />
       </div>
-      <div>
+      <div style={{ maxWidth: '200px' }}>
         <Switch
           {...switchProps}
           isChecked={switchIsChecked}

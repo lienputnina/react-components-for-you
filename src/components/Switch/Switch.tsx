@@ -32,7 +32,8 @@ export const SwitchOnKeyDown = ({
   }
 };
 
-export interface SwitchProps {
+export interface SwitchProps
+  extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'> {
   id: string;
   label: string;
   isChecked?: boolean;
@@ -61,8 +62,10 @@ export const Switch: FC<SwitchProps> = ({
   negativeState = SwitchStateLabels.OFF,
   labelPosition = SwitchLabelPosition.TOP,
   onChange,
+  ...remainingProps
 }) => (
   <div
+    {...remainingProps}
     className={classNames(`${prefix}-switch-toggle`, labelPosition)}
     role="switch"
     aria-checked={!!isChecked}

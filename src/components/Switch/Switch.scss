@@ -13,8 +13,8 @@
 .#{variables.$prefix}-switch-toggle {
   display: flex;
   flex-direction: column;
-  padding: paddings.$xs;
-  margin: margins.$xs;
+  padding: paddings.$xs 0 paddings.$xs 0;
+  margin: margins.$xs 0 margins.$xs 0;
   color: colors.$text;
 
   @include mixins.focus-visible-outline();
@@ -35,6 +35,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: space-between;
 
     .label {
       margin-right: margins.$sm;
@@ -55,13 +56,14 @@
   .switch-button {
     display: flex;
     align-items: center;
+
     .switch-handle {
       display: inline-block;
       position: relative;
-      width: 2.5rem;
+      min-width: 2.5rem;
       height: 1.25rem;
       border-radius: 0.6875rem;
-      margin-right: margins.$xs;
+      margin-right: margins.$sm;
       background-color: colors.$accent;
       opacity: 0.6;
 
@@ -79,10 +81,12 @@
 
     .switch-off {
       display: inline;
+      width: 1.875rem;
     }
 
     .switch-on {
       display: none;
+      width: 1.875rem;
     }
 
     &.is-checked {
