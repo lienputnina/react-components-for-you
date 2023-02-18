@@ -55,15 +55,16 @@ const IndexStoryComponent: FC<IndexStoryComponentProps> = ({
   const [radioInputGroupValue, setRadioInputGroupValue] = useState(
     radioInputGroupProps.checkedOptionId,
   );
-
-  const [isChecked, setIsChecked] = useState<boolean | undefined>(false);
+  const [switchIsChecked, setSwitchIsChecked] = useState<boolean | undefined>(
+    false,
+  );
 
   useEffect(() => {
     setTextInputValue(textInputProps.value);
     setTNumberInputValue(numberInputProps.value);
     setDropdownValue(dropdownProps.selectedOptionId);
     setRadioInputGroupValue(radioInputGroupProps.checkedOptionId);
-    setIsChecked(switchProps.isChecked);
+    setSwitchIsChecked(switchProps.isChecked);
   }, [
     textInputProps.value,
     numberInputProps.value,
@@ -168,27 +169,27 @@ const IndexStoryComponent: FC<IndexStoryComponentProps> = ({
       <div>
         <Switch
           {...switchProps}
-          isChecked={isChecked}
+          isChecked={switchIsChecked}
           onChange={(newValue) => {
-            setIsChecked(newValue);
+            setSwitchIsChecked(newValue);
             switchProps.onChange(newValue);
           }}
           labelPosition={SwitchLabelPosition.TOP}
         />
         <Switch
           {...switchProps}
-          isChecked={isChecked}
+          isChecked={switchIsChecked}
           onChange={(newValue) => {
-            setIsChecked(newValue);
+            setSwitchIsChecked(newValue);
             switchProps.onChange(newValue);
           }}
           labelPosition={SwitchLabelPosition.LEFT}
         />
         <Switch
           {...switchProps}
-          isChecked={isChecked}
+          isChecked={switchIsChecked}
           onChange={(newValue) => {
-            setIsChecked(newValue);
+            setSwitchIsChecked(newValue);
             switchProps.onChange(newValue);
           }}
           labelPosition={SwitchLabelPosition.RIGHT}
@@ -253,7 +254,6 @@ Index.args = {
     ],
     onChange: action('Radio input group updated'),
   },
-
   switchProps: {
     id: 'switch-id',
     label: 'Switch',
