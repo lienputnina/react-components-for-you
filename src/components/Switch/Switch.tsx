@@ -36,10 +36,15 @@ export interface SwitchProps {
   id: string;
   label: string;
   isChecked?: boolean;
-  positiveState: string;
-  negativeState: string;
-  labelPosition: SwitchLabelPosition;
+  positiveState?: string;
+  negativeState?: string;
+  labelPosition?: SwitchLabelPosition;
   onChange: SwitchOnChange;
+}
+
+export enum SwitchStateLabels {
+  ON = 'On',
+  OFF = 'Off',
 }
 
 export enum SwitchLabelPosition {
@@ -52,10 +57,10 @@ export const Switch: FC<SwitchProps> = ({
   id,
   label,
   isChecked,
-  positiveState,
-  negativeState,
-  onChange,
+  positiveState = SwitchStateLabels.ON,
+  negativeState = SwitchStateLabels.OFF,
   labelPosition = SwitchLabelPosition.TOP,
+  onChange,
 }) => (
   <div
     className={classNames(`${prefix}-switch-toggle`, `${labelPosition}`)}

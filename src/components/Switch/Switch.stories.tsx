@@ -82,14 +82,18 @@ export const Default = TemplateSingle.bind({});
 Default.args = {
   id: 'switch-id',
   label: 'Test label',
-  labelPosition: SwitchLabelPosition.TOP,
-  positiveState: 'On',
-  negativeState: 'Off',
 };
 
 export const MultipleSwitches = TemplateMultiple.bind({});
 MultipleSwitches.args = {
   ...Default.args,
+};
+
+export const WithCustomStateLabels = TemplateSingle.bind({});
+WithCustomStateLabels.args = {
+  ...Default.args,
+  positiveState: 'Switch on',
+  negativeState: 'Switch off',
 };
 
 export const LabelTop = TemplateSingle.bind({});
@@ -101,7 +105,6 @@ LabelTop.args = {
 export const LabelLeft = TemplateSingle.bind({});
 LabelLeft.args = {
   ...Default.args,
-
   labelPosition: SwitchLabelPosition.LEFT,
 };
 
