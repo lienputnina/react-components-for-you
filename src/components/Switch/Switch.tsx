@@ -63,13 +63,12 @@ export const Switch: FC<SwitchProps> = ({
   onChange,
 }) => (
   <div
-    className={classNames(`${prefix}-switch-toggle`, `${labelPosition}`)}
+    className={classNames(`${prefix}-switch-toggle`, labelPosition)}
     role="switch"
     aria-checked={!!isChecked}
     aria-labelledby={`${id}_label`}
     tabIndex={0}
     onClick={() => onChange(!isChecked)}
-    onChange={() => onChange(!isChecked)}
     onKeyDown={(event) =>
       SwitchOnKeyDown({
         event,
