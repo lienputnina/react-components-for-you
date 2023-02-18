@@ -53,23 +53,24 @@ describe('Switch component', () => {
       });
     });
     describe('Toggling the switch', () => {
-      it('should call the onChange callback with the new value when the user clicks on the switch', async () => {
-        const user = userEvent.setup();
-        const onChangeMock = jest.fn();
-        const isChecked = true;
+      describe('With mouse', () => {
+        it('should call the onChange callback with the new value when the user clicks on the switch', async () => {
+          const user = userEvent.setup();
+          const onChangeMock = jest.fn();
+          const isChecked = true;
 
-        render(
-          <Switch
-            {...defaultProps}
-            onChange={onChangeMock}
-            isChecked={isChecked}
-          />,
-        );
-        expect(onChangeMock).not.toHaveBeenCalled();
+          render(
+            <Switch
+              {...defaultProps}
+              onChange={onChangeMock}
+              isChecked={isChecked}
+            />,
+          );
+          expect(onChangeMock).not.toHaveBeenCalled();
 
-        await user.click(screen.getByRole('switch'));
-
-        expect(onChangeMock).toHaveBeenCalledWith(!isChecked);
+          await user.click(screen.getByRole('switch'));
+          expect(onChangeMock).toHaveBeenCalledWith(!isChecked);
+        });
       });
 
       describe('With keyboard', () => {
@@ -88,7 +89,6 @@ describe('Switch component', () => {
           expect(onChangeMock).not.toHaveBeenCalled();
 
           user.tab();
-          await user.click(screen.getByRole('switch'));
           await user.keyboard(SPACE_SYMBOL);
           expect(onChangeMock).toHaveBeenCalledWith(!isChecked);
         });
@@ -108,7 +108,6 @@ describe('Switch component', () => {
           expect(onChangeMock).not.toHaveBeenCalled();
 
           user.tab();
-          await user.click(screen.getByRole('switch'));
           await user.keyboard(`{${KeyCodes.ENTER}}`);
           expect(onChangeMock).toHaveBeenCalledWith(!isChecked);
         });
