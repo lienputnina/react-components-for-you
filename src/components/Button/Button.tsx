@@ -18,11 +18,12 @@ export interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
 export const Button: FC<ButtonProps> = ({
   children,
   variant = ButtonVariant.PRIMARY,
+  className,
   ...remainingProps
 }) => (
   <button
     type="button"
-    className={classNames(`${prefix}-button`, `${variant}`)}
+    className={classNames(`${prefix}-button`, `${variant}`, className)}
     {...remainingProps}
   >
     {children}

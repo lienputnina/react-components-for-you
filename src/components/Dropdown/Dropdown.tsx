@@ -92,7 +92,11 @@ export const dropdownOnKeyDown = ({
 
 export const defaultPlaceholder = 'Select option';
 
-export interface DropdownProps {
+export interface DropdownProps
+  extends Omit<
+    React.HTMLAttributes<HTMLDivElement>,
+    'onChange' | 'onMouseDown'
+  > {
   id: string;
   label: string;
   placeholderText?: string;
@@ -108,6 +112,8 @@ export const Dropdown: FC<DropdownProps> = ({
   options,
   onChange,
   selectedOptionId,
+  className,
+  ...remainingProps
 }: DropdownProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [focusedOptionIndex, setFocusedOptionIndex] = useState(0);
@@ -125,7 +131,10 @@ export const Dropdown: FC<DropdownProps> = ({
   const focusedOptionId = options[focusedOptionIndex]?.id;
 
   return (
-    <div className={classNames(`${prefix}-dropdown`)}>
+    <div
+      className={classNames(`${prefix}-dropdown`, className)}
+      {...remainingProps}
+    >
       <label id={`${id}_label`} htmlFor={`${id}_dropdown`}>
         {label}
       </label>
@@ -159,12 +168,15 @@ export const Dropdown: FC<DropdownProps> = ({
         {options.find((option) => option.id === selectedOptionId)?.value ||
           placeholderText}
       </div>
-
       <ul
         id={`${id}_menu`}
-        className={classNames('menu', {
-          hidden: !isMenuOpen,
-        })}
+        className={classNames(
+          'menu',
+          {
+            hidden: !isMenuOpen,
+          },
+          className,
+        )}
         role="listbox"
       >
         {options.map((option) => (
@@ -175,7 +187,7 @@ export const Dropdown: FC<DropdownProps> = ({
             id={`${id}_${option.id}`}
             value={option.value}
             aria-selected={option.id === focusedOptionId}
-            onMouseDown={(event) => {
+            onMouseDown={(event: React.MouseEvent) => {
               event.preventDefault();
               onChange(option.id, option.value);
               setIsMenuOpen(false);

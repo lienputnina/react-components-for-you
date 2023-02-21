@@ -20,13 +20,14 @@ export interface TitleProps extends React.HTMLProps<HTMLHeadingElement> {
 export const Title: FC<TitleProps> = ({
   level = TitleLevel.ONE,
   children,
+  className,
   ...remainingProps
 }: TitleProps) => {
   switch (level) {
     case TitleLevel.TWO:
       return (
         <h2
-          className={classNames(`${prefix}-title`, 'heading-two')}
+          className={classNames(`${prefix}-title`, 'heading-two', className)}
           {...remainingProps}
         >
           {children}
@@ -36,7 +37,7 @@ export const Title: FC<TitleProps> = ({
     case TitleLevel.THREE:
       return (
         <h3
-          className={classNames(`${prefix}-title`, 'heading-three')}
+          className={classNames(`${prefix}-title`, 'heading-three', className)}
           {...remainingProps}
         >
           {children}
@@ -46,7 +47,7 @@ export const Title: FC<TitleProps> = ({
     case TitleLevel.FOUR:
       return (
         <h4
-          className={classNames(`${prefix}-title`, 'heading-four')}
+          className={classNames(`${prefix}-title`, 'heading-four', className)}
           {...remainingProps}
         >
           {children}
@@ -57,7 +58,7 @@ export const Title: FC<TitleProps> = ({
     default:
       return (
         <h1
-          className={classNames(`${prefix}-title`, 'heading-one')}
+          className={classNames(`${prefix}-title`, 'heading-one', className)}
           {...remainingProps}
         >
           {children}
