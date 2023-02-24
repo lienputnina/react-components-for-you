@@ -1,19 +1,21 @@
 @use '../../styles/scss/colors.scss';
-@use '../../styles/scss/variables.module.scss';
 @use '../../styles/scss/paddings.scss';
+@use '../../styles/scss/elevations.scss';
+@use '../../styles/scss/variables.module.scss';
 
 $header-height: 4rem;
 $logo-size: 2.5rem;
 
 .#{variables.$prefix}-header {
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   width: 100%;
   height: $header-height;
   padding: paddings.$xl;
-
   background-color: colors.$board-background;
+
+  @include elevations.level-1();
 
   #logo {
     position: absolute;
@@ -21,7 +23,7 @@ $logo-size: 2.5rem;
     width: $logo-size;
 
     &:hover {
-      box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.15);
+      @include elevations.level-1();
     }
   }
 }

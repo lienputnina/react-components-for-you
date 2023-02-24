@@ -2,6 +2,8 @@
 @use '../../styles/scss/paddings.scss';
 @use '../../styles/scss/margins.scss';
 @use '../../styles/scss/colors.scss';
+@use '../../styles/scss/elevations.scss';
+
 @use '../../styles/scss/mixins.scss';
 @use '../../styles/scss/variables.module.scss';
 
@@ -9,6 +11,7 @@
   border: 0.1875rem solid colors.$accent;
   padding: paddings.$xs paddings.$sm;
   margin: margins.$xs margins.$sm margins.$sm 0;
+  @include elevations.level-1();
 
   @include typography.text-regular();
   @include mixins.rounded-border();
@@ -20,6 +23,7 @@
     &:hover {
       border-color: colors.$accent--hover;
       background-color: colors.$accent--hover;
+      @include elevations.level-2();
     }
   }
 
@@ -29,6 +33,7 @@
     &:hover {
       border-color: colors.$accent--hover;
       color: colors.$accent--hover;
+      @include elevations.level-2();
     }
   }
 }

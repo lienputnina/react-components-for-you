@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import type { FC } from 'react';
 
-import './MarginExample.scss';
+import './MarginsExample.scss';
 
 export enum MarginSize {
   EXTRA_SMALL = 'xs',
@@ -11,7 +11,7 @@ export enum MarginSize {
   EXTRA_LARGE = 'xl',
 }
 
-export interface MarginExampleProps {
+export interface MarginsExampleProps {
   size: MarginSize;
 }
 
@@ -38,7 +38,7 @@ const renderMarginExampleContent = (size: MarginSize) => (
   </div>
 );
 
-export const MarginExample: FC<MarginExampleProps> = ({ size }) => (
+export const MarginsExample: FC<MarginsExampleProps> = ({ size }) => (
   <main className="margin-main">
     <div>{renderMarginExampleContent(size)}</div>
     <div>{renderMarginExampleContent(size)}</div>

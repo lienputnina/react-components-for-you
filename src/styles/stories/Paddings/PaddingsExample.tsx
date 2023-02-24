@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import type { FC } from 'react';
 
-import './PaddingExample.scss';
+import './PaddingsExample.scss';
 
 export enum PaddingSize {
   EXTRA_SMALL = 'xs',
@@ -11,7 +11,7 @@ export enum PaddingSize {
   EXTRA_LARGE = 'xl',
 }
 
-export interface PaddingExampleProps {
+export interface PaddingsExampleProps {
   size: PaddingSize;
 }
 
@@ -32,7 +32,7 @@ const getPaddingSizeValue = (size: PaddingSize) => {
   }
 };
 
-export const PaddingExample: FC<PaddingExampleProps> = ({ size }) => (
+export const PaddingsExample: FC<PaddingsExampleProps> = ({ size }) => (
   <div className={classNames('padding', `padding-${size}`)}>
     <p className="padding-text">{`Padding size: ${getPaddingSizeValue(
       size,

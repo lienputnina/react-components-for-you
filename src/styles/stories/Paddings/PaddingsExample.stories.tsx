@@ -1,26 +1,26 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { WithGrayBackground } from '../../../hoc/WithGrayBackground';
-import { PaddingExample, PaddingSize } from './PaddingExample';
+import { PaddingsExample, PaddingSize } from './PaddingsExample';
 
 export default {
   title: 'Styles/Paddings',
-  component: PaddingExample,
+  component: PaddingsExample,
   argTypes: { size: { control: 'select' } },
-} as ComponentMeta<typeof PaddingExample>;
+} as ComponentMeta<typeof PaddingsExample>;
 
-const Template: ComponentStory<typeof PaddingExample> = (args) => (
+const Template: ComponentStory<typeof PaddingsExample> = (args) => (
   <WithGrayBackground>
-    <PaddingExample {...args} />
+    <PaddingsExample {...args} />
   </WithGrayBackground>
 );
 
-const TemplateAll: ComponentStory<typeof PaddingExample> = (args) => (
+const TemplateAll: ComponentStory<typeof PaddingsExample> = (args) => (
   <WithGrayBackground>
-    <PaddingExample {...args} size={PaddingSize.EXTRA_SMALL} />
-    <PaddingExample {...args} size={PaddingSize.SMALL} />
-    <PaddingExample {...args} size={PaddingSize.MEDIUM} />
-    <PaddingExample {...args} size={PaddingSize.LARGE} />
-    <PaddingExample {...args} size={PaddingSize.EXTRA_LARGE} />
+    <PaddingsExample {...args} size={PaddingSize.EXTRA_SMALL} />
+    <PaddingsExample {...args} size={PaddingSize.SMALL} />
+    <PaddingsExample {...args} size={PaddingSize.MEDIUM} />
+    <PaddingsExample {...args} size={PaddingSize.LARGE} />
+    <PaddingsExample {...args} size={PaddingSize.EXTRA_LARGE} />
   </WithGrayBackground>
 );
 
