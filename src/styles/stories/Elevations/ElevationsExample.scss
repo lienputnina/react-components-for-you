@@ -1,4 +1,4 @@
-@use '../../scss/elevation.scss';
+@use '../../scss/elevations.scss';
 @use '../../scss/margins.scss';
 @use '../../scss/paddings.scss';
 @use '../../scss/colors.scss';
@@ -13,19 +13,19 @@
   @include mixins.rounded-border();
 
   &-level-1 {
-    @include elevation.level-1();
+    @include elevations.level-1();
   }
 
   &-level-2 {
-    @include elevation.level-2();
+    @include elevations.level-2();
   }
 
   &-level-3 {
-    @include elevation.level-3();
+    @include elevations.level-3();
   }
 
   &-level-4 {
-    @include elevation.level-4();
+    @include elevations.level-4();
   }
 
   &-text {

@@ -2,6 +2,7 @@
 @use '../../styles/scss/paddings.scss';
 @use '../../styles/scss/margins.scss';
 @use '../../styles/scss/colors.scss';
+@use '../../styles/scss/elevations.scss';
 @use '../../styles/scss/mixins.scss';
 @use '../../styles/scss/variables.module.scss';
 
@@ -18,6 +19,7 @@
 
   .dropdown {
     @include mixins.input-base();
+    @include elevations.level-1();
   }
 
   .menu {
@@ -30,6 +32,7 @@
 
     @include mixins.input-width();
     @include mixins.rounded-border();
+    @include elevations.level-2();
 
     &.hidden {
       visibility: hidden;

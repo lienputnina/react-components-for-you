@@ -1,26 +1,26 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { WithGrayBackground } from '../../../hoc/WithGrayBackground';
-import { MarginExample, MarginSize } from './MarginExample';
+import { MarginsExample, MarginSize } from './MarginsExample';
 
 export default {
   title: 'Styles/Margins',
-  component: MarginExample,
+  component: MarginsExample,
   argTypes: { size: { control: 'select' } },
-} as ComponentMeta<typeof MarginExample>;
+} as ComponentMeta<typeof MarginsExample>;
 
-const Template: ComponentStory<typeof MarginExample> = (args) => (
+const Template: ComponentStory<typeof MarginsExample> = (args) => (
   <WithGrayBackground>
-    <MarginExample {...args} />
+    <MarginsExample {...args} />
   </WithGrayBackground>
 );
 
-const TemplateAll: ComponentStory<typeof MarginExample> = (args) => (
+const TemplateAll: ComponentStory<typeof MarginsExample> = (args) => (
   <WithGrayBackground>
-    <MarginExample {...args} size={MarginSize.EXTRA_SMALL} />
-    <MarginExample {...args} size={MarginSize.SMALL} />
-    <MarginExample {...args} size={MarginSize.MEDIUM} />
-    <MarginExample {...args} size={MarginSize.LARGE} />
-    <MarginExample {...args} size={MarginSize.EXTRA_LARGE} />
+    <MarginsExample {...args} size={MarginSize.EXTRA_SMALL} />
+    <MarginsExample {...args} size={MarginSize.SMALL} />
+    <MarginsExample {...args} size={MarginSize.MEDIUM} />
+    <MarginsExample {...args} size={MarginSize.LARGE} />
+    <MarginsExample {...args} size={MarginSize.EXTRA_LARGE} />
   </WithGrayBackground>
 );
 

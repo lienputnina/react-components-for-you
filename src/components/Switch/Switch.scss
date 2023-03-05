@@ -2,6 +2,7 @@
 @use '../../styles/scss/paddings.scss';
 @use '../../styles/scss/margins.scss';
 @use '../../styles/scss/colors.scss';
+@use '../../styles/scss/elevations.scss';
 @use '../../styles/scss/mixins.scss';
 @use '../../styles/scss/variables.module.scss';
 
@@ -66,6 +67,11 @@
       margin-right: margins.$sm;
       background-color: colors.$accent;
       opacity: 0.6;
+      @include elevations.level-1();
+
+      &:hover {
+        @include elevations.level-2();
+      }
 
       .switch-knob {
         display: inline-block;

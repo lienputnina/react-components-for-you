@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import type { FC } from 'react';
 
-import './ElevationExample.scss';
+import './ElevationsExample.scss';
 
 export enum ElevationLevel {
   ONE = 'level-1',
@@ -10,7 +10,7 @@ export enum ElevationLevel {
   FOUR = 'level-4',
 }
 
-export interface ElevationExampleProps {
+export interface ElevationsExampleProps {
   level: ElevationLevel;
 }
 
@@ -29,7 +29,7 @@ const getElevationValue = (level: ElevationLevel) => {
   }
 };
 
-export const ElevationExample: FC<ElevationExampleProps> = ({ level }) => (
+export const ElevationsExample: FC<ElevationsExampleProps> = ({ level }) => (
   <div className={classNames('elevation', `elevation-${level}`)}>
     <p className="elevation-text">{`Elevation level: ${getElevationValue(
       level,
