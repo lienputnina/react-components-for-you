@@ -27,7 +27,7 @@ export default [
       image(),
       postcss({
         extract: true,
-        modules: true,
+        modules: false,
         minimize: true,
         sourceMap: true,
       }),
