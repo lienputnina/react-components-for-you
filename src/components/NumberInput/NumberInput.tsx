@@ -6,7 +6,8 @@ import './NumberInput.scss';
 
 const { prefix } = variables;
 
-export interface NumberInputProps {
+export interface NumberInputProps
+  extends Omit<React.HTMLProps<HTMLDivElement>, 'onChange'> {
   id: string;
   name: string;
   label: string;
@@ -24,9 +25,13 @@ export const NumberInput: FC<NumberInputProps> = ({
   min,
   max,
   onChange,
+  className,
   ...remainingProps
 }) => (
-  <div className={classNames(`${prefix}-number-input`)}>
+  <div
+    className={classNames(`${prefix}-number-input`, className)}
+    {...remainingProps}
+  >
     <label id={`${id}-label`} htmlFor={`${id}-input`}>
       {label}
     </label>
@@ -39,7 +44,6 @@ export const NumberInput: FC<NumberInputProps> = ({
       max={max}
       aria-labelledby={`${id}-label`}
       onChange={(event) => onChange(parseInt(event.target.value, 10))}
-      {...remainingProps}
     />
   </div>
 );

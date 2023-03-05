@@ -6,7 +6,8 @@ import './TextInput.scss';
 
 const { prefix } = variables;
 
-export interface TextInputProps {
+export interface TextInputProps
+  extends Omit<React.HTMLProps<HTMLDivElement>, 'onChange'> {
   id: string;
   name: string;
   label: string;
@@ -20,9 +21,13 @@ export const TextInput: FC<TextInputProps> = ({
   label,
   value,
   onChange,
+  className,
   ...remainingProps
 }) => (
-  <div className={classNames(`${prefix}-text-input`)}>
+  <div
+    className={classNames(`${prefix}-text-input`, className)}
+    {...remainingProps}
+  >
     <label id={`${id}-label`} htmlFor={`${id}-input`}>
       {label}
     </label>
@@ -33,7 +38,6 @@ export const TextInput: FC<TextInputProps> = ({
       value={value}
       aria-labelledby={`${id}-label`}
       onChange={(event) => onChange(event.target.value)}
-      {...remainingProps}
     />
   </div>
 );

@@ -18,10 +18,11 @@ export interface TextProps extends React.HTMLProps<HTMLParagraphElement> {
 export const Text: FC<TextProps> = ({
   textStyle = TextStyle.REGULAR,
   children,
+  className,
   ...remainingProps
 }) => (
   <p
-    className={classNames(`${prefix}-text`, `${textStyle}`)}
+    className={classNames(`${prefix}-text`, `${textStyle}`, className)}
     {...remainingProps}
   >
     {children}

@@ -1,4 +1,4 @@
-import type { FC } from 'react';
+import type { FC, HTMLAttributes } from 'react';
 import classNames from 'classnames';
 
 import variables from '../../styles/scss/variables.module.scss';
@@ -11,18 +11,19 @@ export enum ButtonVariant {
   SECONDARY = 'secondary',
 }
 
-export interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
+export interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
   variant?: ButtonVariant;
 }
 
 export const Button: FC<ButtonProps> = ({
   children,
   variant = ButtonVariant.PRIMARY,
+  className,
   ...remainingProps
 }) => (
   <button
     type="button"
-    className={classNames(`${prefix}-button`, `${variant}`)}
+    className={classNames(`${prefix}-button`, `${variant}`, className)}
     {...remainingProps}
   >
     {children}

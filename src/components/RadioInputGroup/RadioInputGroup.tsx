@@ -14,7 +14,8 @@ export type Option = {
   value: string;
 };
 
-export interface RadioInputGroupProps {
+export interface RadioInputGroupProps
+  extends Omit<React.HTMLProps<HTMLDivElement>, 'onChange'> {
   id: string;
   label: string;
   options: Option[];
@@ -72,9 +73,14 @@ export const RadioInputGroup: FC<RadioInputGroupProps> = ({
   options,
   checkedOptionId,
   onChange,
+  className,
   ...remainingProps
 }) => (
-  <div id={id} className={classNames(`${prefix}-radio-input-group`)}>
+  <div
+    id={id}
+    className={classNames(`${prefix}-radio-input-group`, className)}
+    {...remainingProps}
+  >
     <div id={`${id}_label`}>{label}</div>
     <ul
       role="radiogroup"
@@ -88,7 +94,6 @@ export const RadioInputGroup: FC<RadioInputGroupProps> = ({
       onKeyDown={(event) =>
         onKeyDown(event, options, onChange, checkedOptionId)
       }
-      {...remainingProps}
     >
       {options.map((option) => (
         <RadioInput
