@@ -1,6 +1,7 @@
 import {
   Dispatch,
   FC,
+  HTMLAttributes,
   KeyboardEvent,
   SetStateAction,
   useEffect,
@@ -93,10 +94,7 @@ export const dropdownOnKeyDown = ({
 export const defaultPlaceholder = 'Select option';
 
 export interface DropdownProps
-  extends Omit<
-    React.HTMLAttributes<HTMLDivElement>,
-    'onChange' | 'onMouseDown'
-  > {
+  extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange'> {
   id: string;
   label: string;
   placeholderText?: string;
@@ -187,7 +185,7 @@ export const Dropdown: FC<DropdownProps> = ({
             id={`${id}_${option.id}`}
             value={option.value}
             aria-selected={option.id === focusedOptionId}
-            onMouseDown={(event: React.MouseEvent) => {
+            onMouseDown={(event) => {
               event.preventDefault();
               onChange(option.id, option.value);
               setIsMenuOpen(false);

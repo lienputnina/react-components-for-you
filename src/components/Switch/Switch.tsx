@@ -1,4 +1,4 @@
-import { FC, KeyboardEvent } from 'react';
+import { FC, HTMLAttributes, KeyboardEvent } from 'react';
 
 import classNames from 'classnames';
 
@@ -33,7 +33,7 @@ export const SwitchOnKeyDown = ({
 };
 
 export interface SwitchProps
-  extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'> {
+  extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange'> {
   id: string;
   label: string;
   isChecked?: boolean;
