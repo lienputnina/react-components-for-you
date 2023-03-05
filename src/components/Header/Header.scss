@@ -21,6 +21,7 @@ $logo-size: 2.5rem;
     position: absolute;
     left: paddings.$xl;
     width: $logo-size;
+    overflow: hidden;
 
     &:hover {
       @include elevations.level-1();
