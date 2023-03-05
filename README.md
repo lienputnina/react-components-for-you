@@ -4,7 +4,7 @@
 
 A [React](https://reactjs.org/) component library showcased with [Storybook](https://storybook.js.org/).
 
-## See the components [here](https://react-components-storybook.netlify.app/)
+## See the components [here](https://react-components-storybook-lv.netlify.app/)
 
 **This is a WIP**.
 
