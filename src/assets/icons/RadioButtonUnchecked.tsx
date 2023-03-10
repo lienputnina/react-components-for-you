@@ -1,11 +1,11 @@
 import type { FC } from 'react';
 
-interface RadioButtonUncheckedProps {
-  size?: number;
-}
+import { IconsProps } from '../types/iconsProps';
+import { IconStats } from '../types/iconsStats';
 
-export const RadioButtonUnChecked: FC<RadioButtonUncheckedProps> = ({
+export const RadioButtonUnChecked: FC<IconsProps> = ({
   size = 8,
+  fill = IconStats.FILL,
 }) => (
   <svg
     version="1.0"
@@ -17,7 +17,7 @@ export const RadioButtonUnChecked: FC<RadioButtonUncheckedProps> = ({
   >
     <g
       transform="translate(0.000000,67.000000) scale(0.100000,-0.100000)"
-      fill="#000000"
+      fill={fill}
       stroke="none"
     >
       <path

@@ -1,0 +1,27 @@
+@mixin fontProps {
+  font-size: 1.125rem;
+  line-height: 1.125rem;
+  margin: 0.25rem;
+}
+
+@mixin icon-group-margin {
+  margin-bottom: 4px;
+}
+
+// @mixin titleProps {
+//   fontSize: '18px', lineHeight: '18px', margin: '4px'
+// }
+
+.icons-main {
+  @include fontProps();
+}
+
+.action-icons-container {
+  @include icon-group-margin();
+}
+
+// .action-icons-container Title {
+//   font-size: 18px;
+//   line-height: 18px;
+//   margin: 4px;
+// }

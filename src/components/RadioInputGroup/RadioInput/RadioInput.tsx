@@ -1,10 +1,7 @@
 import classNames from 'classnames';
 import type { FC } from 'react';
 
-import {
-  RadioButtonChecked,
-  RadioButtonUnChecked,
-} from '../../../assets/icons';
+import { RadioButtonChecked, RadioButtonUnChecked } from '../../../assets';
 
 import variables from '../../../styles/scss/variables.module.scss';
 import './RadioInput.scss';
