@@ -1,9 +1,9 @@
 import type { FC } from 'react';
 
-import { IconsProps } from '../types/iconsProps';
-import { IconStats } from '../types/iconsStats';
+import { IconProps } from '../types/iconProps';
+import { IconStats } from '../types/iconStats';
 
-export const RadioButtonChecked: FC<IconsProps> = ({
+export const RadioButtonChecked: FC<IconProps> = ({
   size = 8,
   fill = IconStats.FILL,
 }) => (

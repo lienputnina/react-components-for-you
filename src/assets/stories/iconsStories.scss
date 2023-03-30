@@ -1,27 +1,9 @@
-@mixin fontProps {
-  font-size: 1.125rem;
-  line-height: 1.125rem;
-  margin: 0.25rem;
+$grid-gap: 0.5rem;
+$grid-item-size: 2rem;
+
+.icon-container {
+  display: grid;
+  gap: $grid-gap $grid-gap;
+  grid-template-columns: repeat(9, $grid-item-size);
+  grid-template-rows: $grid-item-size;
 }
-
-@mixin icon-group-margin {
-  margin-bottom: 4px;
-}
-
-// @mixin titleProps {
-//   fontSize: '18px', lineHeight: '18px', margin: '4px'
-// }
-
-.icons-main {
-  @include fontProps();
-}
-
-.action-icons-container {
-  @include icon-group-margin();
-}
-
-// .action-icons-container Title {
-//   font-size: 18px;
-//   line-height: 18px;
-//   margin: 4px;
-// }

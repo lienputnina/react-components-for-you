@@ -1,7 +1,7 @@
 import type { FC } from 'react';
 
-import { IconProps } from '../types/iconsProps';
-import { IconStats } from '../types/iconsStats';
+import { IconProps } from '../types/iconProps';
+import { IconStats } from '../types/iconStats';
 
 export const Help: FC<IconProps> = ({
   size = IconStats.SIZE,

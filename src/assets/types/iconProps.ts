@@ -1,4 +1,4 @@
-export type IconsProps = {
+export type IconProps = {
   size?: number;
   fill?: string;
 };
