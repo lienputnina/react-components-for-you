@@ -2,22 +2,11 @@
 @use '../../styles/scss/paddings.scss';
 @use '../../styles/scss/elevation.scss';
 @use '../../styles/scss/colors.scss';
-// @use '../../styles/scss/mixins.scss';
 @use '../../styles/scss/variables.module.scss';
 
 $sidebar-width: 17rem;
 $sidebar-title-size: 1.125rem;
 $sidebar-section-padding: paddings.$lg;
-
-// @keyframes appear {
-//   from {
-//     width: 0%;
-//   }
-
-//   to {
-//     width: 100%;
-//   }
-// }
 
 @keyframes fadeOut {
   99% {

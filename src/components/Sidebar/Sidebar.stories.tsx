@@ -1,5 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Sidebar } from './Sidebar';
+import { useEffect, useState } from 'react';
+import { Sidebar, SidebarProps } from './Sidebar';
 
 export default {
   title: 'Components/Sidebar',
@@ -12,9 +13,34 @@ export default {
   },
 } as ComponentMeta<typeof Sidebar>;
 
-const SidebarTemplate: ComponentStory<typeof Sidebar> = (args) => (
-  <Sidebar {...args} />
-);
+const SidebarTemplate: ComponentStory<typeof Sidebar> = ({
+  // onChange,
+  onOpenButtonClick,
+  onCloseButtonClick,
+  isOpen: initialIsOpen,
+  ...remainingProps
+}: SidebarProps) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    setIsOpen(!initialIsOpen);
+  }, [initialIsOpen]);
+
+  return (
+    <Sidebar
+      isOpen={isOpen}
+      onOpenButtonClick={() => {
+        setIsOpen(!isOpen);
+        onOpenButtonClick();
+      }}
+      onCloseButtonClick={() => {
+        setIsOpen(!isOpen);
+        onCloseButtonClick();
+      }}
+      {...remainingProps}
+    />
+  );
+};
 
 export const Default = SidebarTemplate.bind({});
 Default.args = {
