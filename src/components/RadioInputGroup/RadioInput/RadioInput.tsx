@@ -41,9 +41,9 @@ export const RadioInput: FC<RadioInputProps> = ({
     {...remainingProps}
   >
     {isChecked ? (
-      <RadioButtonChecked size={8} />
+      <RadioButtonChecked size={12} />
     ) : (
-      <RadioButtonUnChecked size={8} />
+      <RadioButtonUnChecked size={12} />
     )}
     {label}
   </li>

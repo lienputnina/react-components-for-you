@@ -113,6 +113,3 @@ const Template: ComponentStory<typeof IconStoryComponent> = (args) => (
 );
 
 export const AllIcons = Template.bind({});
-AllIcons.args = {
-  // size: 32,
-};

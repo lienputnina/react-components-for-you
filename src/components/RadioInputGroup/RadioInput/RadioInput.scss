@@ -19,15 +19,16 @@
   &:hover {
     color: colors.$text--hover;
 
-    svg g {
+    svg path {
       fill: colors.$accent--hover;
     }
   }
+  div {
+    margin-right: margins.$xs;
+  }
 
   svg {
-    margin-right: margins.$xs;
-
-    g {
+    path {
       fill: colors.$accent;
     }
   }
