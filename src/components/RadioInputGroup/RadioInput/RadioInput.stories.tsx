@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { RadioInput, RadioInputProps } from './RadioInput';
-import { WithGrayBackground } from '../../../hoc/WithGrayBackground';
 
 export default {
   title: 'Components/RadioButtonGroup/RadioButton',
@@ -20,16 +19,14 @@ const Template: ComponentStory<typeof RadioInput> = ({
   }, [initialIsChecked]);
 
   return (
-    <WithGrayBackground>
-      <RadioInput
-        {...remainingProps}
-        onChange={(id, value) => {
-          setIsChecked(!isChecked);
-          onChange(id, value);
-        }}
-        isChecked={isChecked}
-      />
-    </WithGrayBackground>
+    <RadioInput
+      {...remainingProps}
+      onChange={(id, value) => {
+        setIsChecked(!isChecked);
+        onChange(id, value);
+      }}
+      isChecked={isChecked}
+    />
   );
 };
 

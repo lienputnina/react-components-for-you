@@ -11,6 +11,7 @@ module.exports = {
   rules: {
     ...eslintConfig.rules,
     'react/jsx-props-no-spreading': 0,
+    'prefer-destructuring': 0,
   },
   overrides: [
     {

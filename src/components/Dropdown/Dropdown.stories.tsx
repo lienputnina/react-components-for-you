@@ -1,7 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { useEffect, useState } from 'react';
 import { Dropdown, DropdownProps } from './Dropdown';
-import { WithGrayBackground } from '../../hoc/WithGrayBackground';
 
 export default {
   title: 'Components/Dropdown',
@@ -25,16 +24,14 @@ const Template: ComponentStory<typeof Dropdown> = ({
   }, [initialSelectedOptionId]);
 
   return (
-    <WithGrayBackground>
-      <Dropdown
-        {...remainingProps}
-        onChange={(id, value) => {
-          setSelectedOptionId(id);
-          onChange(id, value);
-        }}
-        selectedOptionId={selectedOptionId}
-      />
-    </WithGrayBackground>
+    <Dropdown
+      {...remainingProps}
+      onChange={(id, value) => {
+        setSelectedOptionId(id);
+        onChange(id, value);
+      }}
+      selectedOptionId={selectedOptionId}
+    />
   );
 };
 

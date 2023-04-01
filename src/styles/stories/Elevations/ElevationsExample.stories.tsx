@@ -1,5 +1,4 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { WithGrayBackground } from '../../../hoc/WithGrayBackground';
 import { ElevationsExample, ElevationLevel } from './ElevationsExample';
 
 export default {
@@ -9,18 +8,16 @@ export default {
 } as ComponentMeta<typeof ElevationsExample>;
 
 const TemplateSingle: ComponentStory<typeof ElevationsExample> = (args) => (
-  <WithGrayBackground>
-    <ElevationsExample {...args} />
-  </WithGrayBackground>
+  <ElevationsExample {...args} />
 );
 
 const TemplateAll: ComponentStory<typeof ElevationsExample> = (args) => (
-  <WithGrayBackground>
+  <>
     <ElevationsExample {...args} level={ElevationLevel.ONE} />
     <ElevationsExample {...args} level={ElevationLevel.TWO} />
     <ElevationsExample {...args} level={ElevationLevel.THREE} />
     <ElevationsExample {...args} level={ElevationLevel.FOUR} />
-  </WithGrayBackground>
+  </>
 );
 
 export const Default = TemplateSingle.bind({});

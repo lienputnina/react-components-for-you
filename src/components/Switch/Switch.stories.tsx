@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Switch, SwitchProps, SwitchLabelPosition } from './Switch';
-import { WithGrayBackground } from '../../hoc/WithGrayBackground';
 
 export default {
   title: 'Components/Switch',
@@ -35,9 +34,7 @@ const TemplateSwitch: ComponentStory<typeof Switch> = ({
 };
 
 const TemplateSingle: ComponentStory<typeof Switch> = (props) => (
-  <WithGrayBackground>
-    <TemplateSwitch {...props} />
-  </WithGrayBackground>
+  <TemplateSwitch {...props} />
 );
 
 const TemplateMultiple: ComponentStory<typeof Switch> = ({
@@ -45,10 +42,10 @@ const TemplateMultiple: ComponentStory<typeof Switch> = ({
   label,
   ...props
 }: SwitchProps) => (
-  <WithGrayBackground>
+  <>
     <TemplateSwitch {...props} label={`${label} 1`} id={`${id}_1`} />
     <TemplateSwitch {...props} label={`${label} 2`} id={`${id}_2`} />
-  </WithGrayBackground>
+  </>
 );
 
 const TemplateAllPositions: ComponentStory<typeof Switch> = ({
@@ -56,7 +53,7 @@ const TemplateAllPositions: ComponentStory<typeof Switch> = ({
   label,
   ...props
 }: SwitchProps) => (
-  <WithGrayBackground>
+  <>
     <TemplateSwitch
       {...props}
       labelPosition={SwitchLabelPosition.TOP}
@@ -75,7 +72,7 @@ const TemplateAllPositions: ComponentStory<typeof Switch> = ({
       label={`${label} 3`}
       id={`${id}_3`}
     />
-  </WithGrayBackground>
+  </>
 );
 
 export const Default = TemplateSingle.bind({});

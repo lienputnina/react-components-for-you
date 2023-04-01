@@ -42,8 +42,6 @@ import './iconsStories.scss';
 
 import colors from '../../../styles/scss/colors.module.scss';
 
-console.log('🚀 ~ file: icons.stories.tsx:4 ~ backgroundMain:', colors);
-
 const IconStoryComponent: FC<IconProps> = (args: IconProps) => (
   <div
     className="icon-container"

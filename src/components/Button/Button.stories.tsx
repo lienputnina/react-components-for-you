@@ -1,6 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Button, ButtonVariant } from './Button';
-import { WithGrayBackground } from '../../hoc/WithGrayBackground';
 
 export default {
   title: 'Components/Button',
@@ -11,10 +10,10 @@ export default {
 } as ComponentMeta<typeof Button>;
 
 const ButtonTemplate: ComponentStory<typeof Button> = (args) => (
-  <WithGrayBackground>
+  <>
     <Button {...args} />
     <Button {...args} />
-  </WithGrayBackground>
+  </>
 );
 
 export const Primary = ButtonTemplate.bind({});

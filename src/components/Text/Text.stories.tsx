@@ -1,5 +1,4 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { WithGrayBackground } from '../../hoc/WithGrayBackground';
 import { Text, TextStyle } from './Text';
 
 export default {
@@ -8,17 +7,13 @@ export default {
   argTypes: { textStyle: { control: 'select' } },
 } as ComponentMeta<typeof Text>;
 
-const SingleText: ComponentStory<typeof Text> = (args) => (
-  <WithGrayBackground>
-    <Text {...args} />
-  </WithGrayBackground>
-);
+const SingleText: ComponentStory<typeof Text> = (args) => <Text {...args} />;
 const AllTexts: ComponentStory<typeof Text> = (args) => (
-  <WithGrayBackground>
+  <>
     <Text {...args} textStyle={TextStyle.REGULAR} />
     <Text {...args} textStyle={TextStyle.BOLD} />
     <Text {...args} textStyle={TextStyle.ITALIC} />
-  </WithGrayBackground>
+  </>
 );
 
 export const Default = SingleText.bind({});
