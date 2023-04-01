@@ -178,7 +178,6 @@ export const Dropdown: FC<DropdownProps> = ({
         role="listbox"
       >
         {options.map((option) => (
-          // eslint-disable-next-line jsx-a11y/click-events-have-key-events
           <li
             role="option"
             key={option.id}
