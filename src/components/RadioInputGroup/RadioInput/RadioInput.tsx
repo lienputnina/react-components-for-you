@@ -40,7 +40,11 @@ export const RadioInput: FC<RadioInputProps> = ({
     onClick={() => onChange(optionId, value)}
     {...remainingProps}
   >
-    {isChecked ? <RadioButtonChecked /> : <RadioButtonUnChecked />}
+    {isChecked ? (
+      <RadioButtonChecked size={8} />
+    ) : (
+      <RadioButtonUnChecked size={8} />
+    )}
     {label}
   </li>
 );

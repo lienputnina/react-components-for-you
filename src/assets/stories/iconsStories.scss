@@ -1,9 +1,0 @@
-$grid-gap: 0.5rem;
-$grid-item-size: 2rem;
-
-.icon-container {
-  display: grid;
-  gap: $grid-gap $grid-gap;
-  grid-template-columns: repeat(9, $grid-item-size);
-  grid-template-rows: $grid-item-size;
-}
