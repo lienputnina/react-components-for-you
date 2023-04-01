@@ -3,7 +3,7 @@ export type IconProps = {
   fill?: string;
 };
 
-export enum DefaultPRopValues {
+export enum DefaultPropValues {
   SIZE = 24,
   FILL = '#000000',
 }

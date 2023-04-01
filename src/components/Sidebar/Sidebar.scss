@@ -1,12 +1,13 @@
 @use '../../styles/scss/typography.scss';
 @use '../../styles/scss/paddings.scss';
-@use '../../styles/scss/elevation.scss';
+@use '../../styles/scss/elevations.scss';
 @use '../../styles/scss/colors.scss';
 @use '../../styles/scss/variables.module.scss';
 
 $sidebar-width: 17rem;
 $sidebar-title-size: 1.125rem;
 $sidebar-section-padding: paddings.$lg;
+$open-button-horizontal-offset: -5rem;
 
 @keyframes fadeOut {
   99% {
@@ -14,15 +15,6 @@ $sidebar-section-padding: paddings.$lg;
   }
   100% {
     visibility: hidden;
-  }
-}
-
-@keyframes fadeIn {
-  99% {
-    visibility: hidden;
-  }
-  100% {
-    visibility: visible;
   }
 }
 
@@ -38,9 +30,9 @@ $sidebar-section-padding: paddings.$lg;
   transition: width 0.5s;
 
   @include typography.text-regular();
-  @include elevation.level-3();
+  @include elevations.level-3();
 
-  div {
+  div.sidebar-wrapper {
     transition-timing-function: ease-in-out;
     transition: opacity 0.5s;
   }
@@ -48,7 +40,7 @@ $sidebar-section-padding: paddings.$lg;
   &.hidden {
     width: 0;
 
-    div {
+    div.sidebar-wrapper {
       opacity: 0;
       animation: 0.5s fadeOut;
       animation-fill-mode: forwards;
@@ -60,7 +52,7 @@ $sidebar-section-padding: paddings.$lg;
 
     .sidebar-open-button {
       position: absolute;
-      right: -80px;
+      right: $open-button-horizontal-offset;
     }
   }
 
@@ -69,8 +61,27 @@ $sidebar-section-padding: paddings.$lg;
 
     .sidebar-open-button {
       position: absolute;
-      left: -80px;
+      left: $open-button-horizontal-offset;
     }
+  }
+
+  .sidebar-open-button {
+    top: 0.5rem;
+    transition: opacity 0.5s;
+
+    svg path {
+      fill: colors.$accent;
+    }
+
+    &:hover svg path {
+      fill: colors.$accent--hover;
+    }
+  }
+
+  &:not(.hidden) .sidebar-open-button {
+    opacity: 0;
+    animation: 0.5s fadeOut;
+    animation-fill-mode: forwards;
   }
 
   .sidebar-header {
@@ -92,6 +103,16 @@ $sidebar-section-padding: paddings.$lg;
         margin: 0;
 
         @include typography.font-weight-bold();
+      }
+    }
+
+    button {
+      svg path {
+        fill: colors.$accent;
+      }
+
+      &:hover svg path {
+        fill: colors.$accent--hover;
       }
     }
   }

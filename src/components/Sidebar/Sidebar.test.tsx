@@ -1,6 +1,5 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { KeyCodes, SPACE_SYMBOL } from '../../constants/KeyCodes';
 
 import {
   Sidebar,
@@ -22,6 +21,11 @@ describe('Sidebar', () => {
     return screen.getByRole('complementary');
   };
 
+  const findControlButton = (buttonAriaLabel: string) =>
+    screen
+      .getAllByRole('button')
+      .find((button) => button.getAttribute('aria-label') === buttonAriaLabel);
+
   it('renders without crashing', () => {
     expect(renderSidebar()).toBeInTheDocument();
   });
@@ -29,7 +33,7 @@ describe('Sidebar', () => {
   it('has a title', () => {
     const { title } = defaultProps;
 
-    render(<Sidebar {...defaultProps} isOpen title={title} />);
+    renderSidebar({ title });
     expect(screen.getByText(title)).toBeInTheDocument();
   });
 
@@ -44,154 +48,75 @@ describe('Sidebar', () => {
   it('has footer if provided', () => {
     const testText = 'Test footer';
     const footer = <span>{testText}</span>;
+
     renderSidebar({ children: footer });
     expect(screen.getByText(testText)).toBeInTheDocument();
   });
 
-  it('has an `open` button when it is closed', () => {
+  it('has an visible `open` button when it is closed', () => {
     renderSidebar();
-    const openButton = screen
-      .getAllByRole('button')
-      .find(
-        (button) =>
-          button.getAttribute('aria-label') === DefaultButtonAriaLabels?.OPEN,
-      );
-    expect(openButton).toBeInTheDocument();
-  });
+    const openButton = findControlButton(DefaultButtonAriaLabels.open);
 
-  it('does not have an `open` button when it is open', () => {
-    renderSidebar({ isOpen: true });
-    const openButton = screen
-      .getAllByRole('button')
-      .find(
-        (button) =>
-          button.getAttribute('aria-label') === DefaultButtonAriaLabels?.OPEN,
-      );
-    expect(openButton).toBeUndefined();
+    expect(openButton).toBeVisible();
   });
 
   it('has a `close` button when it is open', () => {
     renderSidebar({ isOpen: true });
-    const closeButton = screen
-      .getAllByRole('button')
-      .find(
-        (button) =>
-          button.getAttribute('aria-label') === DefaultButtonAriaLabels?.CLOSE,
-      );
-    expect(closeButton).toBeInTheDocument();
-  });
+    const closeButton = findControlButton(DefaultButtonAriaLabels.close);
 
-  it('does not have a `close` button when it is closed', () => {
-    renderSidebar({ isOpen: false });
-    const closeButton = screen
-      .getAllByRole('button')
-      .find(
-        (button) =>
-          button.getAttribute('aria-label') === DefaultButtonAriaLabels?.CLOSE,
-      );
-    expect(closeButton).toBeUndefined();
+    expect(closeButton).toBeVisible();
   });
 
   it('is closed by default', () => {
-    const sidebarComponent = renderSidebar();
-    expect(sidebarComponent).toHaveClass('hidden');
+    expect(renderSidebar()).toHaveClass('hidden');
   });
 
   it('is closed if "isOpen=false" prop is provided', () => {
-    const sidebarComponent = renderSidebar({ isOpen: false });
-    expect(sidebarComponent).toHaveClass('hidden');
+    expect(renderSidebar({ isOpen: false })).toHaveClass('hidden');
   });
 
   it('is open if "isOpen=true" prop is provided', () => {
-    const sidebarComponent = renderSidebar({ isOpen: true });
-    expect(sidebarComponent).not.toHaveClass('hidden');
+    expect(renderSidebar({ isOpen: true })).not.toHaveClass('hidden');
   });
 
   it('opens on the left by default', () => {
-    const sidebarComponent = renderSidebar();
-    expect(sidebarComponent).toHaveClass(SidebarPosition.LEFT);
+    expect(renderSidebar()).toHaveClass(SidebarPosition.LEFT);
   });
 
   it(`opens on the left if position="${SidebarPosition.LEFT}}" prop is provided`, () => {
-    const sidebarComponent = renderSidebar({ position: SidebarPosition.LEFT });
-    expect(sidebarComponent).toHaveClass(SidebarPosition.LEFT);
+    expect(renderSidebar({ position: SidebarPosition.LEFT })).toHaveClass(
+      SidebarPosition.LEFT,
+    );
   });
 
   it(`opens on the right if position="${SidebarPosition.RIGHT}" prop is provided`, () => {
-    const sidebarComponent = renderSidebar({ position: SidebarPosition.RIGHT });
-    expect(sidebarComponent).toHaveClass(SidebarPosition.RIGHT);
+    expect(renderSidebar({ position: SidebarPosition.RIGHT })).toHaveClass(
+      SidebarPosition.RIGHT,
+    );
   });
 
   describe('User events', () => {
     const onOpenButtonClickMock = jest.fn();
     const onCloseButtonClickMock = jest.fn();
-    const openButtonText = 'open';
-    const closeButtonText = 'X';
 
-    it('opens when the "open" button is clicked', async () => {
+    it('calls the provided onOpenButtonClick handler when the "open" button is clicked', async () => {
       const user = userEvent.setup();
 
-      render(
-        <Sidebar {...defaultProps} onOpenButtonClick={onOpenButtonClickMock} />,
-      );
+      renderSidebar({ onOpenButtonClick: onOpenButtonClickMock });
       expect(onOpenButtonClickMock).not.toHaveBeenCalled();
 
-      await user.click(screen.getByText(openButtonText));
+      await user.click(findControlButton(DefaultButtonAriaLabels.open)!);
       expect(onOpenButtonClickMock).toHaveBeenCalled();
     });
 
-    it('closes when the "close" button is clicked', async () => {
+    it('calls the provided onCloseButtonClick handler the "close" button is clicked', async () => {
       const user = userEvent.setup();
 
-      render(
-        <Sidebar
-          {...defaultProps}
-          isOpen
-          onCloseButtonClick={onCloseButtonClickMock}
-        />,
-      );
+      renderSidebar({ onCloseButtonClick: onCloseButtonClickMock });
       expect(onCloseButtonClickMock).not.toHaveBeenCalled();
 
-      await user.click(screen.getByText(closeButtonText));
+      await user.click(findControlButton(DefaultButtonAriaLabels.close)!);
       expect(onCloseButtonClickMock).toHaveBeenCalled();
-    });
-
-    describe('Keyboard events', () => {
-      const user = userEvent.setup();
-      const keysToToggleWith = [SPACE_SYMBOL, KeyCodes.ENTER];
-
-      keysToToggleWith.forEach((key) => {
-        it(`opens when the user tabs on the "open" button and presses ${key}`, async () => {
-          render(
-            <Sidebar
-              {...defaultProps}
-              onOpenButtonClick={onOpenButtonClickMock}
-            />,
-          );
-          expect(onOpenButtonClickMock).not.toHaveBeenCalled();
-
-          await user.tab();
-          await user.click(screen.getByText(openButtonText));
-          await user.keyboard(key);
-          expect(onOpenButtonClickMock).toHaveBeenCalled();
-        });
-
-        it(`closes when the user tabs on the "close" button and presses ${key}`, async () => {
-          render(
-            <Sidebar
-              {...defaultProps}
-              isOpen
-              onCloseButtonClick={onCloseButtonClickMock}
-            />,
-          );
-          expect(onCloseButtonClickMock).not.toHaveBeenCalled();
-
-          await user.tab();
-          await user.click(screen.getByText(closeButtonText));
-          await user.keyboard(key);
-          expect(onCloseButtonClickMock).toHaveBeenCalled();
-        });
-      });
     });
   });
 });

@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { RadioInputGroup, RadioInputGroupProps } from './RadioInputGroup';
-import { WithGrayBackground } from '../../hoc/WithGrayBackground';
 
 export default {
   title: 'Components/RadioButtonGroup',
@@ -25,16 +24,14 @@ const TemplateSingle: ComponentStory<typeof RadioInputGroup> = ({
   }, [initialCheckedOptionId]);
 
   return (
-    <WithGrayBackground>
-      <RadioInputGroup
-        {...remainingProps}
-        onChange={(id, value) => {
-          setCheckedOptionId(id);
-          onChange(id, value);
-        }}
-        checkedOptionId={checkedOptionId}
-      />
-    </WithGrayBackground>
+    <RadioInputGroup
+      {...remainingProps}
+      onChange={(id, value) => {
+        setCheckedOptionId(id);
+        onChange(id, value);
+      }}
+      checkedOptionId={checkedOptionId}
+    />
   );
 };
 

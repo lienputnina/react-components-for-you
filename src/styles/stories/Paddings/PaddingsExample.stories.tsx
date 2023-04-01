@@ -1,5 +1,4 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { WithGrayBackground } from '../../../hoc/WithGrayBackground';
 import { PaddingsExample, PaddingSize } from './PaddingsExample';
 
 export default {
@@ -9,19 +8,17 @@ export default {
 } as ComponentMeta<typeof PaddingsExample>;
 
 const Template: ComponentStory<typeof PaddingsExample> = (args) => (
-  <WithGrayBackground>
-    <PaddingsExample {...args} />
-  </WithGrayBackground>
+  <PaddingsExample {...args} />
 );
 
 const TemplateAll: ComponentStory<typeof PaddingsExample> = (args) => (
-  <WithGrayBackground>
+  <>
     <PaddingsExample {...args} size={PaddingSize.EXTRA_SMALL} />
     <PaddingsExample {...args} size={PaddingSize.SMALL} />
     <PaddingsExample {...args} size={PaddingSize.MEDIUM} />
     <PaddingsExample {...args} size={PaddingSize.LARGE} />
     <PaddingsExample {...args} size={PaddingSize.EXTRA_LARGE} />
-  </WithGrayBackground>
+  </>
 );
 
 export const Default = Template.bind({});

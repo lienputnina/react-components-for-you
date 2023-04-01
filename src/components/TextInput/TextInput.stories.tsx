@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { TextInput, TextInputProps } from './TextInput';
-import { WithGrayBackground } from '../../hoc/WithGrayBackground';
 
 export default {
   title: 'Components/TextInput',
@@ -35,9 +34,7 @@ const TemplateInput: ComponentStory<typeof TextInput> = ({
 };
 
 const TemplateSingle: ComponentStory<typeof TextInput> = (props) => (
-  <WithGrayBackground>
-    <TemplateInput {...props} />
-  </WithGrayBackground>
+  <TemplateInput {...props} />
 );
 
 const TemplateMultiple: ComponentStory<typeof TextInput> = ({
@@ -45,10 +42,10 @@ const TemplateMultiple: ComponentStory<typeof TextInput> = ({
   label,
   ...props
 }: TextInputProps) => (
-  <WithGrayBackground>
+  <>
     <TemplateInput {...props} label={`${label} 1`} id={`${id}_1`} />
     <TemplateInput {...props} label={`${label} 2`} id={`${id}_2`} />
-  </WithGrayBackground>
+  </>
 );
 
 export const Default = TemplateSingle.bind({});
