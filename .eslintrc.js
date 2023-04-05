@@ -18,7 +18,6 @@ module.exports = {
       files: ['*.+(spec|test|stories).*'],
       rules: {
         '@typescript-eslint/no-non-null-assertion': 0,
-        'import/no-extraneous-dependencies': 0,
       },
     },
   ],

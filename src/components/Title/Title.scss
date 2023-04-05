@@ -4,6 +4,7 @@
 @use '../../styles/scss/variables.module.scss';
 
 .#{variables.$prefix}-title {
+  display: flex;
   color: colors.$title;
 
   &.heading-one {
@@ -24,5 +25,17 @@
   &.heading-four {
     @include typography.heading-4();
     margin-bottom: margins.$lg;
+  }
+
+  &.left {
+    justify-content: flex-start;
+  }
+
+  &.right {
+    justify-content: flex-end;
+  }
+
+  &.center {
+    justify-content: center;
   }
 }

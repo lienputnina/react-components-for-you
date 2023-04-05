@@ -1,6 +1,7 @@
 @use './colors.scss';
 @use './paddings.scss';
 @use './margins.scss';
+@use './elevations.scss';
 @use './variables.module.scss';
 
 @mixin rounded-border {
@@ -37,4 +38,14 @@
   @include input-width();
   @include focus-visible-outline();
   @include rounded-border();
+}
+
+@mixin input-with-shadows {
+  input {
+    @include input-base();
+    @include elevations.level-1();
+  }
+  input:hover {
+    @include elevations.level-2();
+  }
 }

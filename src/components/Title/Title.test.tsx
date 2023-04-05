@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { Title, TitleLevel } from './Title';
+import { Title, TitleLevel, TitleAlignment } from './Title';
 
 describe('Title', () => {
   it('should render without crashing', () => {
@@ -23,5 +23,18 @@ describe('Title', () => {
         ).toBeInTheDocument();
       });
     });
+  });
+
+  describe('Heading alignments', () => {
+    Object.entries(TitleAlignment).forEach(
+      ([alignmentName, alignmentValue]) => {
+        it(`should match the provided heading alignment ${alignmentName}`, () => {
+          const { container } = render(<Title alignment={alignmentValue} />);
+          expect(
+            container.getElementsByClassName(alignmentValue)[0],
+          ).toBeInTheDocument();
+        });
+      },
+    );
   });
 });
