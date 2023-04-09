@@ -10,14 +10,10 @@
   color: colors.$text;
 
   @include mixins.input-wrapper();
+  @include mixins.input-with-shadows();
   @include typography.text-regular();
 
   label {
     margin-bottom: margins.$xs;
-  }
-
-  input {
-    @include mixins.input-base();
-    @include elevations.level-1();
   }
 }

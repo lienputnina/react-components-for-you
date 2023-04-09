@@ -28,3 +28,7 @@ $logo-size: 2.5rem;
     }
   }
 }
+
+:export {
+  headerHeight: $header-height;
+}

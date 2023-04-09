@@ -13,13 +13,21 @@ export enum TitleLevel {
   FOUR = 'h4',
 }
 
+export enum TitleAlignment {
+  LEFT = 'left',
+  RIGHT = 'right',
+  CENTER = 'center',
+}
+
 export interface TitleProps extends React.HTMLProps<HTMLHeadingElement> {
   level?: TitleLevel;
+  alignment?: TitleAlignment;
 }
 
 export const Title: FC<TitleProps> = ({
   level = TitleLevel.ONE,
   children,
+  alignment = TitleAlignment.LEFT,
   className,
   ...remainingProps
 }: TitleProps) => {
@@ -27,7 +35,12 @@ export const Title: FC<TitleProps> = ({
     case TitleLevel.TWO:
       return (
         <h2
-          className={classNames(`${prefix}-title`, 'heading-two', className)}
+          className={classNames(
+            `${prefix}-title`,
+            'heading-two',
+            alignment,
+            className,
+          )}
           {...remainingProps}
         >
           {children}
@@ -37,7 +50,12 @@ export const Title: FC<TitleProps> = ({
     case TitleLevel.THREE:
       return (
         <h3
-          className={classNames(`${prefix}-title`, 'heading-three', className)}
+          className={classNames(
+            `${prefix}-title`,
+            'heading-three',
+            alignment,
+            className,
+          )}
           {...remainingProps}
         >
           {children}
@@ -47,7 +65,12 @@ export const Title: FC<TitleProps> = ({
     case TitleLevel.FOUR:
       return (
         <h4
-          className={classNames(`${prefix}-title`, 'heading-four', className)}
+          className={classNames(
+            `${prefix}-title`,
+            'heading-four',
+            alignment,
+            className,
+          )}
           {...remainingProps}
         >
           {children}
@@ -58,7 +81,12 @@ export const Title: FC<TitleProps> = ({
     default:
       return (
         <h1
-          className={classNames(`${prefix}-title`, 'heading-one', className)}
+          className={classNames(
+            `${prefix}-title`,
+            'heading-one',
+            alignment,
+            className,
+          )}
           {...remainingProps}
         >
           {children}

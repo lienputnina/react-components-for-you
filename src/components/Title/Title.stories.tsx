@@ -1,10 +1,10 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Title, TitleLevel } from './Title';
+import { Title, TitleLevel, TitleAlignment } from './Title';
 
 export default {
   title: 'Components/Title',
   component: Title,
-  argTypes: { level: { control: 'select' } },
+  argTypes: { level: { control: 'select' }, alignment: { control: 'select' } },
 } as ComponentMeta<typeof Title>;
 
 const SingleTitle: ComponentStory<typeof Title> = (args) => <Title {...args} />;
@@ -14,6 +14,14 @@ const AllTitles: ComponentStory<typeof Title> = (args) => (
     <Title {...args} level={TitleLevel.TWO} />
     <Title {...args} level={TitleLevel.THREE} />
     <Title {...args} level={TitleLevel.FOUR} />
+  </>
+);
+
+const TitleAlignments: ComponentStory<typeof Title> = (args) => (
+  <>
+    <Title {...args} alignment={TitleAlignment.LEFT} />
+    <Title {...args} alignment={TitleAlignment.RIGHT} />
+    <Title {...args} alignment={TitleAlignment.CENTER} />
   </>
 );
 
@@ -48,5 +56,28 @@ LevelFour.args = {
 
 export const AllLevels = AllTitles.bind({});
 AllLevels.args = {
+  ...Default.args,
+};
+
+export const LeftAlignment = SingleTitle.bind({});
+LeftAlignment.args = {
+  ...Default.args,
+  alignment: TitleAlignment.LEFT,
+};
+
+export const RightAlignment = SingleTitle.bind({});
+RightAlignment.args = {
+  ...Default.args,
+  alignment: TitleAlignment.RIGHT,
+};
+
+export const CenterAlignment = SingleTitle.bind({});
+CenterAlignment.args = {
+  ...Default.args,
+  alignment: TitleAlignment.CENTER,
+};
+
+export const AllAlignments = TitleAlignments.bind({});
+AllAlignments.args = {
   ...Default.args,
 };

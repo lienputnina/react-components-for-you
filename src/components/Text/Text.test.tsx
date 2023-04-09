@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { Text, TextStyle } from './Text';
+import { Text, TextStyle, TextAlignment } from './Text';
 
 describe('Text', () => {
   it('should render without crashing', () => {
@@ -20,6 +20,17 @@ describe('Text', () => {
         const { container } = render(<Text textStyle={styleValue} />);
         expect(
           container.getElementsByClassName(styleValue)[0],
+        ).toBeInTheDocument();
+      });
+    });
+  });
+
+  describe('Text alignments', () => {
+    Object.entries(TextAlignment).forEach(([alignmentName, alignmentValue]) => {
+      it(`should apply the appropriate class name for the provided text alignment ${alignmentName}`, () => {
+        const { container } = render(<Text alignment={alignmentValue} />);
+        expect(
+          container.getElementsByClassName(alignmentValue)[0],
         ).toBeInTheDocument();
       });
     });
