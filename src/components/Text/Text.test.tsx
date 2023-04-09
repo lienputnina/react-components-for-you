@@ -27,7 +27,7 @@ describe('Text', () => {
 
   describe('Text alignments', () => {
     Object.entries(TextAlignment).forEach(([alignmentName, alignmentValue]) => {
-      it(`should apply the appropriate class name for the provided text style ${alignmentName}`, () => {
+      it(`should apply the appropriate class name for the provided text alignment ${alignmentName}`, () => {
         const { container } = render(<Text alignment={alignmentValue} />);
         expect(
           container.getElementsByClassName(alignmentValue)[0],

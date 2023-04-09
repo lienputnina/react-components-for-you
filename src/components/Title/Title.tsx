@@ -83,8 +83,8 @@ export const Title: FC<TitleProps> = ({
         <h1
           className={classNames(
             `${prefix}-title`,
-            alignment,
             'heading-one',
+            alignment,
             className,
           )}
           {...remainingProps}
