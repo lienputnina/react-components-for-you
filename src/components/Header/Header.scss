@@ -3,7 +3,6 @@
 @use '../../styles/scss/elevations.scss';
 @use '../../styles/scss/variables.module.scss';
 
-$header-height: 4rem;
 $logo-size: 2.5rem;
 
 .#{variables.$prefix}-header {
@@ -11,7 +10,7 @@ $logo-size: 2.5rem;
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: $header-height;
+  height: variables.$header-height;
   padding: paddings.$xl;
   background-color: colors.$board-background;
 
@@ -27,8 +26,4 @@ $logo-size: 2.5rem;
       @include elevations.level-1();
     }
   }
-}
-
-:export {
-  headerHeight: $header-height;
 }
