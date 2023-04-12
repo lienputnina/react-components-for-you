@@ -9,7 +9,7 @@ const { prefix } = variables;
 export interface NumberInputProps
   extends Omit<React.HTMLProps<HTMLDivElement>, 'onChange'> {
   id: string;
-  name: string;
+  name?: string;
   label: string;
   value?: number;
   min?: number;

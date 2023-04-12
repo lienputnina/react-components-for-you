@@ -9,7 +9,7 @@ const { prefix } = variables;
 export interface TextInputProps
   extends Omit<React.HTMLProps<HTMLDivElement>, 'onChange'> {
   id: string;
-  name: string;
+  name?: string;
   label: string;
   value?: string;
   onChange: (newValue: string) => void;
