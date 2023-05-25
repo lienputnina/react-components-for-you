@@ -19,12 +19,13 @@
 @mixin input-width {
   width: 100%;
   min-width: 12.5rem;
-  max-width: 31.25rem;
 }
 
 @mixin input-wrapper {
   display: flex;
   flex-direction: column;
+  width: 100%;
+  max-width: 31.25rem;
   margin: margins.$xs margins.$xs margins.$md 0;
 }
 
