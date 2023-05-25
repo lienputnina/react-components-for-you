@@ -46,8 +46,6 @@
       padding: paddings.$xs;
       list-style: none;
 
-      @include mixins.rounded-border();
-
       &[aria-selected='true'] {
         background-color: colors.$background-main;
         color: colors.$accent;
