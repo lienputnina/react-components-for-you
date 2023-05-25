@@ -35,7 +35,7 @@
     "test-watch": "jest --watch",
     "test-coverage": "jest --coverage",
     "storybook": "start-storybook -p 6006 --ci",
-    "copy-styles": "cp -r src/styles/scss dist/styles",
+    "copy-styles": "mkdir -p dist/styles/scss && cp -r src/styles/scss dist/styles",
     "build": "rm -rf dist && yarn build:library && yarn build:types && yarn copy-styles",
     "build:library": "rollup -c",
     "build:types": "tsc --project tsconfig.build.json",
