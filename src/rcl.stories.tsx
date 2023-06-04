@@ -134,6 +134,7 @@ const IndexStoryComponent: FC<IndexStoryComponentProps> = ({
             setTextInputValue(newValue);
             textInputProps.onChange(newValue);
           }}
+          ref={undefined}
         />
       </div>
       <div>
