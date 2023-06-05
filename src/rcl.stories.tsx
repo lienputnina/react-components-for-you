@@ -145,6 +145,7 @@ const IndexStoryComponent: FC<IndexStoryComponentProps> = ({
             setTNumberInputValue(newValue);
             numberInputProps.onChange(newValue);
           }}
+          ref={undefined}
         />
       </div>
       <div>
@@ -155,6 +156,7 @@ const IndexStoryComponent: FC<IndexStoryComponentProps> = ({
             setDropdownValue(id);
             dropdownProps.onChange(id, value);
           }}
+          ref={undefined}
         />
       </div>
       <div>
@@ -165,6 +167,7 @@ const IndexStoryComponent: FC<IndexStoryComponentProps> = ({
             setRadioInputGroupValue(id);
             radioInputGroupProps.onChange(id, value);
           }}
+          ref={undefined}
         />
       </div>
       <div style={{ maxWidth: '200px' }}>

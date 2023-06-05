@@ -1,9 +1,11 @@
 import {
   Dispatch,
-  FC,
+  ForwardRefExoticComponent,
   HTMLAttributes,
   KeyboardEvent,
+  RefAttributes,
   SetStateAction,
+  forwardRef,
   useEffect,
   useState,
 } from 'react';
@@ -103,97 +105,107 @@ export interface DropdownProps
   onChange: DropdownOnChange;
 }
 
-export const Dropdown: FC<DropdownProps> = ({
-  id,
-  label,
-  placeholderText = defaultPlaceholder,
-  options,
-  onChange,
-  selectedOptionId,
-  className,
-  ...remainingProps
-}: DropdownProps) => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [focusedOptionIndex, setFocusedOptionIndex] = useState(0);
+export const Dropdown: ForwardRefExoticComponent<
+  DropdownProps & RefAttributes<HTMLDivElement>
+> = forwardRef(
+  (
+    {
+      id,
+      label,
+      placeholderText = defaultPlaceholder,
+      options,
+      onChange,
+      selectedOptionId,
+      className,
+      ...remainingProps
+    }: DropdownProps,
+    ref,
+  ) => {
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [focusedOptionIndex, setFocusedOptionIndex] = useState(0);
 
-  useEffect(() => {
-    const newIndex = options.findIndex(
-      (option) => option.id === selectedOptionId,
-    );
+    useEffect(() => {
+      const newIndex = options.findIndex(
+        (option) => option.id === selectedOptionId,
+      );
 
-    if (newIndex !== -1) {
-      setFocusedOptionIndex(newIndex);
-    }
-  }, [selectedOptionId]);
+      if (newIndex !== -1) {
+        setFocusedOptionIndex(newIndex);
+      }
+    }, [selectedOptionId]);
 
-  const focusedOptionId = options[focusedOptionIndex]?.id;
+    const focusedOptionId = options[focusedOptionIndex]?.id;
 
-  return (
-    <div
-      className={classNames(`${prefix}-dropdown`, className)}
-      {...remainingProps}
-    >
-      <label id={`${id}_label`} htmlFor={`${id}_dropdown`}>
-        {label}
-      </label>
+    return (
       <div
-        id={`${id}-dropdown`}
-        className="dropdown"
-        role="combobox"
-        aria-labelledby={`${id}_label`}
-        aria-activedescendant={
-          selectedOptionId || isMenuOpen
-            ? `${id}_${focusedOptionId}`
-            : undefined
-        }
-        aria-controls={`${id}_menu`}
-        aria-expanded={isMenuOpen}
-        tabIndex={0}
-        onKeyDown={(event) =>
-          dropdownOnKeyDown({
-            event,
-            options,
-            isMenuOpen,
-            setIsMenuOpen,
-            focusedOptionIndex,
-            setFocusedOptionIndex,
-            onChange,
-          })
-        }
-        onClick={() => setIsMenuOpen((previousValue) => !previousValue)}
-        onBlur={() => setIsMenuOpen(false)}
+        className={classNames(`${prefix}-dropdown`, className)}
+        {...remainingProps}
       >
-        {options.find((option) => option.id === selectedOptionId)?.value ||
-          placeholderText}
+        <label id={`${id}_label`} htmlFor={`${id}_dropdown`}>
+          {label}
+        </label>
+        <div
+          id={`${id}-dropdown`}
+          className="dropdown"
+          role="combobox"
+          aria-labelledby={`${id}_label`}
+          aria-activedescendant={
+            selectedOptionId || isMenuOpen
+              ? `${id}_${focusedOptionId}`
+              : undefined
+          }
+          aria-controls={`${id}_menu`}
+          aria-expanded={isMenuOpen}
+          tabIndex={0}
+          onKeyDown={(event) =>
+            dropdownOnKeyDown({
+              event,
+              options,
+              isMenuOpen,
+              setIsMenuOpen,
+              focusedOptionIndex,
+              setFocusedOptionIndex,
+              onChange,
+            })
+          }
+          onClick={() => setIsMenuOpen((previousValue) => !previousValue)}
+          onBlur={() => setIsMenuOpen(false)}
+          ref={ref}
+        >
+          {options.find((option) => option.id === selectedOptionId)?.value ||
+            placeholderText}
+        </div>
+        <ul
+          id={`${id}_menu`}
+          className={classNames(
+            'menu',
+            {
+              hidden: !isMenuOpen,
+            },
+            className,
+          )}
+          role="listbox"
+        >
+          {options.map((option) => (
+            <li
+              role="option"
+              key={option.id}
+              id={`${id}_${option.id}`}
+              value={option.value}
+              aria-selected={option.id === focusedOptionId}
+              onMouseDown={(event) => {
+                event.preventDefault();
+                onChange(option.id, option.value);
+                setIsMenuOpen(false);
+              }}
+            >
+              {option.value}
+            </li>
+          ))}
+        </ul>
       </div>
-      <ul
-        id={`${id}_menu`}
-        className={classNames(
-          'menu',
-          {
-            hidden: !isMenuOpen,
-          },
-          className,
-        )}
-        role="listbox"
-      >
-        {options.map((option) => (
-          <li
-            role="option"
-            key={option.id}
-            id={`${id}_${option.id}`}
-            value={option.value}
-            aria-selected={option.id === focusedOptionId}
-            onMouseDown={(event) => {
-              event.preventDefault();
-              onChange(option.id, option.value);
-              setIsMenuOpen(false);
-            }}
-          >
-            {option.value}
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-};
+    );
+  },
+);
+
+Dropdown.displayName = 'Dropdown';

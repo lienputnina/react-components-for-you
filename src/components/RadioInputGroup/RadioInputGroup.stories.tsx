@@ -31,6 +31,7 @@ const TemplateSingle: ComponentStory<typeof RadioInputGroup> = ({
         onChange(id, value);
       }}
       checkedOptionId={checkedOptionId}
+      ref={undefined}
     />
   );
 };

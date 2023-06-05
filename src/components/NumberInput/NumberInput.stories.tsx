@@ -29,6 +29,7 @@ const TemplateInput: ComponentStory<typeof NumberInput> = ({
         onChange(newValue);
       }}
       value={enteredValue}
+      ref={undefined}
     />
   );
 };
@@ -43,8 +44,18 @@ const TemplateMultiple: ComponentStory<typeof NumberInput> = ({
   ...props
 }: NumberInputProps) => (
   <>
-    <TemplateInput {...props} label={`${label} 1`} id={`${id}_1`} />
-    <TemplateInput {...props} label={`${label} 2`} id={`${id}_2`} />
+    <TemplateInput
+      {...props}
+      label={`${label} 1`}
+      id={`${id}_1`}
+      ref={undefined}
+    />
+    <TemplateInput
+      {...props}
+      label={`${label} 2`}
+      id={`${id}_2`}
+      ref={undefined}
+    />
   </>
 );
 
