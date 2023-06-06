@@ -1,10 +1,4 @@
-import {
-  ForwardRefExoticComponent,
-  HTMLProps,
-  KeyboardEvent,
-  RefAttributes,
-  forwardRef,
-} from 'react';
+import type { FC, HTMLProps, KeyboardEvent } from 'react';
 import classNames from 'classnames';
 import { RadioInput, RadioInputOnChange } from './RadioInput/RadioInput';
 
@@ -73,55 +67,45 @@ export const onKeyDown = (
   }
 };
 
-export const RadioInputGroup: ForwardRefExoticComponent<
-  RadioInputGroupProps & RefAttributes<HTMLDivElement>
-> = forwardRef(
-  (
-    {
-      id,
-      label,
-      options,
-      checkedOptionId,
-      onChange,
-      className,
-      ...remainingProps
-    }: RadioInputGroupProps,
-    ref,
-  ) => (
-    <div
-      id={id}
-      className={classNames(`${prefix}-radio-input-group`, className)}
-      {...remainingProps}
-      ref={ref}
+export const RadioInputGroup: FC<RadioInputGroupProps> = ({
+  id,
+  label,
+  options,
+  checkedOptionId,
+  onChange,
+  className,
+  ...remainingProps
+}: RadioInputGroupProps) => (
+  <div
+    id={id}
+    className={classNames(`${prefix}-radio-input-group`, className)}
+    {...remainingProps}
+  >
+    <div id={`${id}_label`}>{label}</div>
+    <ul
+      role="radiogroup"
+      aria-labelledby={`${id}_label`}
+      aria-activedescendant={
+        options.find((option) => option.id === checkedOptionId)
+          ? `${id}_${checkedOptionId}`
+          : undefined
+      }
+      tabIndex={0}
+      onKeyDown={(event) =>
+        onKeyDown(event, options, onChange, checkedOptionId)
+      }
     >
-      <div id={`${id}_label`}>{label}</div>
-      <ul
-        role="radiogroup"
-        aria-labelledby={`${id}_label`}
-        aria-activedescendant={
-          options.find((option) => option.id === checkedOptionId)
-            ? `${id}_${checkedOptionId}`
-            : undefined
-        }
-        tabIndex={0}
-        onKeyDown={(event) =>
-          onKeyDown(event, options, onChange, checkedOptionId)
-        }
-      >
-        {options.map((option) => (
-          <RadioInput
-            groupId={id}
-            key={option.id}
-            optionId={option.id}
-            label={option.label}
-            value={option.value}
-            onChange={onChange}
-            isChecked={option.id === checkedOptionId}
-          />
-        ))}
-      </ul>
-    </div>
-  ),
+      {options.map((option) => (
+        <RadioInput
+          groupId={id}
+          key={option.id}
+          optionId={option.id}
+          label={option.label}
+          value={option.value}
+          onChange={onChange}
+          isChecked={option.id === checkedOptionId}
+        />
+      ))}
+    </ul>
+  </div>
 );
-
-RadioInputGroup.displayName = 'RadioInputGroup';

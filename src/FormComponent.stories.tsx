@@ -37,7 +37,7 @@ const FormsStoryComponent: FC<FormsStoryComponentProps> = ({
   radioInputGroupProps,
 }: FormsStoryComponentProps) => {
   const [textInputValue, setTextInputValue] = useState(textInputProps.value);
-  const [numberInputValue, setTNumberInputValue] = useState(
+  const [numberInputValue, setNumberInputValue] = useState(
     numberInputProps.value,
   );
   const [dropdownValue, setDropdownValue] = useState(
@@ -49,7 +49,7 @@ const FormsStoryComponent: FC<FormsStoryComponentProps> = ({
 
   useEffect(() => {
     setTextInputValue(textInputProps.value);
-    setTNumberInputValue(numberInputProps.value);
+    setNumberInputValue(numberInputProps.value);
     setDropdownValue(dropdownProps.selectedOptionId);
     setRadioInputGroupValue(radioInputGroupProps.checkedOptionId);
   }, [
@@ -59,13 +59,29 @@ const FormsStoryComponent: FC<FormsStoryComponentProps> = ({
     radioInputGroupProps.checkedOptionId,
   ]);
 
+  const submitForm = () => {
+    console.log(
+      `Form submitted with textValue: ${textInputValue}, 
+       numberValue: ${numberInputValue},
+       dropdownValue: ${dropdownValue},
+       radioInputValue: ${radioInputGroupValue}`,
+    );
+  };
+
+  const clearForm = () => {
+    setTextInputValue('');
+    setNumberInputValue(undefined);
+    setDropdownValue('');
+    setRadioInputGroupValue('');
+  };
+
   return (
     <div>
       <Title
         level={TitleLevel.TWO}
         alignment={TitleAlignment.LEFT}
         {...titleProps}
-        style={{ fontSize: '35px', lineHeight: '35px' }}
+        style={{ fontSize: '30px', lineHeight: '30px' }}
       />
       <TextInput
         {...textInputProps}
@@ -80,7 +96,7 @@ const FormsStoryComponent: FC<FormsStoryComponentProps> = ({
         {...numberInputProps}
         value={numberInputValue}
         onChange={(newValue) => {
-          setTNumberInputValue(newValue);
+          setNumberInputValue(newValue);
           numberInputProps.onChange(newValue);
         }}
         ref={undefined}
@@ -104,11 +120,19 @@ const FormsStoryComponent: FC<FormsStoryComponentProps> = ({
         ref={undefined}
       />
       <div>
-        <Button variant={ButtonVariant.PRIMARY} {...buttonProps}>
+        <Button
+          variant={ButtonVariant.PRIMARY}
+          {...buttonProps}
+          onClick={() => submitForm()}
+        >
           Submit
         </Button>
-        <Button variant={ButtonVariant.SECONDARY} {...buttonProps}>
-          Cancel
+        <Button
+          variant={ButtonVariant.SECONDARY}
+          {...buttonProps}
+          onClick={() => clearForm()}
+        >
+          Clear
         </Button>
       </div>
     </div>
@@ -131,7 +155,7 @@ AllFormComponents.args = {
     children: 'Sample form',
   },
   buttonProps: {
-    onClick: action('Button clicked'),
+    onClick: action('Form submitted'),
   },
   textInputProps: {
     id: 'text-input-id',
