@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from 'react';
+import { FC, useEffect, useRef, useState } from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { Dropdown, DropdownProps } from './components/Dropdown/Dropdown';
@@ -37,6 +37,7 @@ const FormsStoryComponent: FC<FormsStoryComponentProps> = ({
   radioInputGroupProps,
 }: FormsStoryComponentProps) => {
   const [textInputValue, setTextInputValue] = useState(textInputProps.value);
+
   const [numberInputValue, setNumberInputValue] = useState(
     numberInputProps.value,
   );
@@ -59,6 +60,8 @@ const FormsStoryComponent: FC<FormsStoryComponentProps> = ({
     radioInputGroupProps.checkedOptionId,
   ]);
 
+  const numberInputRef = useRef<HTMLInputElement>(null);
+
   const submitForm = () => {
     console.log(
       `Form submitted with textValue: ${textInputValue}, 
@@ -66,11 +69,17 @@ const FormsStoryComponent: FC<FormsStoryComponentProps> = ({
        dropdownValue: ${dropdownValue},
        radioInputValue: ${radioInputGroupValue}`,
     );
+    setTextInputValue('');
+    setNumberInputValue(undefined);
+    if (numberInputRef.current) numberInputRef.current.value = '';
+    setDropdownValue('');
+    setRadioInputGroupValue('');
   };
 
   const clearForm = () => {
     setTextInputValue('');
     setNumberInputValue(undefined);
+    if (numberInputRef.current) numberInputRef.current.value = '';
     setDropdownValue('');
     setRadioInputGroupValue('');
   };
@@ -99,7 +108,7 @@ const FormsStoryComponent: FC<FormsStoryComponentProps> = ({
           setNumberInputValue(newValue);
           numberInputProps.onChange(newValue);
         }}
-        ref={undefined}
+        ref={numberInputRef}
       />
       <Dropdown
         {...dropdownProps}

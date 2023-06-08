@@ -50,7 +50,7 @@ export const NumberInput: ForwardRefExoticComponent<
         id={`${id}-input`}
         type="number"
         name={name}
-        value={value === undefined ? '' : value}
+        value={value}
         min={min}
         max={max}
         aria-labelledby={`${id}-label`}
