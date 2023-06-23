@@ -26,6 +26,7 @@ const Template: ComponentStory<typeof RadioInput> = ({
         onChange(id, value);
       }}
       isChecked={isChecked}
+      ref={undefined}
     />
   );
 };

@@ -46,7 +46,7 @@ const IndexStoryComponent: FC<IndexStoryComponentProps> = ({
   switchProps,
 }: IndexStoryComponentProps) => {
   const [textInputValue, setTextInputValue] = useState(textInputProps.value);
-  const [numberInputValue, setTNumberInputValue] = useState(
+  const [numberInputValue, setNumberInputValue] = useState(
     numberInputProps.value,
   );
   const [dropdownValue, setDropdownValue] = useState(
@@ -61,7 +61,7 @@ const IndexStoryComponent: FC<IndexStoryComponentProps> = ({
 
   useEffect(() => {
     setTextInputValue(textInputProps.value);
-    setTNumberInputValue(numberInputProps.value);
+    setNumberInputValue(numberInputProps.value);
     setDropdownValue(dropdownProps.selectedOptionId);
     setRadioInputGroupValue(radioInputGroupProps.checkedOptionId);
     setSwitchIsChecked(switchProps.isChecked);
@@ -142,9 +142,10 @@ const IndexStoryComponent: FC<IndexStoryComponentProps> = ({
           {...numberInputProps}
           value={numberInputValue}
           onChange={(newValue) => {
-            setTNumberInputValue(newValue);
+            setNumberInputValue(newValue);
             numberInputProps.onChange(newValue);
           }}
+          ref={undefined}
         />
       </div>
       <div>
@@ -155,6 +156,7 @@ const IndexStoryComponent: FC<IndexStoryComponentProps> = ({
             setDropdownValue(id);
             dropdownProps.onChange(id, value);
           }}
+          ref={undefined}
         />
       </div>
       <div>
@@ -165,6 +167,7 @@ const IndexStoryComponent: FC<IndexStoryComponentProps> = ({
             setRadioInputGroupValue(id);
             radioInputGroupProps.onChange(id, value);
           }}
+          ref={undefined}
         />
       </div>
       <div style={{ maxWidth: '200px' }}>

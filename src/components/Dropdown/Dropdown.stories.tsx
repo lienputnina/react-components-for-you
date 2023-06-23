@@ -31,6 +31,7 @@ const Template: ComponentStory<typeof Dropdown> = ({
         onChange(id, value);
       }}
       selectedOptionId={selectedOptionId}
+      ref={undefined}
     />
   );
 };

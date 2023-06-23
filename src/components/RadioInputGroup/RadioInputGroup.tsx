@@ -1,4 +1,4 @@
-import type { FC, KeyboardEvent } from 'react';
+import type { FC, HTMLProps, KeyboardEvent } from 'react';
 import classNames from 'classnames';
 import { RadioInput, RadioInputOnChange } from './RadioInput/RadioInput';
 
@@ -15,7 +15,7 @@ export type Option = {
 };
 
 export interface RadioInputGroupProps
-  extends Omit<React.HTMLProps<HTMLDivElement>, 'onChange'> {
+  extends Omit<HTMLProps<HTMLDivElement>, 'onChange'> {
   id: string;
   label: string;
   options: Option[];
@@ -75,7 +75,7 @@ export const RadioInputGroup: FC<RadioInputGroupProps> = ({
   onChange,
   className,
   ...remainingProps
-}) => (
+}: RadioInputGroupProps) => (
   <div
     id={id}
     className={classNames(`${prefix}-radio-input-group`, className)}
